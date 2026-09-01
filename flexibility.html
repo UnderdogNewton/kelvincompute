@@ -251,60 +251,72 @@
     <section id="bess" class="section section--side section--paper" aria-labelledby="bess-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow">Compute Flexibility vs Battery Flexibility</p>
+          <p class="eyebrow">vs Battery</p>
           <h2 id="bess-title" class="section__title"><span class="clip"><span class="clip-inner">Batteries store Energy. Compute earns while it flexes.</span></span></h2>
           <p class="section__lead">Dual revenue, continuous dispatch, no cycle wear.</p>
         </div>
-        <div class="flex-compare flex-compare--paper reveal">
-          <div class="table-wrap">
-            <table class="compare-table compare-table--paper">
-              <caption class="sr-only">Compute Flexibility compared with battery storage (BESS). Compute wins on every row.</caption>
-              <colgroup>
-                <col class="compare-col compare-col--key">
-                <col class="compare-col compare-col--win">
-                <col class="compare-col compare-col--alt">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">Criterion</th>
-                  <th scope="col">Compute Flexibility</th>
-                  <th scope="col">Battery storage (BESS)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Upfront cost</th>
-                  <td data-label="Compute Flexibility">Near-zero marginal cost — servers already deployed</td>
-                  <td data-label="Battery storage (BESS)">€200–500k per MWh of capacity (indicative)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Cycle degradation</th>
-                  <td data-label="Compute Flexibility">Zero — servers dispatch without wearing out</td>
-                  <td data-label="Battery storage (BESS)">Capacity reduces with every activation</td>
-                </tr>
-                <tr>
-                  <th scope="row">Duration</th>
-                  <td data-label="Compute Flexibility">Unlimited — servers run continuously, around the clock</td>
-                  <td data-label="Battery storage (BESS)">Fixed Energy reservoir; duration is capped</td>
-                </tr>
-                <tr>
-                  <th scope="row">Recovery</th>
-                  <td data-label="Compute Flexibility">None — assets available immediately after each dispatch</td>
-                  <td data-label="Battery storage (BESS)">Downtime required between activations</td>
-                </tr>
-                <tr>
-                  <th scope="row">Risk</th>
-                  <td data-label="Compute Flexibility">No chemical storage, no associated hazards</td>
-                  <td data-label="Battery storage (BESS)">Fire and thermal-runaway risk with chemical storage</td>
-                </tr>
-                <tr>
-                  <th scope="row">Revenue</th>
-                  <td data-label="Compute Flexibility">Compute + grid services, running simultaneously</td>
-                  <td data-label="Battery storage (BESS)">Grid services only</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="flex-compare flex-compare--paper bess-pair reveal">
+          <p class="sr-only">Compute Flexibility compared with battery storage (BESS). Compute wins on every row.</p>
+          <article class="bess-card bess-card--win">
+            <p class="bess-card__who">Compute Flexibility</p>
+            <h3 class="bess-card__title">Earns while it flexes</h3>
+            <dl class="bess-card__rows">
+              <div>
+                <dt>Upfront</dt>
+                <dd>Near-zero marginal cost — servers already deployed</dd>
+              </div>
+              <div>
+                <dt>Cycle</dt>
+                <dd>Zero — servers dispatch without wearing out</dd>
+              </div>
+              <div>
+                <dt>Duration</dt>
+                <dd>Unlimited — servers run continuously, around the clock</dd>
+              </div>
+              <div>
+                <dt>Recovery</dt>
+                <dd>None — assets available immediately after each dispatch</dd>
+              </div>
+              <div>
+                <dt>Risk</dt>
+                <dd>No chemical storage, no associated hazards</dd>
+              </div>
+              <div>
+                <dt>Revenue</dt>
+                <dd>Compute + grid services, running simultaneously</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="bess-card">
+            <p class="bess-card__who">Battery</p>
+            <h3 class="bess-card__title">Stores Energy</h3>
+            <dl class="bess-card__rows">
+              <div>
+                <dt>Upfront</dt>
+                <dd>€200–500k per MWh of capacity (indicative)</dd>
+              </div>
+              <div>
+                <dt>Cycle</dt>
+                <dd>Capacity reduces with every activation</dd>
+              </div>
+              <div>
+                <dt>Duration</dt>
+                <dd>Fixed Energy reservoir; duration is capped</dd>
+              </div>
+              <div>
+                <dt>Recovery</dt>
+                <dd>Downtime required between activations</dd>
+              </div>
+              <div>
+                <dt>Risk</dt>
+                <dd>Fire and thermal-runaway risk with chemical storage</dd>
+              </div>
+              <div>
+                <dt>Revenue</dt>
+                <dd>Grid services only</dd>
+              </div>
+            </dl>
+          </article>
           <p class="flex-compare__note"><strong>Compute wins on every row.</strong></p>
         </div>
         <p class="side-quiet reveal">Optional: Compute on a battery’s existing connection. Both qualify independently; adding a Flexbox does not reduce the battery’s available reserve. Fewer battery cycles. See <a class="text-link" href="energy.html">Energy</a>.</p>
