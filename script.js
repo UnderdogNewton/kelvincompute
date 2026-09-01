@@ -3,7 +3,7 @@
    it adds: mobile navigation (overlay, focus trap), active-section highlighting, current-page nav (aria-current=page),
    header shadow, reveal-on-scroll, hero parallax on the Classic fold (disabled when prefers-reduced-motion),
    sticky Approach chapter (no pin below 720px or reduced-motion), sites map HTML pins paired with the board,
-   in-page focus management, copy-to-clipboard, the footer year, hall chapter rail,
+   in-page focus management, the footer year, hall chapter rail,
    Closed/Exploded still + chip to hotspot, For-you verticals (two chip groups, wrap per group),
    catalogue hash → parts accordion, motion (reveals, count-up, still crossfades),
    heat host/scale/grade/tier/market/queue pickers, compute pad catalogue, hall tilt at half Approach, chip pulse,

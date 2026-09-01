@@ -1077,7 +1077,7 @@ body.nav-open { overflow: hidden; }
 
 /* ---------- 14. Print ---------- */
 @media print {
-  .site-header, .nav-toggle, .nav-overlay, #copy-email, .skip-link, .hero__grain { display: none !important; }
+  .site-header, .nav-toggle, .nav-overlay, .skip-link, .hero__grain { display: none !important; }
   .hero__stage { position: relative; min-height: 12rem; }
   .hero__layer { position: absolute; inset: 0; transform: none !important; }
   .hero__layer--halls { -webkit-mask-image: none; mask-image: none; }
@@ -2928,7 +2928,7 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
 
 @media print {
   .site-header, .nav-pill, .nav-toggle, .nav-overlay, .page-rail,
-  .vertical-controls, .skip-link, .hero__grain, #copy-email { display: none !important; }
+  .vertical-controls, .skip-link, .hero__grain { display: none !important; }
   .hero.hero--fold, .hero.hero--fold .hero__viewport { min-height: 0; padding: 1rem 0; background: #fff; color: #000; }
   .hero.hero--fold .hero__stage { position: relative; min-height: 10rem; inset: auto; width: auto; transform: none; }
   .hero.hero--fold .hero__title, .hero.hero--fold .hero__tagline, .hero.hero--fold .hero__copy { color: #000; opacity: 1; transform: none; }
@@ -10785,4 +10785,35 @@ html:not(.js) .verticals__stage {
 @media (max-width: 1199px) {
   .nav-overlay { z-index: 1; }
   .nav-pill { z-index: 2; }
+}
+
+/* ==========================================================================
+   2026-09-01 pass 84 — leftover hover holes 83 missed / dead #copy-email
+   Vanilla CSS. No new JS libraries. No Ken Burns. No Approach redesign.
+   FAQ 77 pad / Loop two clips nowrap ≥900 / Flex H1 / skip-link fixed 400 /
+   pin gates from 80 / hall chips from 81 / rail hits from 82 / overlay z from 83 held.
+   Reduced-motion and <720: no new motion (colour + timber underline only).
+   ========================================================================== */
+
+/* For-you chips: 83 lifted 44px at 900; unpressed still had no hover tell.
+   Pressed stays timber-300. Hover is cream + timber underline (same as nav). */
+@media (hover: hover) {
+  .vertical-groups--split .vertical-index button:hover {
+    color: var(--c-on-dark);
+    border-bottom-color: var(--c-timber-400);
+  }
+  .vertical-groups--split .vertical-index button[aria-pressed="true"]:hover {
+    color: var(--c-timber-300);
+    border-bottom-color: var(--c-timber-400);
+  }
+}
+
+/* Hall chapters: colour hover existed; current already timber-underlined.
+   Hover now gets the same timber tell 83 gave desktop nav. */
+@media (hover: hover) {
+  .hall-chapters a:hover {
+    color: var(--c-on-dark);
+    border-bottom-color: var(--c-timber-400);
+    text-decoration: none;
+  }
 }
