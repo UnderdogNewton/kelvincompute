@@ -39,7 +39,7 @@
       el.textContent = text;
       el.classList.remove('is-swap');
       el._fadeT = 0;
-    }, 280);
+    }, 340);
   };
 
   var supportsViewTimeline = false;
@@ -330,7 +330,7 @@
         });
         if (last) { setJumpCurrent(last); }
       }
-    }, { rootMargin: '-5.75rem 0px -35% 0px', threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
+    }, { rootMargin: '-92px 0px -35% 0px', threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
     jumpSecs.forEach(function (s) { jumpObserver.observe(s); });
   }
 
@@ -1378,7 +1378,7 @@
     });
   };
   bindScanLive(doc.querySelector('[data-markets]'), 'button[data-market]', '.markets-live', 'data-market-live', 'Built for.');
-  bindScanLive(doc.querySelector('[data-queue]'), 'button[data-queue]', '.queue-live', 'data-queue-live', 'The queue — years on a demand connection. Not a Kelvin SLA.');
+  bindScanLive(doc.querySelector('[data-queue]'), 'button[data-queue]', '.queue-live', 'data-queue-live', 'The queue — years on a demand connection.');
 
 
   /* ---------- Gap stats row: select a figure, live gloss, optional auto-advance ---------- */

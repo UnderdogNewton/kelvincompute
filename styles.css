@@ -10392,3 +10392,30 @@ html:not(.js) .verticals__stage {
     margin: 0 0.35rem 0 0;
   }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 76 — leftover destacks / live-swap gate complete
+   Vanilla CSS. No new libraries. No Ken Burns. No Approach redesign.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+/* Markets / queue / grade live lines still transition under reduced-motion.
+   Heat/scale/viz-cap already gated. Complete the set so swap cannot flicker. */
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .markets-live,
+  .queue-live,
+  .grade-live,
+  .mode-pick__copy,
+  [data-shell-cap],
+  .stats-gloss {
+    transition: none !important;
+  }
+  .markets-live.is-swap,
+  .queue-live.is-swap,
+  .grade-live.is-swap,
+  .mode-pick__copy.is-swap,
+  [data-shell-cap].is-swap,
+  .stats-gloss.is-swap {
+    opacity: 1;
+  }
+}
