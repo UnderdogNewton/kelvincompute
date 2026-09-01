@@ -1881,15 +1881,6 @@ html:not(.js) .scale__panel[hidden] { display: block; }
 @media (max-width: 900px) {
   .sites-why { grid-template-columns: 1fr; }
 }
-.sites-quiet {
-  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
-  padding-top: 1.15rem;
-  border-top: 1px solid var(--c-stone-300);
-  max-width: var(--measure);
-  font-size: var(--fs-small);
-  color: var(--c-ink-2);
-  line-height: 1.5;
-}
 
 @media (max-width: 719px) {
   .hero:not(.hero--fold) .hero__track { height: auto; }
@@ -3714,7 +3705,7 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
 }
 
 @media print {
-  .sites-why, .site-board__row, .sites-quiet, .sites-geo, .purpose-scan { break-inside: avoid; }
+  .sites-why, .site-board__row, .purpose-scan { break-inside: avoid; }
 }
 
 
@@ -4413,7 +4404,6 @@ html {
   color: var(--c-ink-2);
   line-height: 1.5;
 }
-.sites-quiet { margin-top: 0.85rem; padding-top: 0.95rem; }
 
 /* Vertical: article already crossfades; panel gets a short enter. */
 @keyframes panel-enter {
@@ -4763,16 +4753,9 @@ html {
 @media (max-width: 800px) {
   .purpose-scan { grid-template-columns: 1fr; }
 }
-.sites-geo {
-  margin: 0 0 1.15rem;
-  max-width: 46rem;
-  font-size: 1.02rem;
-  line-height: 1.45;
-  color: var(--c-ink);
-}
 @media print {
-  .section--purpose, .purpose-scan, .sites-geo { break-inside: avoid; color: #000; }
-  .purpose-scan h3, .purpose-scan p, .purpose-scan__kicker, .sites-geo { color: #000 !important; }
+  .section--purpose, .purpose-scan { break-inside: avoid; color: #000; }
+  .purpose-scan h3, .purpose-scan p, .purpose-scan__kicker { color: #000 !important; }
   .purpose-scan { grid-template-columns: 1fr 1fr; }
 }
 
@@ -11373,5 +11356,63 @@ a.text-link:focus-visible,
   .compare-table td {
     color: #000 !important;
     background: #fff !important;
+  }
+}
+
+/* ==========================================================================
+   2026-09-01 pass 95 — leftover hunt after 94 (different layer).
+   Sites dump voice destacked in HTML. Approach lead/name copy-only.
+   720 hall chips 3+2 (last was full-width leftover). sites-why 3-up at 720
+   now that the memo lines are short. Energy plots 3-up at 720. Board hits 44.
+   Dead .sites-quiet / .sites-geo gone. No Ken Burns. Approach pin frozen.
+   Eggs/classic frozen. For-you JS untouched. Reduced-motion and <720: no new motion.
+   ========================================================================== */
+
+/* Hall spec chips: 720 last chip spanned the row (Heat out 662 vs 326).
+   3+2 on tablet, same as Energy jump wrap. Five-across still ≥1100. */
+@media (min-width: 720px) and (max-width: 1099px) {
+  .section--dark .spec-chips {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .section--dark .spec-chips > * { grid-column: span 2; }
+  .section--dark .spec-chips > :nth-child(n+4) { grid-column: span 3; }
+  .section--dark .spec-chips > :last-child { grid-column: span 3; }
+}
+
+/* sites-why: stacked 720–899 because 02 was a long memo. Destacked — 3-up. */
+@media (min-width: 720px) and (max-width: 899px) {
+  .sites-why {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem 1rem;
+  }
+}
+
+/* Energy #plots: max-width 720 forced 1-col at the 720 lock width. */
+@media (min-width: 720px) {
+  .page-energy .side-scan--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Board rows stay 44 after destack. Pins already 2.75rem. */
+.site-board__row { min-height: 44px; }
+
+/* 720 stacked map: clip pin rings/tags so overflow-x cannot return. */
+@media (max-width: 879px) {
+  .sites-layout .viz-frame,
+  .sites-layout .viz-frame__shot,
+  .sites-layout .viz-frame__shot.sites-map,
+  .sites-map { overflow: hidden; }
+}
+
+@media print {
+  .chapter__name,
+  .site-board__why,
+  .site-board__place,
+  .site-board__meta,
+  .sites-why h3,
+  .sites-why p,
+  .sites-context {
+    color: #000 !important;
   }
 }
