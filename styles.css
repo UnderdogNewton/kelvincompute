@@ -10434,3 +10434,31 @@ html:not(.js) .verticals__stage {
 @media print {
   .faq__item { padding-left: 0; }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 80 — Approach pin timing / credit fade / RM still gate
+   Layout frozen: track 240vh, pin sticky, orbits, tick-dial radius, lerp 0.22.
+   Title was gone at p=0.0625 before claim 0 at 0.08 (empty pin). Lead
+   opacity 0.34s against 0.68s stills. Layer-0 still still transitioned
+   under reduced-motion. No new JS libraries. No Ken Burns. No destack.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 720px) {
+    /* Hold the H2 until claim 0 is on. *9 → gone at p≈0.11, overlapping 01. */
+    .chapter__copy {
+      opacity: clamp(0, calc(1 - var(--p) * 9), 1);
+    }
+    /* Tick leader fades with the still, not in half the time. */
+    .tick-dial__lead {
+      transition: transform var(--dur-cross) var(--ease), opacity var(--dur-cross) var(--ease);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .chapter .hero__still[data-layer="0"] {
+    transition: none !important;
+  }
+}

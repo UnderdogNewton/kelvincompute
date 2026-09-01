@@ -649,6 +649,18 @@
   var productNarrow = window.matchMedia('(max-width: 719px)');
   var creditLines = ['Kelvin Flexbox', 'Kelvin Flexbox, exploded', 'Kelvin Flexbox — Heat pipe'];
   var claimStops = [0.16, 0.42, 0.72];
+  /* Claim gates sit a beat below the visual stops so 0.22 lerp
+     approaching from below actually lights the claim (p=0.08 used
+     to leave copyOp 0 / claim -1; p=0.55 stayed on 02). */
+  var claimShowAt = 0.045;
+  var claimBAt = 0.26;
+  var claimCAt = 0.52;
+  var lastCredit = '';
+  var claimIndexOf = function (p) {
+    if (p >= claimCAt) { return 2; }
+    if (p >= claimBAt) { return 1; }
+    return 0;
+  };
   var productPinLive = function () {
     if (!product || prefersReducedMotion() || productNarrow.matches) { return false; }
     var track = product.querySelector('.chapter__track') || product;
@@ -670,17 +682,19 @@
     var orbits = product.querySelectorAll('.orbit');
     var credit = product.querySelector('[data-hero-credit]');
     product.style.setProperty('--p', p.toFixed(4));
-    var idx = 0;
-    if (p >= 0.55) { idx = 2; }
-    else if (p >= 0.28) { idx = 1; }
-    var show = p >= 0.08;
+    var idx = claimIndexOf(p);
+    var show = p >= claimShowAt;
     Array.prototype.forEach.call(orbits, function (el, i) {
       var on = show && i === idx;
       el.classList.toggle('is-active', on);
       el.classList.toggle('is-on', on);
     });
     product.setAttribute('data-claim', show ? String(idx) : '-1');
-    if (credit) { credit.textContent = creditLines[idx] || creditLines[0]; }
+    var nextCredit = creditLines[idx] || creditLines[0];
+    if (credit && nextCredit !== lastCredit) {
+      lastCredit = nextCredit;
+      fadeText(credit, nextCredit);
+    }
   };
   var applyProduct = function () {
     productRaf = 0;
@@ -695,7 +709,12 @@
         el.classList.add('is-active');
         el.classList.add('is-on');
       });
-      if (credit) { credit.textContent = 'Kelvin Flexbox'; }
+      lastCredit = 'Kelvin Flexbox';
+      if (credit) {
+        if (credit._fadeT) { window.clearTimeout(credit._fadeT); credit._fadeT = 0; }
+        credit.classList.remove('is-swap');
+        credit.textContent = lastCredit;
+      }
       return;
     }
     var target = readProductP();
@@ -735,10 +754,8 @@
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') { return; }
       if (event.target && event.target.isContentEditable) { return; }
       var p = productP;
-      var idx = 0;
-      if (p >= 0.55) { idx = 2; }
-      else if (p >= 0.28) { idx = 1; }
-      var show = p >= 0.08;
+      var idx = claimIndexOf(p);
+      var show = p >= claimShowAt;
       var key = event.key;
       if (key === 'Home') {
         event.preventDefault();
