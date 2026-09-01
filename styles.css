@@ -11231,3 +11231,58 @@ a.text-link:focus-visible,
     transform: none;
   }
 }
+
+/* ==========================================================================
+   Pass 103 — leftover cousins of 102 (nowrap mash / 28px hits), not dumps.
+   Home H1@900 44rem HELD. Flex H1 two nowrap HELD. Unit view remap HELD.
+   Specs 6 / Pad 4 / pay 4 compact HELD. chips 3+2 HELD. cream 900 drawer HELD.
+   Two tracks not restacked. FAQ stays a list. For-you JS untouched.
+   Approach pin frozen. No Ken Burns. RM / <720: no new motion.
+   ========================================================================== */
+
+/* Loop H2 second clip is nowrap ≥900. 44rem head fits 39px@900 (704);
+   47px@1280 wants ~748 — overflow:clip ate “out.”. Widen the measure, not
+   the Home fold (44rem copy stays). */
+@media (min-width: 1100px) {
+  #flow .section__head { max-width: min(100%, 50rem); }
+}
+
+/* Thermal H1 18ch wrapped at 720 (1-col, 662) while Compute 22ch stayed
+   one line. Same max-width mash class. 22ch at 720; 900/1280 still wrap
+   from the 2-col column, same as Compute/Energy. */
+.page-thermal .side-hero__title { max-width: 22ch; }
+
+/* Hall chapters measured 26px (0.28rem pad + 0.68rem/1.5). Page-rail is
+   already 28. Raise the tap box; do not restack sticky or fatten the bar. */
+.hall-chapters a {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* For-you index 15–21px at 720/1280 (min-height:0). CSS min-height only —
+   Next 02/07 stays 44. 900–1099 already 44, re-assert so this cannot drop it. */
+@media (min-width: 720px) {
+  .vertical-groups--split .vertical-index button,
+  .vertical-groups--split .vertical-index button[aria-pressed="true"],
+  .vertical-groups--split .vertical-index button[aria-pressed="false"] {
+    min-height: 28px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1099px) {
+  .vertical-groups--split .vertical-index button,
+  .vertical-groups--split .vertical-index button[aria-pressed="true"],
+  .vertical-groups--split .vertical-index button[aria-pressed="false"] {
+    min-height: 44px;
+  }
+}
+
+/* Hamburger had hover, no press. Jumps / shell / scale / mode / heat already
+   had :focus-visible + :active from 102. */
+.nav-toggle:active {
+  transform: translateY(1px);
+  transition-duration: var(--dur-press);
+}
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .nav-toggle:active { transform: none; }
+}
