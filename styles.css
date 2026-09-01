@@ -10918,6 +10918,30 @@ html:not(.js) .verticals__stage {
   .page-flexibility .holds-scan > li:focus-within,
   .page-thermal .holds-scan > li:focus-within {
     transform: none;
+  }
+}
+/* RM ≥720: keep the timber inset on hover (87 set box-shadow:none and wiped chrome). */
+@media (prefers-reduced-motion: reduce) and (min-width: 720px) {
+  .page-compute .holds-scan > li:hover,
+  .page-energy .holds-scan > li:hover,
+  .page-flexibility .holds-scan > li:hover,
+  .page-thermal .holds-scan > li:hover,
+  .page-compute .holds-scan > li:focus-within,
+  .page-energy .holds-scan > li:focus-within,
+  .page-flexibility .holds-scan > li:focus-within,
+  .page-thermal .holds-scan > li:focus-within {
+    box-shadow: inset 0 2px 0 var(--c-timber-500);
+  }
+}
+@media (max-width: 719px) {
+  .page-compute .holds-scan > li:hover,
+  .page-energy .holds-scan > li:hover,
+  .page-flexibility .holds-scan > li:hover,
+  .page-thermal .holds-scan > li:hover,
+  .page-compute .holds-scan > li:focus-within,
+  .page-energy .holds-scan > li:focus-within,
+  .page-flexibility .holds-scan > li:focus-within,
+  .page-thermal .holds-scan > li:focus-within {
     box-shadow: none;
   }
 }
@@ -10941,3 +10965,36 @@ html:not(.js) .verticals__stage {
    pages only (Compute / Energy / Flexibility / Thermal). Home #holds remains
    the document scan. Stagger delays 7–8 above. Eggs/classic frozen.
    ========================================================================== */
+
+/* ==========================================================================
+   2026-09-01 pass 89 — destack chorus from 88 cards + leftover craft.
+   Cards stay. Strongest slot keeps the named line; echo thinned.
+   RM ≥720 paper-tile hover keeps timber inset. Print: ghost-light inks on paper.
+   No 4-across. No new JS. Home #holds remains the document scan. Eggs/classic frozen.
+   ========================================================================== */
+
+/* Dark-hero ghost CTAs were cream on white once print flattened the hero.
+   Compute-band is dark but not .section--dark — flatten it too. */
+@media print {
+  .btn--ghost-light,
+  .btn--ghost {
+    color: #000 !important;
+    border-color: #000 !important;
+    background: #fff !important;
+  }
+  .btn--ghost-light .btn__icon,
+  .btn--ghost .btn__icon {
+    color: #000 !important;
+    border-color: #000 !important;
+  }
+  .section--compute-band,
+  .compute-band {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .compute-band__title,
+  .compute-band__lead,
+  .section--compute-band .eyebrow {
+    color: #000 !important;
+  }
+}
