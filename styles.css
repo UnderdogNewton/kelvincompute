@@ -10419,3 +10419,18 @@ html:not(.js) .verticals__stage {
     opacity: 1;
   }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 77 — leftover destacks / FAQ open does not jump
+   Vanilla CSS. No new libraries. No Ken Burns. No Approach redesign.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+/* FAQ open panel: pad the item always so opening does not shove the summary
+   0.9rem right. Timber inset stays on [open] only. */
+.faq__item { padding-left: 0.9rem; }
+.faq__item[open] summary,
+.faq__item[open] p { padding-left: 0; }
+@media print {
+  .faq__item { padding-left: 0; }
+}
