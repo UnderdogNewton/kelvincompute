@@ -181,7 +181,7 @@ button { font: inherit; color: inherit; }
   scroll-margin-top: calc(var(--header-h) + 36px);
 }
 
-.hero__inner > *, .hero__copy, .gap-grid > *, .site-footer__grid > *, .tracks > *, .holds-scan > *, .pay-strip ol > *, .faq__list > * { min-width: 0; }
+.hero__inner > *, .hero__copy, .gap-grid > *, .site-footer__grid > *, .tracks > *, .holds-scan > *, .faq__list > * { min-width: 0; }
 .text-link, .site-footer a { overflow-wrap: anywhere; }
 
 /* ---------- 3. Shared pieces ---------- */
@@ -2932,40 +2932,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   color: var(--c-timber-300);
   margin: 0 0 0.85rem;
 }
-.pay-strip ol {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-.pay-strip h3 {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--c-on-dark);
-  margin: 0 0 0.3rem;
-}
-.pay-strip p {
-  margin: 0;
-  color: var(--c-on-dark-2);
-  font-size: 0.92rem;
-  line-height: 1.4;
-}
-.pay-strip__note {
-  margin: 0.85rem 0 0;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  color: var(--c-on-dark-3);
-  max-width: var(--measure);
-}
-@media (max-width: 900px) {
-  .pay-strip ol { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 720px) {
-  .pay-strip ol { grid-template-columns: 1fr; }
-}
-
 .vertical__cap {
   position: absolute;
   z-index: 2;
@@ -3027,7 +2993,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
 
 @media print {
   .holds-scan { grid-template-columns: 1fr 1fr; }
-  .pay-strip ol { grid-template-columns: 1fr 1fr; }
   .vertical-index li { display: list-item !important; }
 }
 
@@ -3241,56 +3206,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   border-top: 1px solid rgba(243, 239, 230, 0.14);
   border-bottom: 1px solid rgba(243, 239, 230, 0.14);
 }
-.parts__list { overflow: hidden; }
-.parts__item { border-bottom: 1px solid rgba(243, 239, 230, 0.1); }
-.parts__item:last-child { border-bottom: 0; }
-.parts__btn {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  min-height: 44px;
-  padding: 0.7rem 0;
-  background: none;
-  border: 0;
-  color: var(--c-on-dark);
-  font: inherit;
-  font-weight: 500;
-  text-align: left;
-  cursor: pointer;
-}
-.parts__btn::after {
-  content: "+";
-  margin-left: auto;
-  font-family: var(--font-mono);
-  color: var(--c-timber-300);
-}
-.parts__btn[aria-expanded="true"]::after { content: "–"; }
-.parts__code {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c-timber-300);
-  min-width: 4.5rem;
-}
-.parts__panel {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.parts__panel p {
-  margin: 0 0 0.95rem;
-  padding-left: 5.25rem;
-  color: var(--c-on-dark-2);
-  font-size: 0.95rem;
-  max-width: var(--measure);
-}
-html:not(.js) .parts__panel,
-html:not(.js) .parts__panel[hidden] {
-  display: block;
-  max-height: none;
-}
 .spec-rail .spec-strip {
   display: grid;
   grid-template-columns: 1fr;
@@ -3335,6 +3250,10 @@ html:not(.js) .parts__panel[hidden] {
   margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
   padding-top: 1.25rem;
   border-top: 1px solid rgba(243, 239, 230, 0.12);
+}
+.section--hall .flex-compare {
+  margin: 0 0 0.55rem;
+  padding-top: 0.7rem;
 }
 .compare-table {
   width: 100%;
@@ -3414,8 +3333,8 @@ html:not(.js) .parts__panel[hidden] {
 
 .flex-sheet {
   margin: 0;
-  padding: 1.35rem 0 0.25rem;
-  border-top: 1px solid rgba(243, 239, 230, 0.14);
+  padding: 0.35rem 0 0;
+  border-top: 0;
 }
 .flex-sheet__title {
   font-size: var(--fs-h3);
@@ -3426,7 +3345,7 @@ html:not(.js) .parts__panel[hidden] {
 .flex-sheet .cta-row { margin-top: 1rem; }
 .flex-sheet__note,
 .flex-sheet__next {
-  margin: 0.85rem 0 0;
+  margin: 0;
   font-size: 0.92rem;
   color: var(--c-on-dark-3);
   max-width: var(--measure);
@@ -3465,7 +3384,6 @@ html:not(.js) .parts__panel[hidden] {
 
 @media (prefers-reduced-motion: reduce) {
   .hall-pair .flex-hotspots { display: none; }
-  .parts__panel { transition: none; }
   .hall-chapters,
   .section--dark > .hall-chapters { position: static; top: auto; }
   .spec-rail { position: static; top: auto; }
@@ -3871,18 +3789,17 @@ html:not(.js) .vertical-controls {
 }
 .catalogue__row {
   display: grid;
-  grid-template-columns: 2.4rem 6.25rem minmax(0, 14rem) minmax(0, 1fr);
-  gap: 0.75rem 1.1rem;
+  grid-template-columns: 2.4rem minmax(0, 16rem) minmax(0, 1fr);
+  gap: 0.55rem 1.1rem;
   align-items: baseline;
-  padding: 1.05rem 0 1.1rem;
+  padding: 0.7rem 0;
   border-bottom: 1px solid var(--c-stone-300);
   color: inherit;
   text-decoration: none;
 }
 .catalogue__row:hover { text-decoration: none; }
 .catalogue__row:hover .catalogue__name { color: var(--c-timber-700); }
-.catalogue__n,
-.catalogue__code {
+.catalogue__n {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
@@ -3904,14 +3821,13 @@ html:not(.js) .vertical-controls {
 @media (max-width: 799px) {
   .catalogue__row {
     grid-template-columns: 2.2rem 1fr;
-    gap: 0.2rem 0.85rem;
+    gap: 0.15rem 0.85rem;
   }
-  .catalogue__code { grid-column: 2; }
   .catalogue__name { grid-column: 2; }
   .catalogue__line { grid-column: 2; }
 }
 .catalogue__next {
-  margin: 1.15rem 0 0;
+  margin: 0.75rem 0 0;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -4010,7 +3926,6 @@ html:not(.js) .vertical-controls {
 
 .js .holds-scan > li,
 .js .purpose-scan > li,
-.js .pay-strip ol > li,
 .js .glance > li,
 .js .catalogue > li,
 .js .hero-stats .stat,
@@ -4205,8 +4120,7 @@ html:not(.js) .vertical-controls {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-  .js .pay-strip ol > li,
-  .js .glance > li,
+    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li {
@@ -4244,8 +4158,7 @@ html:not(.js) .vertical-controls {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-  .js .pay-strip ol > li,
-  .js .glance > li,
+    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li { opacity: 1 !important; transform: none !important; }
@@ -4783,7 +4696,6 @@ html {
 
 .js .holds-scan > li,
 .js .purpose-scan > li,
-.js .pay-strip ol > li,
 .js .glance > li,
 .js .catalogue > li,
 .js .hero-stats .stat,
@@ -4972,8 +4884,7 @@ html {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-  .js .pay-strip ol > li,
-  .js .glance > li,
+    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li,
@@ -5255,14 +5166,6 @@ html {
 .glance {
   margin-bottom: clamp(2.1rem, 4.5vw, 3rem);
 }
-.bring-quiet {
-  margin: 0 0 clamp(1.6rem, 3.5vw, 2.4rem);
-  max-width: 40rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--c-on-dark-3);
-}
-
 
 /* Clip-inner: slightly longer, more decisive */
 .js .clip-inner {
@@ -5426,7 +5329,6 @@ html {
   .side-scan__kicker::after { transform: none; }
   .section--compute-band::before,
   .section--hall::after { display: none; }
-  .bring-quiet { color: #000; }
 }
 
 /* ==========================================================================
@@ -6444,7 +6346,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 .grade button:active,
 .vertical-index button:active,
 .hall-chapters a:active,
-.parts__btn:active,
 .parts-pick .heat-pick__stops button:active,
 .side-scan button[data-market]:active,
 .side-scan button[data-queue]:active {
@@ -6459,7 +6360,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 .tier-pick__stops button:focus-visible,
 .grade button:focus-visible,
 .hall-chapters a:focus-visible,
-.parts__btn:focus-visible,
 .vertical-index button:focus-visible,
 .parts-pick .heat-pick__stops button:focus-visible {
   outline: 2px solid var(--c-timber-500);
@@ -6637,8 +6537,7 @@ body.nav-open .site-header.is-away { transform: none; }
   .grade button:active,
   .vertical-index button:active,
   .hall-chapters a:active,
-  .parts__btn:active,
-  .parts-pick .heat-pick__stops button:active,
+    .parts-pick .heat-pick__stops button:active,
   .side-scan button[data-market]:active,
   .side-scan button[data-queue]:active {
     transform: none;
@@ -11590,8 +11489,6 @@ a.text-link:focus-visible,
   margin: 0 0 0.85rem;
 }
 .pay-strip__label { margin: 0 0 0.4rem; }
-.pay-strip__note { display: none; }
-.bring-quiet { display: none; }
 .catalogue__line {
   max-width: none;
 }
@@ -11603,4 +11500,26 @@ a.text-link:focus-visible,
 .section--hall .parts {
   margin-bottom: 0.85rem;
   padding-top: 0.55rem;
+}
+
+/* ==========================================================================
+   Pass 99 — leftover after Pad/pay strips: catalogue as product lead,
+   dead accordion/bring-quiet/pay-ol gone, compare/sheet destack.
+   Specs 6 / Pad 4 / pay 4 compact HELD. No accordion restore.
+   ========================================================================== */
+
+.section.section--system {
+  padding-block: clamp(2.15rem, 4.2vw, 3.85rem);
+}
+.section--system .section__head {
+  margin-bottom: clamp(0.85rem, 1.8vw, 1.35rem);
+}
+
+.section--hall .flex-compare__note {
+  margin: 0;
+  max-width: none;
+}
+
+.page-compute #cooling .side-scan p {
+  max-width: 36rem;
 }
