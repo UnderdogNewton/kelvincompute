@@ -301,7 +301,7 @@ body.nav-open { overflow: hidden; }
 .site-nav__list a[aria-current="true"] { color: var(--c-ink); border-bottom-color: var(--c-timber-500); }
 
 .nav-toggle {
-  display: none; align-items: center; gap: 0.45rem; min-height: 40px; padding: 0.3rem 0.7rem;
+  display: none; align-items: center; gap: 0.45rem; min-height: 44px; padding: 0.3rem 0.7rem;
   background: transparent; border: 1px solid rgba(23, 31, 27, 0.18); border-radius: 999px;
   color: var(--c-ink); cursor: pointer; margin-right: 0.35rem;
 }
@@ -1788,7 +1788,7 @@ html:not(.js) .orbits {
 @media (prefers-reduced-motion: reduce) {
   .hero:not(.hero--fold) .hero__object { transform: none; }
   .spec-chips li { opacity: 1; transform: none; transition: none; }
-  .page-rail { display: none; }
+  /* Pass 82: do not hide .page-rail. Pulse is already gated; the rail is nav. */
 }
 
 
@@ -10502,4 +10502,43 @@ html:not(.js) .verticals__stage {
 .site-footer__mail a {
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+/* ==========================================================================
+   2026-09-01 pass 82 — rail hits / hamburger 44 / First-fit destack
+   Vanilla CSS. No new JS. No Ken Burns. No Approach redesign.
+   FAQ 77 pad / Loop two clips nowrap ≥900 / Flex H1 / skip-link fixed 400 /
+   pin gates from 80 / hall chips from 81 held.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+/* Page-rail diamonds stay 8px. Hit was ~11px rotated (WCAG 2.5.8 is 24px).
+   Gap 1rem so 24px circles centred on each box do not intersect. */
+.page-rail { gap: 1rem; }
+.page-rail a::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+/* Hamburger was 40px against 44px buttons. */
+.nav-toggle { min-height: 44px; }
+
+/* Eggs RM hide of the rail (pass 81 restored ≥1100). Keep it flex when the rail is on. */
+@media (prefers-reduced-motion: reduce) and (min-width: 1100px) {
+  .page-rail { display: flex; }
+}
+
+/* Text links already pick up the global 3px ring; keep it timber and unclipped. */
+.text-link:focus-visible {
+  outline: 3px solid var(--c-timber-500);
+  outline-offset: 3px;
+}
+.nav-toggle:focus-visible {
+  outline: 3px solid var(--c-timber-500);
+  outline-offset: 3px;
+}
+
+@media print {
+  .page-rail, .skip-link, .nav-toggle, .nav-pill { display: none !important; }
 }
