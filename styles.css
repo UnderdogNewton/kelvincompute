@@ -1536,10 +1536,6 @@ html:not(.js) .verticals { display: grid; gap: 0; }
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-on-dark-3);
 }
 .spec-strip dd { margin: 0.25rem 0 0; color: var(--c-on-dark); font-size: 1rem; line-height: 1.35; }
-.spec-strip__note {
-  font-size: 0.9rem; color: var(--c-on-dark-3); margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
-}
-
 /* Clip-path image reveals */
 .js .viz-frame__shot picture {
   clip-path: inset(100% 0 0 0);
@@ -3220,7 +3216,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
 }
 
 .spec-rail { margin: 0 0 clamp(1.25rem, 3vw, 2rem); }
-.spec-rail .spec-strip__note { margin-bottom: 0; }
 .spec-rail .mode-pick { margin-top: 1.25rem; }
 .spec-strip > div[data-chip].is-on {
   border-left: 2px solid var(--c-timber-400);
@@ -3652,7 +3647,7 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
   .holds-scan h3, .holds-scan p, .holds-scan__moat, .holds-scan__kicker,
   .pay-strip, .pay-strip h3, .pay-strip p, .pay-strip__label, .pay-strip__note,
   .glance .stat__value, .glance .stat__label,
-  .spec-rail .spec-strip dt, .spec-rail .spec-strip dd, .spec-strip__hint, .spec-strip__note,
+  .spec-rail .spec-strip dt, .spec-rail .spec-strip dd, .spec-strip__hint,
   .compare-table th, .compare-table td, .flex-compare__label, .flex-compare__note,
   .flex-sheet__title, .flex-sheet__lead, .flex-sheet__note { color: #000 !important; }
   .spec-rail, .hall-chapters { position: static !important; top: auto; background: #fff; }
@@ -11474,12 +11469,47 @@ a.text-link:focus-visible,
   line-height: 1.2;
 }
 .spec-strip__hint { display: none; }
-.spec-rail .spec-strip__note {
-  margin: 0.55rem 0 0;
-  font-size: 0.78rem;
-}
 .section--hall .spec-rail .mode-pick,
 .spec-rail .mode-pick {
   margin-top: 0.7rem;
 }
-.section--hall .spec-strip__note { display: none; }
+
+/* ==========================================================================
+   2026-09-01 pass 97 — leftover dump after compact Specs.
+   Drop glance dump (HTML). Dead .spec-strip__note gone. Hall pad tighter
+   so Specs stays a 6-cell strip, not a document. FAQ / Two tracks pad
+   only. Specs 6-up ≥1100 / 3×2 720 / 2×3 390 HELD. mode-pick tight under
+   specs HELD. chips 3+2 @720 HELD. No Ken Burns. No Approach pin rewrite.
+   ========================================================================== */
+
+/* Hall: extra section/head pad was leftover from the glance dump. */
+.section.section--hall {
+  padding-block: clamp(2.15rem, 4.2vw, 3.85rem);
+}
+.section--hall .section__head {
+  margin-bottom: clamp(0.85rem, 1.8vw, 1.35rem);
+}
+
+/* Specs sits against chips; How the load moves already tight under the strip. */
+.hall-unit .spec-rail {
+  margin-top: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+/* Parts folder after compact Specs — less document air. */
+.section--hall .parts {
+  margin-bottom: clamp(0.85rem, 2vw, 1.35rem);
+  padding-top: 0.55rem;
+}
+
+/* Two tracks / FAQ: leftover dump pad only. Do not restack. */
+.section--start,
+.section--faq {
+  padding-block: clamp(2.25rem, 4.6vw, 3.85rem);
+}
+.section--start .section__head,
+.section--faq .section__head {
+  margin-bottom: clamp(1.1rem, 2.4vw, 1.75rem);
+}
+
+/* Compute-band already a strip (pass 93). Holds 07/08 span held. Footer locked. */
