@@ -181,7 +181,7 @@ button { font: inherit; color: inherit; }
   scroll-margin-top: calc(var(--header-h) + 36px);
 }
 
-.hero__inner > *, .hero__copy, .gap-grid > *, .site-footer__grid > *, .tracks > *, .holds-scan > *, .pay-strip ol > *, .faq__list > *, .bring__grid > * { min-width: 0; }
+.hero__inner > *, .hero__copy, .gap-grid > *, .site-footer__grid > *, .tracks > *, .holds-scan > *, .pay-strip ol > *, .faq__list > * { min-width: 0; }
 .text-link, .site-footer a { overflow-wrap: anywhere; }
 
 /* ---------- 3. Shared pieces ---------- */
@@ -992,42 +992,6 @@ body.nav-open { overflow: hidden; }
 /* ---------- 8. Use cases ---------- */
 .bring { margin: clamp(2rem, 4vw, 3rem) 0 0; }
 .bring__title { font-size: var(--fs-h3); margin-bottom: 1rem; }
-.bring__grid { display: grid; gap: 0; border-top: 1px solid var(--c-stone-300); }
-@media (min-width: 720px) { .bring__grid { grid-template-columns: 1fr 1fr; } }
-.bring__col {
-  padding: 1.2rem 1.35rem 1.3rem 0;
-  background: none;
-  border: 0;
-  border-right: 1px solid var(--c-stone-300);
-  border-radius: 0;
-}
-.bring__col:last-child { border-right: 0; padding-right: 0; padding-left: 1.35rem; }
-@media (max-width: 719px) {
-  .bring__col, .bring__col:last-child { padding: 1.1rem 0; border-right: 0; border-bottom: 1px solid var(--c-stone-300); }
-  .bring__col:last-child { border-bottom: 0; }
-}
-.bring__col--kelvin { background: none; color: inherit; border-color: var(--c-stone-300); }
-.bring__label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-ink-3);
-  font-weight: 500;
-  margin: 0 0 0.75rem;
-}
-.bring__col--kelvin .bring__label { color: var(--c-timber-600); }
-.bring__col ul { list-style: none; display: grid; gap: 0.45rem; font-size: var(--fs-small); color: var(--c-ink-2); }
-.bring__col--kelvin ul { color: var(--c-ink-2); }
-.bring__col li { position: relative; padding-left: 1rem; line-height: 1.4; }
-.bring__col li::before {
-  content: "";
-  position: absolute; left: 0; top: 0.5em;
-  width: 0.35rem; height: 0.35rem;
-  background: var(--c-stone-500);
-  transform: rotate(45deg);
-}
-.bring__col--kelvin li::before { background: var(--c-timber-500); }
 
 .section--start { background: var(--c-paper); border-top: 1px solid var(--c-stone-300); }
 
@@ -5163,13 +5127,6 @@ html {
 
 #ai, #hpc, #cloud, #edge, #cooling, #parts, #bitcoin, #unit, #century, #contract {
   scroll-margin-top: 5.75rem;
-}
-
-.bring--side .bring__col p {
-  margin: 0;
-  color: var(--c-ink-2);
-  font-size: 0.95rem;
-  line-height: 1.45;
 }
 
 @media print {
@@ -10999,9 +10956,12 @@ html:not(.js) .verticals__stage {
   scroll-margin-top: 5.75rem;
 }
 
-/* Text-link hover was forest-only; jump/nav/chips tell timber. */
-.text-link:hover,
-.text-link:focus-visible {
+/* Text-link hover was forest-only; jump/nav/chips tell timber.
+   .side-scan a.text-link rest (0,2,1) beat the 90 hover (0,2,0) — stay forest. */
+a.text-link:hover,
+a.text-link:focus-visible,
+.side-scan a.text-link:hover,
+.side-scan a.text-link:focus-visible {
   color: var(--c-timber-700);
   text-decoration-color: var(--c-timber-500);
   text-decoration-thickness: 2px;
@@ -11206,3 +11166,10 @@ html:not(.js) .verticals__stage {
   .cases-follow .bring__title,
   .bring--side .bring__title { color: #000 !important; }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 92 — leftover hunt after 91 closer.
+   Compute h3 The stack. (HTML). Dead .bring__col diamond CSS removed.
+   holds-scan 7/8 delay stays one pair. Text-link hover beats side-scan rest.
+   No 4-across. No Ken Burns. Approach pin frozen. Eggs/classic frozen.
+   ========================================================================== */
