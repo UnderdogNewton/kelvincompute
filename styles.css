@@ -236,7 +236,8 @@ button { font: inherit; color: inherit; }
 .hero .btn--accent:focus-visible { box-shadow: 0 0 0 1px var(--c-timber-300); }
 
 .btn--ghost { background: transparent; color: var(--c-ink); border-color: var(--c-stone-400); }
-.btn--ghost:hover { background: transparent; border-color: var(--c-ink); color: var(--c-ink); }
+.btn--ghost:hover,
+.btn--ghost:focus-visible { background: transparent; border-color: var(--c-ink); color: var(--c-ink); }
 
 .btn--ghost-light { background: transparent; color: var(--c-on-dark); border-color: rgba(243, 239, 230, 0.45); }
 .btn--ghost-light:hover,
@@ -245,7 +246,8 @@ button { font: inherit; color: inherit; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.15rem; }
 
 .text-link { color: var(--c-forest-700); font-weight: 500; }
-.text-link:hover { color: var(--c-forest-600); }
+.text-link:hover,
+.text-link:active { color: var(--c-forest-600); }
 .text-btn {
   display: inline; padding: 0; margin: 0;
   background: none; border: 0; border-radius: 0;
@@ -1131,7 +1133,6 @@ html { scroll-padding-top: 5.75rem; }
   text-shadow: none;
 }
 .cta-row--center { justify-content: center; margin-top: 1.4rem; }
-.hero:not(.hero--fold) .btn--accent, .hero:not(.hero--fold) .btn--ghost-light { /* leftover */ }
 .hero:not(.hero--fold) .hero__object {
   width: min(100%, 1080px);
   margin-top: auto;
@@ -1714,6 +1715,7 @@ html:not(.js) .orbits {
   transition: background-color 0.22s ease, border-color 0.22s ease;
 }
 .flex-hotspot:hover,
+.flex-hotspot:active,
 .section--hall:has([data-chip="mw"]:hover) .flex-hotspot[data-chip="mw"],
 .section--hall:has([data-chip="mw"]:focus-visible) .flex-hotspot[data-chip="mw"],
 .section--hall:has([data-chip="ft"]:hover) .flex-hotspot[data-chip="ft"],
@@ -11193,3 +11195,39 @@ a.text-link:focus-visible,
    Specs 6 / Pad 4 / pay 4 compact HELD. Unit view remap HELD. Accordion not
    restored. Two tracks not restacked. FAQ stays a list. For-you JS untouched.
    ========================================================================== */
+
+/* ==========================================================================
+   Pass 102 — leftover mash / hover / copy after 99–101 dump+Unit-view layer.
+   900 Home H1 wrapped (59px type in 36rem; 720/1280×800 already one line).
+   Ghost/hotspot :active holes. Two tracks chorus destacked in HTML.
+   Specs 6 / Pad 4 / pay 4 compact HELD. chips 3+2 HELD. cream 900 drawer HELD.
+   Flex H1 two nowrap HELD. Unit view remap HELD. Accordion not restored.
+   Two tracks not restacked. FAQ stays a list. For-you JS untouched.
+   Approach pin frozen. No Ken Burns. RM / <720: no new motion.
+   ========================================================================== */
+
+/* 900 leftover wrap: fs-h1 is 59px while .hero__copy stays 36rem (576).
+   720 is 50.72px / one line; 1280×800 short-viewport clamp is 44px / one line.
+   Widen the copy column so both clips stay one line. High-Performance nowrap
+   was unset ≤1100 — restore from 900 so the second clip cannot split. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .hero.hero--fold .hero__copy,
+  .hero__copy { max-width: 44rem; }
+}
+@media (min-width: 900px) {
+  .hero__title .nowrap { white-space: nowrap; }
+}
+
+/* Ghost press — CTA already had :active; paper/dark ghosts did not. */
+.btn--ghost:active,
+.btn--ghost-light:active {
+  transform: translateY(1px);
+  transition-duration: var(--dur-press);
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .btn--ghost:active,
+  .btn--ghost-light:active {
+    transform: none;
+  }
+}
