@@ -1069,7 +1069,7 @@
     },
     gas: {
       cap: 'Gas — dispatchable adjacency',
-      copy: 'An industrial host with dispatchable adjacency. Kelvin does not own generation.',
+      copy: 'An industrial host with dispatchable adjacency.',
       kicker: '05 Gas'
     },
     solar: {
