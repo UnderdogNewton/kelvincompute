@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Compute — Kelvin Compute</title>
-  <meta name="description" content="AI training and batch inference on surplus Energy. Checkpoint in the contract. Air, liquid or closed-loop. Flexbox ≈1 MW / 40 ft.">
+  <meta name="description" content="AI, HPC, Cloud, Edge and a load that can pause — on surplus Energy. Checkpoint in the contract. Flexbox ≈1 MW / 40 ft.">
   <link rel="canonical" href="https://kelvincompute.com/compute.html">
   <link rel="alternate" href="https://kelvincompute.com/compute.html" hreflang="en">
   <link rel="alternate" href="https://kelvincompute.com/compute.html" hreflang="x-default">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kelvin Compute">
   <meta property="og:title" content="Compute — Kelvin Compute">
-  <meta property="og:description" content="AI training and batch inference on surplus Energy. Checkpoint in the contract. Air, liquid or closed-loop. Flexbox ≈1 MW / 40 ft.">
+  <meta property="og:description" content="AI, HPC, Cloud, Edge and a load that can pause — on surplus Energy. Checkpoint in the contract. Flexbox ≈1 MW / 40 ft.">
   <meta property="og:url" content="https://kelvincompute.com/compute.html">
   <meta property="og:image" content="https://kelvincompute.com/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
   <meta name="twitter:image:alt" content="Visualization of a Kelvin Flexbox. Not a photograph of an operating site.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Compute — Kelvin Compute">
-  <meta name="twitter:description" content="AI training and batch inference on surplus Energy. Checkpoint in the contract. Air, liquid or closed-loop. Flexbox ≈1 MW / 40 ft.">
+  <meta name="twitter:description" content="AI, HPC, Cloud, Edge and a load that can pause — on surplus Energy. Checkpoint in the contract. Flexbox ≈1 MW / 40 ft.">
   <meta name="twitter:image" content="https://kelvincompute.com/og-image.png">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -53,7 +53,7 @@
         "@id": "https://kelvincompute.com/compute.html#webpage",
         "url": "https://kelvincompute.com/compute.html",
         "name": "Compute — Kelvin Compute",
-        "description": "AI training and batch inference on surplus Energy. Checkpoint in the contract. Air, liquid or closed-loop. Flexbox ≈1 MW / 40 ft.",
+        "description": "AI, HPC, Cloud, Edge and a load that can pause — on surplus Energy. Checkpoint in the contract. Flexbox ≈1 MW / 40 ft.",
         "inLanguage": "en",
         "isPartOf": { "@id": "https://kelvincompute.com/#website" },
         "publisher": { "@id": "https://kelvincompute.com/#organization" }
@@ -118,17 +118,19 @@
           <h1 id="page-title" class="side-hero__title reveal"><span class="clip"><span class="clip-inner">Compute on surplus Energy</span></span></h1>
           <p class="side-hero__deck reveal">AI training and batch inference — interruptible HPC on a Flexbox at the surplus. Checkpoint in the contract.</p>
           <nav class="side-jump side-jump--split reveal" aria-label="Compute sections">
-            <div class="side-jump__group" role="group" aria-labelledby="jump-unit-label">
-              <p class="side-jump__label" id="jump-unit-label">The unit</p>
-              <a href="#unit">Flexbox</a>
-              <a href="#cooling">Cooling</a>
-              <a href="#contract">Contract</a>
-            </div>
             <div class="side-jump__group" role="group" aria-labelledby="jump-work-label">
               <p class="side-jump__label" id="jump-work-label">Workloads</p>
               <a href="#ai">AI</a>
               <a href="#hpc">HPC</a>
               <a href="#cloud">Cloud</a>
+              <a href="#edge">Edge</a>
+              <a href="#bitcoin">Bitcoin</a>
+            </div>
+            <div class="side-jump__group" role="group" aria-labelledby="jump-unit-label">
+              <p class="side-jump__label" id="jump-unit-label">The unit</p>
+              <a href="#local">Holds</a>
+              <a href="#contract">Contract</a>
+              <a href="#unit">Flexbox</a>
             </div>
           </nav>
         </div>
@@ -144,78 +146,80 @@
       </div>
     </section>
 
-    <section id="unit" class="section section--side section--paper" aria-labelledby="unit-title">
+    <section id="workloads" class="section section--side section--paper" aria-label="Workloads">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow">The rack</p>
-          <h2 id="unit-title" class="section__title"><span class="clip"><span class="clip-inner">Flexbox is the rack for that load</span></span></h2>
-          <p class="section__lead">A module at the surplus. Hardware, software, infrastructure — Compute, Flexibility and Thermal/Heat.</p>
+          <p class="eyebrow">Workloads</p>
+          <p class="section__lead">Interruptible loads on a Flexbox at the surplus.</p>
         </div>
-        <ol class="side-scan side-scan--4 reveal" aria-label="Flexbox authorized specs">
-          <li>
-            <p class="side-scan__kicker">Power</p>
-            <h3>≈1 MW / 40 ft</h3>
-            <p>Operating power tracks loaded server draw. Site-specific values confirmed in engineering.</p>
+        <ol class="holds-scan reveal" aria-label="Forms of compute">
+          <li id="ai">
+            <p class="holds-scan__kicker">AI</p>
+            <h2 id="ai-title">Training and batch.</h2>
+            <p>The load Kelvin is built for is interruptible AI.</p>
+            <p class="holds-scan__moat">Long runs that write a resume point. Queued inference that can wait a minute.</p>
           </li>
-          <li>
-            <p class="side-scan__kicker">Compute</p>
-            <h3>4 racks · 336</h3>
-            <p>Up to 336 servers. Air or liquid in the same 40 ft ISO. Stackable two-high on the same pad (≈2 MW / 672). 20 ft on request.</p>
+          <li id="hpc">
+            <p class="holds-scan__kicker">HPC</p>
+            <h2 id="hpc-title">Simulation and rendering.</h2>
+            <p>Same interruptible contract — jobs that can wait.</p>
+            <p class="holds-scan__moat">High-density runs and framesets that queue. Pause inside the window and resume.</p>
           </li>
-          <li>
-            <p class="side-scan__kicker">Dispatch</p>
-            <h3>&lt;0.7 s</h3>
-            <p>Built to start, pause and resume in well under a second. <a class="text-link" href="flexibility.html">Flexibility-as-a-Service</a> is in the contract.</p>
+          <li id="cloud">
+            <p class="holds-scan__kicker">Cloud</p>
+            <h2 id="cloud-title">Batch and burst.</h2>
+            <p>Capacity is on request.</p>
+            <p class="holds-scan__moat">Burst that can pause. Queued jobs that can wait.</p>
           </li>
-          <li>
-            <p class="side-scan__kicker">Connect</p>
-            <h3>LV or MV</h3>
-            <p>Behind the meter or grid-connected. Heat capture designed in — <a class="text-link" href="thermal.html">Thermal</a>.</p>
+          <li id="edge">
+            <p class="holds-scan__kicker">Edge</p>
+            <h2 id="edge-title">The module at the source.</h2>
+            <p>Behind the meter at generation.</p>
+            <p class="holds-scan__moat">A Flexbox at the source. Extra grid load stays low.</p>
+          </li>
+          <li id="bitcoin">
+            <p class="holds-scan__kicker">Bitcoin</p>
+            <h2 id="bitcoin-title">A load that can pause.</h2>
+            <p>Not a treasury. Not a mining SKU.</p>
+            <p class="holds-scan__moat">One pause-able load. Same pause-and-resume as training.</p>
           </li>
         </ol>
-        <div class="bring bring--side reveal">
-          <h3 class="bring__title">Full stack at the surplus</h3>
-          <div class="bring__grid">
-            <article class="bring__col">
-              <h4 class="bring__label">The workload</h4>
-              <p>Interruptible batch: training, batch inference, simulation, rendering. Checkpoint in the contract.</p>
-            </article>
-            <article class="bring__col bring__col--kelvin">
-              <h4 class="bring__label">Kelvin brings</h4>
-              <p>Flexbox. Compute, Flexibility, Thermal/Heat. Cooling, power, ops, software, hardware, infrastructure. Air or liquid in the same 40 ft ISO. Control, dispatch, monitoring.</p>
-            </article>
-          </div>
-        </div>
-        <p class="side-quiet reveal">Not always-on colo. See <a class="text-link" href="flexibility.html">Flexibility</a>.</p>
-        <p class="side-cta reveal"><a class="btn btn--cta" href="mailto:contact@kelvincompute.com?subject=Kelvin%20Compute%20%E2%80%94%20compute%20buyer">Email Kelvin<span class="btn__arrow" aria-hidden="true"><svg><use href="#arrow-ne"/></svg></span></a></p>
       </div>
     </section>
 
-    <section id="century" class="section section--side" aria-labelledby="century-title">
+    <section id="local" class="section section--side" aria-labelledby="local-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow">Compute century</p>
-          <h2 id="century-title" class="section__title"><span class="clip"><span class="clip-inner">Electrons first.</span></span></h2>
-          <p class="section__lead">This century is decided by the movement of electrons.</p>
+          <p class="eyebrow">Why it holds</p>
+          <h2 id="local-title" class="section__title"><span class="clip"><span class="clip-inner">The site is the jurisdiction.</span></span></h2>
+          <p class="section__lead">Sit the job at the surplus — behind the meter or spare industrial.</p>
         </div>
-        <ol class="side-scan side-scan--3 reveal" aria-label="One connection — three public products">
+        <ol class="holds-scan reveal" aria-label="Why it holds">
           <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Compute</h3>
-            <p>High-Performance Compute — GPU, photonic, quantum, or any form. Including an AI tier — training and batch inference.</p>
+            <p class="holds-scan__kicker">01</p>
+            <h3>Local</h3>
+            <p>The surplus is local. So is the job. <a class="text-link" href="energy.html#local">Energy</a>.</p>
+            <p class="holds-scan__moat">Locked-in surplus cannot be copied without that Energy.</p>
           </li>
           <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Flexibility-as-a-Service</h3>
-            <p>The load is built for FCR-D, aFRR and mFRR. <a class="text-link" href="flexibility.html">Flexibility</a>.</p>
+            <p class="holds-scan__kicker">02</p>
+            <h3>Behind the meter</h3>
+            <p>Spare industrial or behind the meter at generation.</p>
+            <p class="holds-scan__moat">Extra grid load stays low.</p>
           </li>
-          <li>
-            <p class="side-scan__kicker">03</p>
-            <h3>Thermal/Heat</h3>
-            <p>Used locally on site, and as municipal or district Heat where a network exists. <a class="text-link" href="thermal.html">Thermal</a>.</p>
+          <li id="sovereign">
+            <p class="holds-scan__kicker">03</p>
+            <h3>Based in Stockholm.</h3>
+            <p>Kelvin Compute AB. First plots in Hälsingland stay Plot.</p>
+            <p class="holds-scan__moat">Postal c/o only.</p>
+          </li>
+          <li id="century">
+            <p class="holds-scan__kicker">04</p>
+            <h3>Electrons first.</h3>
+            <p>Compute, <a class="text-link" href="flexibility.html">Flexibility-as-a-Service</a>, and Thermal/Heat.</p>
+            <p class="holds-scan__moat">One connection. Three public products.</p>
           </li>
         </ol>
-
       </div>
     </section>
 
@@ -260,132 +264,54 @@
       </div>
     </section>
 
-    <section id="ai" class="section section--side" aria-labelledby="ai-title">
+    <section id="unit" class="section section--side" aria-labelledby="unit-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow">AI</p>
-          <h2 id="ai-title" class="section__title"><span class="clip"><span class="clip-inner">Training and batch.</span></span></h2>
-          <p class="section__lead">The load Kelvin is built for is interruptible AI. Sit it at surplus; <a class="text-link" href="flexibility.html">Flexibility-as-a-Service</a> is in the contract.</p>
+          <p class="eyebrow">The rack</p>
+          <h2 id="unit-title" class="section__title"><span class="clip"><span class="clip-inner">Flexbox is the rack for that load</span></span></h2>
+          <p class="section__lead">A module at the surplus. Hardware, software, infrastructure — Compute, Flexibility and Thermal/Heat.</p>
         </div>
-        <ol class="side-scan side-scan--ai reveal" aria-label="Training and batch">
+        <ol class="side-scan side-scan--4 reveal" aria-label="Flexbox authorized specs">
           <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Training</h3>
-            <p>Long runs that write a checkpoint. When frequency or surplus moves, the job pauses inside the contract window and comes back.</p>
+            <p class="side-scan__kicker">Power</p>
+            <h3>≈1 MW / 40 ft</h3>
+            <p>Operating power tracks loaded server draw. Site-specific values confirmed in engineering.</p>
           </li>
           <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Batch inference</h3>
-            <p>Queued, offline, overnight. Work that can wait a minute. The queue is the feature that makes the load dispatchable.</p>
+            <p class="side-scan__kicker">Compute</p>
+            <h3>4 racks · 336</h3>
+            <p>Up to 336 servers. Air or liquid in the same 40 ft ISO. Stackable two-high on the same pad (≈2 MW / 672). 20 ft on request.</p>
           </li>
           <li>
-            <p class="side-scan__kicker">03</p>
-            <h3>The contract</h3>
-            <p>Interruptible batch. Checkpoint is in the contract.</p>
+            <p class="side-scan__kicker">Dispatch</p>
+            <h3>&lt;0.7 s</h3>
+            <p>Built to start, pause and resume in well under a second. <a class="text-link" href="flexibility.html">Flexibility-as-a-Service</a> is in the contract.</p>
+          </li>
+          <li>
+            <p class="side-scan__kicker">Connect</p>
+            <h3>LV or MV</h3>
+            <p>Behind the meter or grid-connected. Heat capture designed in — <a class="text-link" href="thermal.html">Thermal</a>.</p>
           </li>
         </ol>
-        <div class="side-ai reveal">
-          <p>The Flexbox is the pad. ≈1 MW / 40 ft ISO / 4 racks. Air or liquid in the same box. Kelvin supplies hardware and software at the pocket.</p>
+        <div class="bring bring--side reveal">
+          <h3 class="bring__title">Full stack at the surplus</h3>
+          <div class="bring__grid">
+            <article class="bring__col">
+              <h4 class="bring__label">The workload</h4>
+              <p>Interruptible batch: training, batch inference, simulation, rendering.</p>
+            </article>
+            <article class="bring__col bring__col--kelvin">
+              <h4 class="bring__label">Kelvin brings</h4>
+              <p>Flexbox. Compute, Flexibility, Thermal/Heat. Cooling, power, ops, software, hardware, infrastructure. Air or liquid in the same 40 ft ISO. Control, dispatch, monitoring.</p>
+            </article>
+          </div>
         </div>
-        <p class="side-quiet reveal">The surplus is local. So is the Compute. <a class="text-link" href="#local">The site is the jurisdiction</a>.</p>
+        <p class="side-quiet reveal">Not always-on colo. See <a class="text-link" href="flexibility.html">Flexibility</a>.</p>
+        <p class="side-cta reveal"><a class="btn btn--cta" href="mailto:contact@kelvincompute.com?subject=Kelvin%20Compute%20%E2%80%94%20compute%20buyer">Email Kelvin<span class="btn__arrow" aria-hidden="true"><svg><use href="#arrow-ne"/></svg></span></a></p>
       </div>
     </section>
 
-    <section id="hpc" class="section section--side section--paper" aria-labelledby="hpc-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Beside AI</p>
-          <h2 id="hpc-title" class="section__title"><span class="clip"><span class="clip-inner">Simulation and rendering.</span></span></h2>
-          <p class="section__lead">Same interruptible contract — jobs that can wait.</p>
-        </div>
-        <ol class="side-scan reveal" aria-label="Simulation and rendering">
-          <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Simulation</h3>
-            <p>High-density runs that write a checkpoint. When the grid calls, the job pauses inside the window and resumes.</p>
-          </li>
-          <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Rendering</h3>
-            <p>Frames and framesets that can queue. Work that can wait a minute — the same pause-and-resume as training, on the same Flexbox.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="cloud" class="section section--side" aria-labelledby="cloud-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Interruptible</p>
-          <h2 id="cloud-title" class="section__title"><span class="clip"><span class="clip-inner">Batch and burst.</span></span></h2>
-          <p class="section__lead">Capacity is on request.</p>
-        </div>
-        <ol class="side-scan reveal" aria-label="Batch and burst">
-          <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Burst</h3>
-            <p>Burst that can pause. Same interruptible contract as training. See <a class="text-link" href="#contract">the contract</a>.</p>
-          </li>
-          <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Batch</h3>
-            <p>Work that can wait. Queued jobs.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="edge" class="section section--side section--paper" aria-labelledby="edge-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Siting</p>
-          <h2 id="edge-title" class="section__title"><span class="clip"><span class="clip-inner">The module at the source.</span></span></h2>
-          <p class="section__lead">Behind the meter at generation.</p>
-        </div>
-        <ol class="side-scan reveal" aria-label="Edge siting">
-          <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>At generation</h3>
-            <p>Spare industrial or behind the meter. Extra grid load stays low. See <a class="text-link" href="energy.html">Energy</a>.</p>
-          </li>
-          <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>The 40 ft module</h3>
-            <p>A Flexbox at the source. Interruptible HPC — same contract as training. Not a second product line.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="local" class="section section--side" aria-labelledby="local-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Local</p>
-          <h2 id="local-title" class="section__title"><span class="clip"><span class="clip-inner">The site is the jurisdiction.</span></span></h2>
-          <p class="section__lead">Sit the job at the surplus — behind the meter or spare industrial.</p>
-        </div>
-        <ol class="side-scan reveal" aria-label="Local Compute">
-          <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Local</h3>
-            <p>The surplus is local. So is the job. <a class="text-link" href="energy.html#local">Energy</a>.</p>
-          </li>
-          <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Behind the meter</h3>
-            <p>Spare industrial or behind the meter at generation. Extra grid load stays low.</p>
-          </li>
-        </ol>
-        <article id="sovereign" class="side-ai reveal">
-          <p class="side-scan__kicker">03</p>
-          <h3>Based in Stockholm.</h3>
-          <p>Kelvin Compute AB. First plots in Hälsingland stay Plot.</p>
-        </article>
-        <p class="side-quiet reveal">See <a class="text-link" href="#edge">the module at the source</a>.</p>
-      </div>
-    </section>
-
-    <section id="cooling" class="section section--side" aria-labelledby="cooling-title">
+    <section id="cooling" class="section section--side section--paper" aria-labelledby="cooling-title">
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow">Cooling</p>
@@ -421,7 +347,7 @@
       </div>
     </section>
 
-    <section id="parts" class="section section--side section--paper" aria-labelledby="parts-title">
+    <section id="parts" class="section section--side" aria-labelledby="parts-title">
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow">On the pad</p>
@@ -480,28 +406,6 @@
             <p class="side-scan__kicker">03</p>
             <h3>Module at surplus</h3>
             <p>A campus waits on a queued feeder. A Flexbox sits where Energy already spills.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="bitcoin" class="section section--side section--paper" aria-labelledby="bitcoin-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">One workload</p>
-          <h2 id="bitcoin-title" class="section__title"><span class="clip"><span class="clip-inner">A load that can pause.</span></span></h2>
-          <p class="section__lead">Not a treasury. Not a mining SKU.</p>
-        </div>
-        <ol class="side-scan reveal" aria-label="Bitcoin as a pause-able load">
-          <li>
-            <p class="side-scan__kicker">01</p>
-            <h3>Interruptible load</h3>
-            <p>One pause-able load. Same pause-and-resume as training.</p>
-          </li>
-          <li>
-            <p class="side-scan__kicker">02</p>
-            <h3>Three public products</h3>
-            <p>Compute, <a class="text-link" href="flexibility.html">Flexibility-as-a-Service</a>, and Thermal/Heat.</p>
           </li>
         </ol>
         <p class="side-back reveal"><a class="text-link" href="index.html#hall">Back to the unit</a> · <a class="text-link" href="flexibility.html">Flexibility</a> · <a class="text-link" href="energy.html">Energy</a> · <a class="text-link" href="thermal.html">Thermal</a> · <a class="text-link" href="index.html">Home</a></p>
