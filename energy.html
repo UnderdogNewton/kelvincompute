@@ -125,6 +125,7 @@
               <a href="#industrial">Industrial</a>
               <a href="#surplus">Hydro</a>
               <a href="#mill">Mill</a>
+              <a href="#geo">Geo</a>
             </div>
             <div class="side-jump__group" role="group" aria-labelledby="jump-holds-label">
               <p class="side-jump__label" id="jump-holds-label">Why it holds</p>
@@ -151,7 +152,7 @@
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow">The load</p>
-          <p class="section__lead">Behind the meter, spare industrial, hydro, wind and solar, mill host.</p>
+          <p class="section__lead">Behind the meter, spare industrial, hydro, geothermal, wind and solar, mill host.</p>
         </div>
         <ol class="holds-scan reveal" aria-label="Places the load sits">
           <li id="meter">
@@ -169,7 +170,7 @@
           <li id="surplus">
             <p class="holds-scan__kicker">Hydro</p>
             <h2 id="surplus-title">Hydro, wind and solar.</h2>
-            <p>Hydro, geothermal, solar and wind. Compute absorbs spill so the Energy is used, not switched off.</p>
+            <p>Hydro, solar and wind. Compute absorbs spill so the Energy is used, not switched off.</p>
             <p class="holds-scan__moat">When prices go negative, the load ramps up. Curtailment becomes load.</p>
           </li>
           <li id="mill">
@@ -177,6 +178,12 @@
             <h2 id="mill-title">The mill that stays on.</h2>
             <p>Sawmills, pulp, drying. Local Heat on site — process and premises.</p>
             <p class="holds-scan__moat">The mill cannot pause — Compute flexes instead.</p>
+          </li>
+          <li id="geo">
+            <p class="holds-scan__kicker">Geo</p>
+            <h2 id="geo-title">Geothermal.</h2>
+            <p>Generation at the source. A Heat sink next to the pad.</p>
+            <p class="holds-scan__moat">Cooling and generation at the same surplus.</p>
           </li>
         </ol>
       </div>
@@ -206,6 +213,12 @@
             <h2 id="local-title">Energy, Compute and Thermal/Heat stay local.</h2>
             <p>The same surplus. A module at the source. <a class="text-link" href="compute.html#local">Compute</a>. <a class="text-link" href="thermal.html">Thermal/Heat</a>.</p>
             <p class="holds-scan__moat">The interruptible load is on Compute. See <a class="text-link" href="flexibility.html">Flexibility</a>.</p>
+          </li>
+          <li id="locked">
+            <p class="holds-scan__kicker">Locked</p>
+            <h2 id="locked-title">The site is the moat.</h2>
+            <p>Surplus sites, once locked, are not a copy-paste campus.</p>
+            <p class="holds-scan__moat">Locked-in surplus cannot be copied.</p>
           </li>
         </ol>
         <p class="side-quiet reveal">See <a class="text-link" href="flexibility.html#bess">Compute vs batteries</a>.</p>

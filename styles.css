@@ -4132,6 +4132,8 @@ html:not(.js) .vertical-controls {
 .js .phases.is-visible .phases__list > li:nth-child(4) { transition-delay: 0.22s; }
 .js .holds-scan.is-visible > li:nth-child(5) { transition-delay: 0.28s; }
 .js .holds-scan.is-visible > li:nth-child(6) { transition-delay: 0.34s; }
+.js .holds-scan.is-visible > li:nth-child(7) { transition-delay: 0.40s; }
+.js .holds-scan.is-visible > li:nth-child(8) { transition-delay: 0.46s; }
 
 .js .section__head {
   position: relative;
@@ -4955,6 +4957,8 @@ html {
 .js .side-scan.is-visible > li:nth-child(4) { transition-delay: 0.23s; }
 .js .holds-scan.is-visible > li:nth-child(5) { transition-delay: 0.29s; }
 .js .holds-scan.is-visible > li:nth-child(6) { transition-delay: 0.35s; }
+.js .holds-scan.is-visible > li:nth-child(7) { transition-delay: 0.41s; }
+.js .holds-scan.is-visible > li:nth-child(8) { transition-delay: 0.47s; }
 
 .js .section__head.reveal::after {
   transition: transform var(--dur-line) var(--ease);
@@ -10930,3 +10934,10 @@ html:not(.js) .verticals__stage {
   .page-compute .holds-scan h2,
   .page-energy .holds-scan h2 { color: #000; }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 88 — more use-cases / qualifiers on existing holds-scan.
+   Grid stays 3-col / 2-col / 1-col (no 4-across). Paper tiles still product
+   pages only (Compute / Energy / Flexibility / Thermal). Home #holds remains
+   the document scan. Stagger delays 7–8 above. Eggs/classic frozen.
+   ========================================================================== */
