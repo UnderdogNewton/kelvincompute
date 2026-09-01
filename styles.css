@@ -929,25 +929,6 @@ body.nav-open { overflow: hidden; }
 }
 .track__title { font-size: var(--fs-h3); margin-bottom: 0.9rem; }
 .track p { color: var(--c-ink-2); font-size: var(--fs-small); }
-.track__steps {
-  list-style: none;
-  display: grid;
-  gap: 0.55rem;
-  margin: 0 0 1.1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--c-stone-300);
-  font-size: var(--fs-small);
-  color: var(--c-ink-2);
-}
-.track__steps li { display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.45; }
-.track__num {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: var(--c-timber-600);
-  flex: none;
-  padding-top: 0.1rem;
-}
 .track__cta { margin-top: auto; }
 .track__cta .btn { width: auto; }
 
@@ -5002,7 +4983,7 @@ html {
 .compute-band__cta { margin: 1.15rem 0 0; }
 .compute-band__cta .btn--ghost-light {
   color: var(--c-on-dark);
-  border-color: rgba(243, 239, 230, 0.28);
+  border-color: rgba(243, 239, 230, 0.72);
 }
 .compute-band__cta .btn--ghost-light:hover {
   color: var(--c-timber-300);
@@ -11291,5 +11272,106 @@ a.text-link:focus-visible,
     height: 28px !important;
     width: auto !important;
     aspect-ratio: 87.233 / 100 !important;
+  }
+}
+
+/* ==========================================================================
+   2026-09-01 pass 94 — leftover hunt after 93 (jump reprint / 900 drawer /
+   product meta / unused Energy line / ghost contrast / jump wrap).
+   Flex chip is the H2, not the group name. Cream hamburger sheet at ≤1199
+   (beats dark-forest drawer + on-dark cream links). Energy 5-chip group wraps
+   at 900. Compute-band ghost border 0.72. Dead .track__steps gone.
+   No 4-across. No Ken Burns. Approach pin frozen. Eggs/classic frozen.
+   For-you JS untouched. Reduced-motion and <720: no new motion.
+   ========================================================================== */
+
+/* Jump chips: 44px hits at every width (720–1099 already had it). */
+.side-jump--split a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 900: Energy/Compute 5-chip groups nowrap overflowed the cream column. */
+@media (min-width: 900px) {
+  .side-jump--split .side-jump__group {
+    flex-wrap: wrap;
+  }
+}
+
+/* 900 hamburger: cream sheet, not a leftover forest drawer on cream pages.
+   Beat on-dark pill link colors so Home-hero open menu stays ink on cream. */
+@media (max-width: 1199px) {
+  .site-nav {
+    background: var(--c-paper);
+    color: var(--c-forest-950);
+    border: 1px solid rgba(23, 31, 27, 0.12);
+    box-shadow: 0 18px 40px -22px rgba(13, 31, 23, 0.28);
+  }
+  .site-nav__list a {
+    color: var(--c-ink-2);
+    border-bottom-color: var(--c-stone-300);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .site-nav__list a:hover,
+  .site-nav__list a:focus-visible {
+    color: var(--c-ink);
+    border-bottom-color: var(--c-timber-400);
+  }
+  .site-nav__list a[aria-current="true"],
+  .site-nav__list a[aria-current="page"] {
+    color: var(--c-forest-950);
+    border-bottom-color: var(--c-timber-500);
+  }
+  .nav-pill[data-on-dark] .site-nav__list a {
+    color: var(--c-ink-2);
+  }
+  .nav-pill[data-on-dark] .site-nav__list a:hover,
+  .nav-pill[data-on-dark] .site-nav__list a:focus-visible {
+    color: var(--c-ink);
+    border-bottom-color: var(--c-timber-400);
+  }
+  .nav-pill[data-on-dark] .site-nav__list a[aria-current="true"],
+  .nav-pill[data-on-dark] .site-nav__list a[aria-current="page"] {
+    color: var(--c-forest-950);
+    border-bottom-color: var(--c-timber-500);
+  }
+  html:not(.js) .site-nav {
+    background: transparent;
+    color: inherit;
+    border: 0;
+    box-shadow: none;
+  }
+  html:not(.js) .site-nav__list a {
+    color: var(--c-ink-2);
+    border: 0;
+    min-height: 0;
+  }
+}
+
+/* Compact compute-band ghost: 0.28 cream border failed 3:1 on forest-950. */
+.compute-band__cta .btn--ghost-light {
+  border-color: rgba(243, 239, 230, 0.72);
+}
+.compute-band__cta .btn--ghost-light:focus-visible {
+  outline: 3px solid var(--c-timber-400);
+  outline-offset: 3px;
+}
+
+@media print {
+  .section--hall,
+  .flex-compare,
+  .compare-table,
+  .hall-chapters a {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .compare-table th,
+  .compare-table td {
+    color: #000 !important;
+    background: #fff !important;
   }
 }
