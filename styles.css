@@ -803,16 +803,6 @@ body.nav-open { overflow: hidden; }
   max-width: var(--measure);
 }
 
-.moat-quiet {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
-  padding-top: 1.15rem;
-  border-top: 1px solid var(--c-stone-300);
-  max-width: var(--measure);
-  font-size: var(--fs-small);
-  color: var(--c-ink-2);
-  line-height: 1.5;
-}
-
 .hall { margin: 0; }
 .section--faq { background: var(--c-paper); border-top: 1px solid var(--c-stone-300); }
 .section--faq .faq { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -3036,38 +3026,10 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   border-bottom-color: var(--c-timber-400);
 }
 
-.glance {
-  list-style: none;
-  display: grid;
-  gap: 0;
-  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
-  padding: 0;
-  border-top: 1px solid rgba(243, 239, 230, 0.14);
-  border-bottom: 1px solid rgba(243, 239, 230, 0.14);
-}
-@media (min-width: 560px) { .glance { grid-template-columns: repeat(3, 1fr); } }
-.glance .stat {
-  padding: 1.1rem 1.25rem 1.15rem 0;
-  background: none;
-  border-right: 1px solid rgba(243, 239, 230, 0.1);
-}
-.glance .stat:last-child { border-right: 0; }
-.glance a { display: block; color: inherit; text-decoration: none; }
-.glance a:hover { text-decoration: none; }
-.glance a:hover .stat__value,
-.glance a:focus-visible .stat__value { color: var(--c-timber-300); }
-.glance .stat__value { font-size: var(--fs-stat); font-weight: 600; letter-spacing: -0.02em; line-height: 1; color: var(--c-on-dark); margin: 0 0 0.5rem; }
-.glance .stat__label { font-size: var(--fs-small); color: var(--c-on-dark-2); line-height: 1.45; margin: 0; }
-@media (max-width: 559px) {
-  .glance .stat { padding: 1rem 0; border-right: 0; border-bottom: 1px solid rgba(243, 239, 230, 0.1); }
-  .glance .stat:last-child { border-bottom: 0; }
-}
-
 .shell-pick { margin: 0 0 0.85rem; }
 .shell-pick__label,
 .parts__label,
-.spec-rail__label,
-.flex-compare__label {
+.spec-rail__label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 500;
@@ -3239,13 +3201,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
-.spec-strip__hint {
-  margin: 0.25rem 0 0;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  color: var(--c-on-dark-2);
-}
-
 .flex-compare {
   margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
   padding-top: 1.25rem;
@@ -3336,14 +3291,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   padding: 0.35rem 0 0;
   border-top: 0;
 }
-.flex-sheet__title {
-  font-size: var(--fs-h3);
-  color: var(--c-on-dark);
-  margin: 0 0 0.35rem;
-  max-width: 28rem;
-}
-.flex-sheet .cta-row { margin-top: 1rem; }
-.flex-sheet__note,
 .flex-sheet__next {
   margin: 0;
   font-size: 0.92rem;
@@ -3358,7 +3305,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   .hall-chapters__inner { padding: 0.35rem 0; }
   .spec-rail { top: 7.1rem; }
   .spec-rail .spec-strip > div { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  .spec-strip__hint { font-size: 0.78rem; }
   .spec-rail .mode-pick { margin-top: 0.85rem; }
 }
 @media (max-width: 719px) {
@@ -3370,13 +3316,16 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
     display: grid;
     gap: 0.5rem;
   }
-  .hall-pair .viz-frame__shot picture,
-  .hall-pair .viz-frame__shot picture[hidden] {
+  .js .hall-pair .viz-frame__shot picture.is-on {
     display: block;
     position: relative;
     inset: auto;
     width: 100%;
     height: auto;
+  }
+  .js .hall-pair .viz-frame__shot picture:not(.is-on),
+  .js .hall-pair .viz-frame__shot picture[hidden] {
+    display: none !important;
   }
   .hall-pair .viz-frame__shot picture img { height: auto; }
   .spec-rail { position: static; }
@@ -3394,13 +3343,16 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
     display: grid;
     gap: 0.5rem;
   }
-  .hall-pair .viz-frame__shot picture,
-  .hall-pair .viz-frame__shot picture[hidden] {
+  .js .hall-pair .viz-frame__shot picture.is-on {
     display: block;
     position: relative;
     inset: auto;
     width: 100%;
     height: auto;
+  }
+  .js .hall-pair .viz-frame__shot picture:not(.is-on),
+  .js .hall-pair .viz-frame__shot picture[hidden] {
+    display: none !important;
   }
   .hall-pair .viz-frame__shot picture img { height: auto; }
 }
@@ -3424,7 +3376,6 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
   .hall-chapters,
   .section--dark > .hall-chapters { position: static; top: auto; background: #fff; }
   .hall-chapters a { color: #000; }
-  .glance .stat__value, .glance .stat__label { color: #000 !important; }
   .compare-table th, .compare-table td { color: #000; border-color: #ccc; }
   .spec-rail { position: static; }
   .spec-strip, .flex-compare, .flex-sheet, .parts { break-inside: avoid; }
@@ -3436,26 +3387,6 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
    Datasheet pack, scannable compare, short-viewport rail,
    For-you six-row in-flow, print packet. Forest / timber. No orange.
    ========================================================================== */
-
-.hero__pack {
-  margin: 0.85rem 0 0;
-  font-size: 0.92rem;
-  color: var(--c-on-dark-3);
-  max-width: 36rem;
-}
-.hero__pack a {
-  color: var(--c-timber-300);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-.hero__pack a:hover { color: var(--c-timber-400); }
-
-.flex-sheet__lead {
-  margin: 0.35rem 0 0;
-  font-size: 1.02rem;
-  color: var(--c-on-dark-2);
-  max-width: 32rem;
-}
 
 /* Slim chapter bar; unstick spec-rail on 1280×800-class viewports */
 .hall-chapters__inner { padding: 0.4rem 0; }
@@ -3469,7 +3400,6 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
     top: auto;
   }
   .spec-rail .spec-strip > div { padding-top: 0.45rem; padding-bottom: 0.45rem; }
-  .spec-strip__hint { font-size: 0.76rem; }
   .spec-rail .mode-pick { margin-top: 0.7rem; }
 }
 
@@ -3560,19 +3490,17 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
   .page-rail, .hall-chapters, .section--dark > .hall-chapters,
   .vertical-controls, .shell-pick, .mode-pick,
   .scale__stops, .heat-pick__stops { display: none !important; }
-  .holds-scan, .purpose-scan, .pay-strip, .glance, .spec-rail, .spec-strip,
+  .holds-scan, .purpose-scan, .pay-strip, .spec-rail, .spec-strip,
   .flex-compare, .flex-sheet { break-inside: avoid; color: #000; }
   .holds-scan h3, .holds-scan p, .holds-scan__moat, .holds-scan__kicker,
-  .pay-strip, .pay-strip h3, .pay-strip p, .pay-strip__label, .pay-strip__note,
-  .glance .stat__value, .glance .stat__label,
-  .spec-rail .spec-strip dt, .spec-rail .spec-strip dd, .spec-strip__hint,
-  .compare-table th, .compare-table td, .flex-compare__label, .flex-compare__note,
-  .flex-sheet__title, .flex-sheet__lead, .flex-sheet__note { color: #000 !important; }
+  .pay-strip, .pay-strip h3, .pay-strip p, .pay-strip__label,
+  .spec-rail .spec-strip dt, .spec-rail .spec-strip dd,
+  .compare-table th, .compare-table td, .flex-compare__note,
+  .flex-sheet__next { color: #000 !important; }
   .spec-rail, .hall-chapters { position: static !important; top: auto; background: #fff; }
   .holds-scan { grid-template-columns: 1fr 1fr; }
   .vertical-index { position: relative !important; background: none; }
   .vertical-index li { display: list-item !important; }
-  .hero__pack, .hero__pack a { color: #000; }
   .compare-table { min-width: 0; border-collapse: collapse; }
   .compare-table thead th,
   .compare-table thead th:first-child,
@@ -3584,16 +3512,6 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
    Glance as why-it-matters, short-viewport chapter bar,
    compare header nowrap. Forest / timber. No orange.
    ========================================================================== */
-
-/* Glance: thesis scan, not a third copy of ≈1 MW / 4 racks / <0.7 s */
-.glance--why .stat__value {
-  font-size: clamp(1.15rem, 1.02rem + 0.55vw, 1.5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  white-space: normal;
-}
-.glance--why .stat__label { max-width: 16rem; }
 
 /* 1280×800 sandwich: unstick chapter bar with the rail */
 @media (max-height: 800px) {
@@ -3926,7 +3844,6 @@ html:not(.js) .vertical-controls {
 
 .js .holds-scan > li,
 .js .purpose-scan > li,
-.js .glance > li,
 .js .catalogue > li,
 .js .hero-stats .stat,
 .js .phases__list > li {
@@ -3936,8 +3853,6 @@ html:not(.js) .vertical-controls {
 }
 .js .holds-scan.is-visible > li,
 .js .purpose-scan.is-visible > li,
-.js .pay-strip.is-visible ol > li,
-.js .glance.is-visible > li,
 .js .catalogue.is-visible > li,
 .js .hero-stats.is-visible .stat,
 .js .phases.is-visible .phases__list > li {
@@ -3946,28 +3861,21 @@ html:not(.js) .vertical-controls {
 }
 .js .holds-scan.is-visible > li:nth-child(1),
 .js .purpose-scan.is-visible > li:nth-child(1),
-.js .pay-strip.is-visible ol > li:nth-child(1),
-.js .glance.is-visible > li:nth-child(1),
 .js .catalogue.is-visible > li:nth-child(1),
 .js .hero-stats.is-visible .stat:nth-child(1),
 .js .phases.is-visible .phases__list > li:nth-child(1) { transition-delay: 0.04s; }
 .js .holds-scan.is-visible > li:nth-child(2),
 .js .purpose-scan.is-visible > li:nth-child(2),
-.js .pay-strip.is-visible ol > li:nth-child(2),
-.js .glance.is-visible > li:nth-child(2),
 .js .catalogue.is-visible > li:nth-child(2),
 .js .hero-stats.is-visible .stat:nth-child(2),
 .js .phases.is-visible .phases__list > li:nth-child(2) { transition-delay: 0.1s; }
 .js .holds-scan.is-visible > li:nth-child(3),
 .js .purpose-scan.is-visible > li:nth-child(3),
-.js .pay-strip.is-visible ol > li:nth-child(3),
-.js .glance.is-visible > li:nth-child(3),
 .js .catalogue.is-visible > li:nth-child(3),
 .js .hero-stats.is-visible .stat:nth-child(3),
 .js .phases.is-visible .phases__list > li:nth-child(3) { transition-delay: 0.16s; }
 .js .holds-scan.is-visible > li:nth-child(4),
 .js .purpose-scan.is-visible > li:nth-child(4),
-.js .pay-strip.is-visible ol > li:nth-child(4),
 .js .catalogue.is-visible > li:nth-child(4),
 .js .hero-stats.is-visible .stat:nth-child(4),
 .js .phases.is-visible .phases__list > li:nth-child(4) { transition-delay: 0.22s; }
@@ -4008,19 +3916,6 @@ html:not(.js) .vertical-controls {
   transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .js .catalogue.is-visible::before { transform: scaleX(1); }
-
-.js .glance { position: relative; }
-.js .glance::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 1px;
-  background: rgba(243, 239, 230, 0.2);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.js .glance.is-visible::before { transform: scaleX(1); }
 
 .stat__value { font-variant-numeric: tabular-nums; }
 
@@ -4120,7 +4015,6 @@ html:not(.js) .vertical-controls {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li {
@@ -4129,14 +4023,12 @@ html:not(.js) .vertical-controls {
     transition: none;
   }
   .js .section__head.reveal::after,
-  .js .catalogue::before,
-  .js .glance::before {
+  .js .catalogue::before {
     transform: none;
     transition: none;
   }
   .js .section__head.reveal.is-visible::after,
-  .js .catalogue.is-visible::before,
-  .js .glance.is-visible::before { transform: scaleX(1); }
+  .js .catalogue.is-visible::before { transform: scaleX(1); }
   .hall-chapters a::after { transition: none; }
   .hall-chapters a[aria-current="true"]::after { transform: scaleX(1); }
   .flex-hotspot::after { animation: none; display: none; }
@@ -4158,7 +4050,6 @@ html:not(.js) .vertical-controls {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li { opacity: 1 !important; transform: none !important; }
@@ -4696,7 +4587,6 @@ html {
 
 .js .holds-scan > li,
 .js .purpose-scan > li,
-.js .glance > li,
 .js .catalogue > li,
 .js .hero-stats .stat,
 .js .phases__list > li,
@@ -4709,8 +4599,6 @@ html {
 }
 .js .holds-scan.is-visible > li,
 .js .purpose-scan.is-visible > li,
-.js .pay-strip.is-visible ol > li,
-.js .glance.is-visible > li,
 .js .catalogue.is-visible > li,
 .js .hero-stats.is-visible .stat,
 .js .phases.is-visible .phases__list > li,
@@ -4724,8 +4612,6 @@ html {
 }
 .js .holds-scan.is-visible > li:nth-child(1),
 .js .purpose-scan.is-visible > li:nth-child(1),
-.js .pay-strip.is-visible ol > li:nth-child(1),
-.js .glance.is-visible > li:nth-child(1),
 .js .catalogue.is-visible > li:nth-child(1),
 .js .hero-stats.is-visible .stat:nth-child(1),
 .js .side-scan.is-visible > li:nth-child(1),
@@ -4733,8 +4619,6 @@ html {
 .js .gap-grid > .reveal.is-visible:nth-child(1) { transition-delay: 0.05s; }
 .js .holds-scan.is-visible > li:nth-child(2),
 .js .purpose-scan.is-visible > li:nth-child(2),
-.js .pay-strip.is-visible ol > li:nth-child(2),
-.js .glance.is-visible > li:nth-child(2),
 .js .catalogue.is-visible > li:nth-child(2),
 .js .hero-stats.is-visible .stat:nth-child(2),
 .js .side-scan.is-visible > li:nth-child(2),
@@ -4742,15 +4626,12 @@ html {
 .js .gap-grid > .reveal.is-visible:nth-child(2) { transition-delay: 0.11s; }
 .js .holds-scan.is-visible > li:nth-child(3),
 .js .purpose-scan.is-visible > li:nth-child(3),
-.js .pay-strip.is-visible ol > li:nth-child(3),
-.js .glance.is-visible > li:nth-child(3),
 .js .catalogue.is-visible > li:nth-child(3),
 .js .hero-stats.is-visible .stat:nth-child(3),
 .js .side-scan.is-visible > li:nth-child(3),
 .js .sites-why.is-visible > li:nth-child(3) { transition-delay: 0.17s; }
 .js .holds-scan.is-visible > li:nth-child(4),
 .js .purpose-scan.is-visible > li:nth-child(4),
-.js .pay-strip.is-visible ol > li:nth-child(4),
 .js .catalogue.is-visible > li:nth-child(4),
 .js .hero-stats.is-visible .stat:nth-child(4),
 .js .side-scan.is-visible > li:nth-child(4) { transition-delay: 0.23s; }
@@ -4762,8 +4643,7 @@ html {
 .js .section__head.reveal::after {
   transition: transform var(--dur-line) var(--ease);
 }
-.js .catalogue::before,
-.js .glance::before {
+.js .catalogue::before {
   transition: transform var(--dur-line) var(--ease);
 }
 
@@ -4884,7 +4764,6 @@ html {
   .js .reveal,
   .js .holds-scan > li,
   .js .purpose-scan > li,
-    .js .glance > li,
   .js .catalogue > li,
   .js .hero-stats .stat,
   .js .phases__list > li,
@@ -4899,11 +4778,9 @@ html {
   .js .clip-inner,
   .js .side-hero.is-ready .clip-inner { transform: none !important; transition: none; }
   .js .section__head.reveal::after,
-  .js .catalogue::before,
-  .js .glance::before { transform: none; transition: none; }
+  .js .catalogue::before { transform: none; transition: none; }
   .js .section__head.reveal.is-visible::after,
-  .js .catalogue.is-visible::before,
-  .js .glance.is-visible::before { transform: scaleX(1); }
+  .js .catalogue.is-visible::before { transform: scaleX(1); }
   .flex-hotspot::after { animation: none; display: none; }
   .sites-map__pin.is-pulse .sites-map__ring { animation: none; }
   .catalogue__row,
@@ -5118,19 +4995,7 @@ html {
    Footer / contact: no height animation.
    ========================================================================== */
 
-/* Type: chips own the figures. Glance is why. Rail is catalogue. */
-.glance--why .stat__value {
-  font-size: clamp(1.02rem, 0.94rem + 0.35vw, 1.2rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--c-on-dark-2);
-}
-.glance--why .stat__label {
-  font-size: 0.78rem;
-  color: var(--c-on-dark-3);
-  max-width: 14rem;
-}
+/* Type: chips own the figures. Rail is catalogue. */
 .section--dark .spec-chips .flex-specs__value {
   font-size: clamp(1.55rem, 1.2rem + 1.05vw, 2.05rem);
   font-weight: 600;
@@ -5151,8 +5016,6 @@ html {
   font-weight: 500;
   color: var(--c-on-dark);
 }
-.spec-strip__hint { font-size: 0.78rem; }
-
 /* Catalogue: numbers quieter than the name */
 .catalogue__n {
   opacity: 0.5;
@@ -5160,11 +5023,6 @@ html {
 }
 .catalogue__name {
   font-weight: 500;
-}
-
-/* More air in the Flexbox chapter */
-.glance {
-  margin-bottom: clamp(2.1rem, 4.5vw, 3rem);
 }
 
 /* Clip-inner: slightly longer, more decisive */
@@ -6185,9 +6043,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
    Vanilla CSS. No Lenis / GSAP / WebGL / Ken Burns / orange.
    ========================================================================== */
 
-.section--hall .glance {
-  margin-bottom: clamp(1.15rem, 3vw, 1.75rem);
-}
 .section--hall .parts {
   margin-bottom: clamp(1.15rem, 2.8vw, 1.85rem);
   padding-top: 0.85rem;
@@ -6446,7 +6301,6 @@ body.nav-open .site-header.is-away { transform: none; }
       html.has-sda .js .parts-pick .heat-pick__kicker::after,
       html.has-sda .js .sites-why__kicker::after,
       html.has-sda .js .catalogue::before,
-      html.has-sda .js .glance::before,
       html.has-sda .js .grade::before,
       html.has-sda .js .side-scan::before {
         animation: kc-draw-x 1s linear both;
@@ -6560,7 +6414,6 @@ body.nav-open .site-header.is-away { transform: none; }
   html.has-sda .js .parts-pick .heat-pick__kicker::after,
   html.has-sda .js .sites-why__kicker::after,
   html.has-sda .js .catalogue::before,
-  html.has-sda .js .glance::before,
   html.has-sda .js .grade::before,
   html.has-sda .js .side-scan::before,
   html.has-sda .js .hall-unit .viz-frame,
@@ -6575,7 +6428,6 @@ body.nav-open .site-header.is-away { transform: none; }
   html.has-sda .js .parts-pick.is-visible .heat-pick__kicker::after,
   html.has-sda .js .sites-why.is-visible .sites-why__kicker::after,
   html.has-sda .js .catalogue.is-visible::before,
-  html.has-sda .js .glance.is-visible::before,
   html.has-sda .js .grade.is-visible::before,
   html.has-sda .js .side-scan.is-visible::before {
     transform: scaleX(1);
@@ -7355,7 +7207,6 @@ html:not(.js) .chapter-step { display: none; }
 }
 
 /* Washed dark-section labels: one step up for contrast. */
-.spec-strip__hint,
 .flex-compare__note,
 .section--dark .scale__label,
 .section--dark .heat-pick__label {
@@ -7363,8 +7214,7 @@ html:not(.js) .chapter-step { display: none; }
 }
 .shell-pick__label,
 .parts__label,
-.spec-rail__label,
-.flex-compare__label {
+.spec-rail__label {
   color: var(--c-timber-400);
 }
 
@@ -8346,9 +8196,6 @@ html.has-sda::before { content: none !important; display: none !important; }
    Still stays full width — no Ken Burns. Spec-rail gets air. */
 .section--hall > .container {
   padding-top: clamp(1.15rem, 2.8vw, 2rem);
-}
-.section--hall .glance {
-  margin-bottom: clamp(2.15rem, 4.5vw, 3.15rem);
 }
 .hall-unit .spec-rail {
   margin-top: clamp(2rem, 4.5vw, 3.15rem);
@@ -11367,7 +11214,6 @@ a.text-link:focus-visible,
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
-.spec-strip__hint { display: none; }
 .section--hall .spec-rail .mode-pick,
 .spec-rail .mode-pick {
   margin-top: 0.7rem;
@@ -11523,3 +11369,18 @@ a.text-link:focus-visible,
 .page-compute #cooling .side-scan p {
   max-width: 36rem;
 }
+
+/* ==========================================================================
+   Pass 100 — leftover after 99 (FAQ reprints, Email 3-up, Thermal host
+   picker reprint, uniqueness chorus, dead glance/sheet CSS).
+   Specs 6 / Pad 4 / pay 4 compact HELD. Catalogue product lead HELD.
+   Accordion not restored. Two tracks not restacked (already product).
+   FAQ stays a list. Flexibility BESS table CSS HELD.
+   ========================================================================== */
+
+.page-compute #parts .side-back {
+  margin-top: 0.85rem;
+}
+
+/* Unit view: off stills cannot occupy a grid row at RM / <720.
+   ≥720 with motion keeps the 680ms overlay crossfade (stacked is-on). */

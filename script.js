@@ -1134,6 +1134,22 @@
   /* ---------- Hall: Closed/Exploded shell + chip to spec + chapter rail ---------- */
   var hallPair = doc.querySelector('[data-hall-pair]');
   var hallGen = { n: 0 };
+  var pulseHallChip = function (chipId) {
+    if (!hallPair || !chipId) { return; }
+    var shell = hallPair.getAttribute('data-shell') || 'closed';
+    Array.prototype.forEach.call(hallPair.querySelectorAll('.flex-hotspot'), function (spot) {
+      spot.classList.remove('is-pulse');
+    });
+    if (motionOff()) { return; }
+    Array.prototype.forEach.call(hallPair.querySelectorAll('.flex-hotspot[data-chip="' + chipId + '"]'), function (spot) {
+      var spotShell = spot.getAttribute('data-shell');
+      if (spotShell && spotShell !== shell) { return; }
+      void spot.offsetWidth;
+      spot.classList.add('is-pulse');
+      window.setTimeout(function () { spot.classList.remove('is-pulse'); }, 700);
+    });
+  };
+
   var setHallShell = function (id) {
     if (!hallPair || (id !== 'closed' && id !== 'exploded')) { return; }
     hallPair.classList.toggle('is-exploded', id === 'exploded');
@@ -1148,6 +1164,12 @@
     Array.prototype.forEach.call(hallPair.querySelectorAll('button[data-shell]'), function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-shell') === id ? 'true' : 'false');
     });
+    var chip = hallPair.getAttribute('data-active-chip') || 'mw';
+    if (id === 'closed' && chip === 'rk') {
+      paintChip('mw');
+      return;
+    }
+    pulseHallChip(chip);
   };
 
   var paintChip = function (id) {
@@ -1163,19 +1185,7 @@
       if (on) { row = el; }
     });
     if (id === 'rk') { setHallShell('exploded'); }
-    var shell = hallPair.getAttribute('data-shell') || 'closed';
-    Array.prototype.forEach.call(hallPair.querySelectorAll('.flex-hotspot'), function (spot) {
-      spot.classList.remove('is-pulse');
-    });
-    if (!motionOff()) {
-      Array.prototype.forEach.call(hallPair.querySelectorAll('.flex-hotspot[data-chip="' + id + '"]'), function (spot) {
-        var spotShell = spot.getAttribute('data-shell');
-        if (spotShell && spotShell !== shell) { return; }
-        void spot.offsetWidth;
-        spot.classList.add('is-pulse');
-        window.setTimeout(function () { spot.classList.remove('is-pulse'); }, 700);
-      });
-    }
+    pulseHallChip(id);
     if (row && row.scrollIntoView) {
       try { row.scrollIntoView({ block: 'nearest', inline: 'nearest' }); }
       catch (e) { row.scrollIntoView(false); }
