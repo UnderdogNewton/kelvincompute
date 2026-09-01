@@ -10820,14 +10820,17 @@ html:not(.js) .verticals__stage {
 
 /* ==========================================================================
    2026-09-01 pass 85 — Compute as product: workloads scan, Holds fold
+   Pass 87: paper tiles + Energy destacked-H2 size on Energy / Flexibility / Thermal
+   holds-scan. Home holds-scan layout still untouched.
    Vanilla CSS. Forest / timber. No orange. No Ken Burns. No new JS libraries.
    Reduced-motion and <720: static (colour/underline only; no new motion).
-   Eggs/classic frozen. Home holds-scan layout untouched.
+   Eggs/classic frozen.
    ========================================================================== */
 
 #workloads { scroll-margin-top: 5.75rem; }
 
-.page-compute .holds-scan h2 {
+.page-compute .holds-scan h2,
+.page-energy .holds-scan h2 {
   font-size: 1.12rem;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -10840,8 +10843,8 @@ html:not(.js) .verticals__stage {
 /* Sovereign is a Holds card now, not a bordered inner article. */
 .page-compute #sovereign {
   margin-top: 0;
-  padding-top: 0;
   border-top: 0;
+  padding: 0.95rem 1rem 1.15rem;
 }
 .page-compute #sovereign h3 {
   margin: 0 0 0.35rem;
@@ -10849,50 +10852,81 @@ html:not(.js) .verticals__stage {
 
 /* Workloads / Holds on Compute: paper cards, same family as side-scan tiles. */
 @media (min-width: 720px) {
-  .page-compute .holds-scan {
+  .page-compute .holds-scan,
+  .page-energy .holds-scan,
+  .page-flexibility .holds-scan,
+  .page-thermal .holds-scan {
     gap: 0.75rem 0.9rem;
     padding-top: 0.2rem;
     border-top: 0;
     border-bottom: 0;
   }
-  .page-compute .holds-scan > li {
+  .page-compute .holds-scan > li,
+  .page-energy .holds-scan > li,
+  .page-flexibility .holds-scan > li,
+  .page-thermal .holds-scan > li {
     padding: 0.95rem 1rem 1.15rem;
     background: var(--c-paper);
     box-shadow: inset 0 2px 0 var(--c-timber-500);
   }
-  .page-compute .section--paper .holds-scan > li {
+  .page-compute .section--paper .holds-scan > li,
+  .page-energy .section--paper .holds-scan > li,
+  .page-flexibility .section--paper .holds-scan > li,
+  .page-thermal .section--paper .holds-scan > li {
     background: var(--c-offwhite);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   @media (hover: hover) and (min-width: 720px) {
-    .page-compute .holds-scan > li {
+    .page-compute .holds-scan > li,
+    .page-energy .holds-scan > li,
+    .page-flexibility .holds-scan > li,
+    .page-thermal .holds-scan > li {
       transition: transform var(--dur-press) var(--ease), box-shadow var(--dur-press) var(--ease);
     }
     .page-compute .holds-scan > li:hover,
-    .page-compute .holds-scan > li:focus-within {
+    .page-energy .holds-scan > li:hover,
+    .page-flexibility .holds-scan > li:hover,
+    .page-thermal .holds-scan > li:hover,
+    .page-compute .holds-scan > li:focus-within,
+    .page-energy .holds-scan > li:focus-within,
+    .page-flexibility .holds-scan > li:focus-within,
+    .page-thermal .holds-scan > li:focus-within {
       transform: translateY(-2px);
       box-shadow: 0 1px 0 var(--c-timber-500);
     }
   }
 }
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
-  .page-compute .holds-scan > li {
+  .page-compute .holds-scan > li,
+  .page-energy .holds-scan > li,
+  .page-flexibility .holds-scan > li,
+  .page-thermal .holds-scan > li {
     transition: none;
   }
   .page-compute .holds-scan > li:hover,
-  .page-compute .holds-scan > li:focus-within {
+  .page-energy .holds-scan > li:hover,
+  .page-flexibility .holds-scan > li:hover,
+  .page-thermal .holds-scan > li:hover,
+  .page-compute .holds-scan > li:focus-within,
+  .page-energy .holds-scan > li:focus-within,
+  .page-flexibility .holds-scan > li:focus-within,
+  .page-thermal .holds-scan > li:focus-within {
     transform: none;
     box-shadow: none;
   }
 }
 
 @media print {
-  .page-compute .holds-scan > li {
+  .page-compute .holds-scan > li,
+  .page-energy .holds-scan > li,
+  .page-flexibility .holds-scan > li,
+  .page-thermal .holds-scan > li {
     background: #fff !important;
     box-shadow: none;
     color: #000;
   }
-  .page-compute .holds-scan h2 { color: #000; }
+  .page-compute .holds-scan h2,
+  .page-energy .holds-scan h2 { color: #000; }
 }
