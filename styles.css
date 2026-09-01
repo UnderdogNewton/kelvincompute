@@ -1421,9 +1421,10 @@ html:not(.js) .verticals { display: grid; gap: 0; }
 }
 
 .cases-follow {
-  background: var(--c-stone-100);
-  padding-block: var(--section-pad);
+  /* Pass 91: cream closer, not a stone-100 full-pad sandwich. */
+  background: var(--c-paper);
   color: var(--c-ink);
+  padding-block: clamp(1.35rem, 2.8vw, 2.15rem);
 }
 
 @media (max-width: 720px) {
@@ -4132,8 +4133,6 @@ html:not(.js) .vertical-controls {
 .js .phases.is-visible .phases__list > li:nth-child(4) { transition-delay: 0.22s; }
 .js .holds-scan.is-visible > li:nth-child(5) { transition-delay: 0.28s; }
 .js .holds-scan.is-visible > li:nth-child(6) { transition-delay: 0.34s; }
-.js .holds-scan.is-visible > li:nth-child(7) { transition-delay: 0.40s; }
-.js .holds-scan.is-visible > li:nth-child(8) { transition-delay: 0.46s; }
 
 .js .section__head {
   position: relative;
@@ -4572,11 +4571,6 @@ html {
   border-bottom-color: var(--c-timber-500);
 }
 
-.cases-more {
-  margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
-  font-size: 0.95rem;
-  color: var(--c-ink-2);
-}
 .vertical__cta {
   display: flex;
   flex-wrap: wrap;
@@ -7301,7 +7295,7 @@ html:not(.js) .chapter-step { display: none; }
 
 /* 1. For-you: chapter chrome in its own row, below both chip groups.
    Was position:absolute; bottom on .verticals, so PREV · 01/n · NEXT
-   painted over the Compute chips (01 AI / 03 Cloud) and the stone
+   painted over the Compute chips (01 AI / 03 Cloud) and the closer
    .cases-follow band overlapped the panel edge. */
 .vertical-groups .vertical-controls {
   position: relative;
@@ -9458,7 +9452,7 @@ html:not(.js) .verticals__stage {
     .purpose-scan > li:hover,
     .purpose-scan > li:focus-within {
       transform: translateY(-2px);
-      box-shadow: 0 1px 0 var(--c-timber-500);
+      box-shadow: inset 0 2px 0 var(--c-timber-500);
     }
   }
 }
@@ -9835,15 +9829,6 @@ html:not(.js) .verticals__stage {
 /* Compute #sovereign: real card in the Local fold, not an inner h3 jump. */
 .page-compute #sovereign {
   scroll-margin-top: 5.75rem;
-  margin-top: 1.55rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--c-stone-300);
-}
-.page-compute #sovereign h3 {
-  font-size: 1.08rem;
-  font-weight: 500;
-  color: var(--c-ink);
-  margin: 0.3rem 0 0.35rem;
 }
 
 /* Chip bar ≥1280: Hosts nowrap so the bar is one designed row.
@@ -10898,7 +10883,7 @@ html:not(.js) .verticals__stage {
     .page-flexibility .holds-scan > li:focus-within,
     .page-thermal .holds-scan > li:focus-within {
       transform: translateY(-2px);
-      box-shadow: 0 1px 0 var(--c-timber-500);
+      box-shadow: inset 0 2px 0 var(--c-timber-500);
     }
   }
 }
@@ -10997,4 +10982,227 @@ html:not(.js) .verticals__stage {
   .section--compute-band .eyebrow {
     color: #000 !important;
   }
+}
+
+/* ==========================================================================
+   2026-09-01 pass 90 — leftover motion/720/hover/type
+   Duplicate stagger 7–8 removed from the first motion block (kept 0.41/0.47).
+   No-RM paper-tile hover keeps timber inset. Last-row closer for 5 and 8.
+   New 88/89 ids get scroll-margin. No 4-across. No Ken Burns. Approach pin frozen.
+   Reduced-motion and <720: no new motion (colour/underline + inset chrome only).
+   Eggs/classic frozen.
+   ========================================================================== */
+
+/* 88/89 card and jump ids were missing the sticky-pill offset. */
+#geo, #locked, #glass, #lines, #sovereignty, #cadence,
+#meter, #industrial, #pipe, #municipal, #district {
+  scroll-margin-top: 5.75rem;
+}
+
+/* Text-link hover was forest-only; jump/nav/chips tell timber. */
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--c-timber-700);
+  text-decoration-color: var(--c-timber-500);
+  text-decoration-thickness: 2px;
+}
+
+/* Product paper titles: Flex/Thermal (h3) were 1.08rem vs Energy H2 17.92px. */
+.page-flexibility .holds-scan h3,
+.page-thermal .holds-scan h3,
+.page-compute .holds-scan h3 {
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+/* 5-up 3+2 and 8-up 3+3+2 last row: center the pair. Still 3 visual columns. */
+@media (min-width: 901px) {
+  .holds-scan:has(> :nth-child(5):last-child),
+  .holds-scan:has(> :nth-child(8):last-child) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .holds-scan:has(> :nth-child(5):last-child) > li,
+  .holds-scan:has(> :nth-child(8):last-child) > li {
+    grid-column: span 2;
+  }
+  .holds-scan:has(> :nth-child(5):last-child) > li:nth-child(4),
+  .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(7) {
+    grid-column: 2 / 4;
+  }
+  .holds-scan:has(> :nth-child(5):last-child) > li:nth-child(5),
+  .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(8) {
+    grid-column: 4 / 6;
+  }
+}
+
+/* 2-up 5-card (721–900): last card centered, not a left orphan. */
+@media (min-width: 721px) and (max-width: 900px) {
+  .holds-scan:has(> :nth-child(5):last-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .holds-scan:has(> :nth-child(5):last-child) > li {
+    grid-column: span 2;
+  }
+  .holds-scan:has(> :nth-child(5):last-child) > li:last-child {
+    grid-column: 2 / 4;
+  }
+}
+
+/* Heat-pick hover: scale/mode/tier already lift 1px in this band; heat-pick
+   only got a border here (lift lived in an earlier block). Same tell. */
+@media (hover: hover) and (min-width: 720px) {
+  @media (prefers-reduced-motion: no-preference) {
+    .heat-pick__stops button:hover {
+      transform: translateY(-1px);
+      border-color: var(--c-timber-400);
+    }
+  }
+}
+
+/* 4-up 3+1 last row: center the leftover card. Energy Holds. */
+@media (min-width: 901px) {
+  .holds-scan:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .holds-scan:has(> :nth-child(4):last-child) > li {
+    grid-column: span 2;
+  }
+  .holds-scan:has(> :nth-child(4):last-child) > li:nth-child(4) {
+    grid-column: 3 / 5;
+  }
+}
+
+/* 720 jump chips were 19px against 44px hamburger / 900 jump hits. */
+@media (min-width: 720px) and (max-width: 899px) {
+  .side-jump--split .side-jump__group a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   2026-09-01 pass 91 — For-you closer: pocket/stack as 2-up paper fold.
+   Drop leftover cases-more + stone-100 full-pad sandwich. Same paper-tile
+   chrome as Energy/Flex/Thermal holds-scan (pass 87). Home #holds 8-up stays
+   unpapered. Grid 2-col ≥720, 1-col <720. No 4-across. No Ken Burns. No new JS.
+   Reduced-motion and <720: colour only (no lift). Eggs/classic frozen.
+   ========================================================================== */
+
+.cases-follow .bring__title {
+  color: var(--c-forest-950);
+  margin: 0 0 0.85rem;
+  max-width: 28ch;
+}
+.bring--side .bring__title {
+  color: var(--c-forest-950);
+  margin: 0 0 0.85rem;
+}
+.bring--side .holds-scan--2 {
+  margin-top: 0;
+}
+
+/* 2-up product split — never inherit 3-col / last-row 6-col closer. */
+@media (min-width: 720px) {
+  .holds-scan.holds-scan--2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 0.9rem;
+    padding-top: 0.2rem;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  .holds-scan--2 > li {
+    padding: 0.95rem 1rem 1.15rem;
+    background: var(--c-paper);
+    box-shadow: inset 0 2px 0 var(--c-timber-500);
+  }
+  /* Paper parent (Home closer / Holds language): offwhite tiles. */
+  .cases-follow .holds-scan--2 > li,
+  .section--paper .holds-scan--2 > li {
+    background: var(--c-offwhite);
+  }
+}
+@media (max-width: 719px) {
+  .holds-scan.holds-scan--2 {
+    grid-template-columns: 1fr;
+    border-top: 0;
+    border-bottom: 0;
+    padding-top: 0.15rem;
+  }
+}
+
+.holds-scan--2 h3 {
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+  color: var(--c-ink);
+}
+
+/* Beat .js .holds-scan.is-visible > li { transform:none } (0,3,1). */
+@media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (min-width: 720px) {
+    .cases-follow .holds-scan--2 > li,
+    #unit .holds-scan--2 > li {
+      transition: transform var(--dur-press) var(--ease), box-shadow var(--dur-press) var(--ease);
+    }
+    .js .holds-scan.holds-scan--2.is-visible > li:hover,
+    .js .holds-scan.holds-scan--2.is-visible > li:focus-within,
+    .cases-follow .holds-scan--2 > li:hover,
+    .cases-follow .holds-scan--2 > li:focus-within,
+    #unit .holds-scan--2 > li:hover,
+    #unit .holds-scan--2 > li:focus-within {
+      transform: translateY(-2px);
+      box-shadow: inset 0 2px 0 var(--c-timber-500);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .cases-follow .holds-scan--2 > li,
+  #unit .holds-scan--2 > li {
+    transition: none;
+  }
+  .js .holds-scan.holds-scan--2.is-visible > li:hover,
+  .js .holds-scan.holds-scan--2.is-visible > li:focus-within,
+  .cases-follow .holds-scan--2 > li:hover,
+  .cases-follow .holds-scan--2 > li:focus-within,
+  #unit .holds-scan--2 > li:hover,
+  #unit .holds-scan--2 > li:focus-within {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 720px) {
+  .cases-follow .holds-scan--2 > li:hover,
+  .cases-follow .holds-scan--2 > li:focus-within,
+  #unit .holds-scan--2 > li:hover,
+  #unit .holds-scan--2 > li:focus-within {
+    box-shadow: inset 0 2px 0 var(--c-timber-500);
+  }
+}
+@media (max-width: 719px) {
+  .cases-follow .holds-scan--2 > li:hover,
+  .cases-follow .holds-scan--2 > li:focus-within,
+  #unit .holds-scan--2 > li:hover,
+  #unit .holds-scan--2 > li:focus-within {
+    box-shadow: none;
+  }
+}
+
+@media print {
+  .cases-follow {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .holds-scan--2 > li {
+    background: #fff !important;
+    box-shadow: none;
+    color: #000;
+  }
+  .holds-scan--2 h3,
+  .cases-follow .bring__title,
+  .bring--side .bring__title { color: #000 !important; }
 }
