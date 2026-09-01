@@ -523,11 +523,6 @@ body.nav-open { overflow: hidden; }
 
 /* Stat strip — hairlines, not tiles */
 .hero-stats { position: relative; z-index: 1; padding-top: clamp(1.35rem, 3vw, 2.15rem); }
-.stats__note {
-  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-on-dark-3);
-  margin: 0 0 0.85rem;
-}
 .stats {
   list-style: none; display: grid; gap: 0; margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
   background: none; border: 0; border-top: 1px solid rgba(243, 239, 230, 0.14);
@@ -1158,7 +1153,6 @@ html { scroll-padding-top: 5.75rem; }
 
 /* Light stats (moved out of dark hero) */
 .section--gap .hero-stats { padding-top: 0; margin: clamp(2rem, 4vw, 3rem) 0; }
-.section--gap .stats__note { color: var(--c-ink-3); }
 .section--gap .stats {
   border-top-color: var(--c-stone-300);
 }
@@ -1171,43 +1165,6 @@ html { scroll-padding-top: 5.75rem; }
 
 .section__head--center { margin-inline: auto; text-align: center; }
 .section__head--center .section__lead { margin-inline: auto; }
-
-/* Numbered claim chips */
-.claims {
-  list-style: none;
-  display: grid;
-  gap: 1.35rem 1.75rem;
-  margin: 0 0 clamp(2.25rem, 5vw, 3.5rem);
-}
-@media (min-width: 800px) { .claims { grid-template-columns: 1fr 1fr; } }
-.claim { display: grid; grid-template-columns: auto 1fr; gap: 0.85rem; align-items: start; }
-.claim__n {
-  display: grid; place-items: center;
-  width: 1.55rem; height: 1.55rem; flex: none;
-  background: var(--c-timber-500); color: var(--c-forest-950);
-  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
-  border-radius: 2px;
-}
-.claim__title { font-size: 1.15rem; font-weight: 500; margin: 0 0 0.3rem; letter-spacing: -0.02em; }
-.claim__body p { margin: 0; color: var(--c-ink-2); font-size: 1rem; line-height: 1.5; max-width: 42ch; }
-
-/* Six reasons — hairline rows */
-.section--thesis { background: var(--c-paper); border-top: 1px solid var(--c-stone-300); }
-.thesis {
-  display: grid; gap: clamp(1.75rem, 4vw, 3.25rem);
-}
-@media (min-width: 880px) {
-  .thesis { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr); align-items: start; }
-  .thesis__pin { position: sticky; top: 6rem; }
-}
-.thesis__title { font-size: var(--fs-h2); font-weight: 400; }
-.reason-rows { list-style: none; margin: 0; border-top: 1px solid var(--c-stone-300); }
-.reason-row {
-  display: grid; grid-template-columns: auto 1fr; gap: 0.9rem;
-  padding: 1.05rem 0; border-bottom: 1px solid var(--c-stone-300); align-items: start;
-}
-.reason-row__title { font-size: 1.15rem; font-weight: 500; margin: 0 0 0.25rem; }
-.reason-row p { margin: 0; color: var(--c-ink-2); font-size: 1rem; line-height: 1.5; }
 
 /* ---------- Dark act ---------- */
 .section--dark {
@@ -1236,18 +1193,6 @@ html { scroll-padding-top: 5.75rem; }
 .section--dark > .container { position: relative; z-index: 1; }
 .section--dark .section__title { color: var(--c-on-dark); font-weight: 400; }
 .section--dark .section__lead { color: var(--c-on-dark-2); max-width: 36rem; }
-
-.hall-stage__features {
-  list-style: none;
-  display: grid;
-  gap: 1rem 1.5rem;
-  margin: 0 0 clamp(2rem, 4vw, 2.75rem);
-}
-@media (min-width: 800px) { .hall-stage__features { grid-template-columns: 1fr 1fr; } }
-.hall-stage__feat-title { font-weight: 500; margin: 0 0 0.25rem; }
-.hall-stage__features p { margin: 0; font-size: 0.95rem; line-height: 1.45; color: var(--c-ink-2); }
-.hall-stage__features--dark p { color: var(--c-on-dark-2); }
-.hall-stage__features--dark .hall-stage__feat-title { color: var(--c-on-dark); }
 
 .sizes--on-dark { border-top-color: rgba(243,239,230,0.14); }
 .sizes--on-dark th, .sizes--on-dark td { color: var(--c-on-dark-2); border-bottom-color: rgba(243,239,230,0.12); }
@@ -1734,7 +1679,6 @@ html:not(.js) .orbits {
   opacity: 0.55;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-.spec-chips__hint { font-weight: 400; letter-spacing: 0.04em; opacity: 0.8; }
 .spec-chips.is-lit button,
 .spec-chips button:hover,
 .spec-chips button:focus-visible,
@@ -1760,7 +1704,7 @@ html:not(.js) .orbits {
 .flex-hotspot {
   position: absolute; left: var(--hx); top: var(--hy);
   transform: translate(-50%, -50%);
-  pointer-events: auto; cursor: default;
+  pointer-events: auto; cursor: pointer;
   padding: 0.28rem 0.5rem;
   background: rgba(252, 250, 246, 0.88);
   border: 1px solid rgba(23, 31, 27, 0.18);
@@ -1802,14 +1746,8 @@ html:not(.js) .orbits {
 .mode-pick__stops button[aria-pressed="true"] {
   background: var(--c-timber-400); color: var(--c-forest-950); border-color: var(--c-timber-400);
 }
-.scale__panel { margin: 0; }
-.scale__panel[hidden] { display: none; }
-html:not(.js) .scale__panel[hidden] { display: block; }
 .scale__note, .heat-pick__copy, .mode-pick__copy {
   margin: 0.65rem 0 0; color: var(--c-on-dark-2); font-size: 0.95rem; max-width: var(--measure);
-}
-.heat-pick__tag {
-  margin: 0.85rem 0 0; color: var(--c-on-dark); font-size: 1.02rem; max-width: var(--measure);
 }
 .section--dark .scale .viz-frame__shot,
 .section--dark .heat-pick .viz-frame__shot {
@@ -1898,9 +1836,6 @@ html:not(.js) .scale__panel[hidden] { display: block; }
   .hero:not(.hero--fold) .hero__stage { position: relative; left: auto; transform: none; width: min(1080px, 100%); margin: 0 auto; }
   .flex-hotspot { transition: none; }
   .scale__stops button, .heat-pick__stops button, .mode-pick__stops button, .spec-chips button { transition: none; }
-  html:not(.js) .scale__panel[hidden],
-  .scale.is-static .scale__panel { display: block; }
-  .scale.is-static .scale__panel[hidden] { display: block; }
 }
 
 .section--dark .scale,
@@ -1918,47 +1853,7 @@ html:not(.js) .scale__panel[hidden] { display: block; }
 }
 
 
-/* ---- Visualization pass: still-seq, anatomy hotspots, heat stills, Ken Burns ---- */
-.still-seq__frames { position: relative; }
-.still-seq__frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  animation: still-seq-a 7.5s ease-in-out infinite;
-}
-.still-seq__frame:nth-child(1) {
-  position: relative;
-  opacity: 1;
-  animation-name: still-seq-a;
-}
-.still-seq__frame:nth-child(2) { animation-name: still-seq-b; }
-.still-seq__frame:nth-child(3) { animation-name: still-seq-c; }
-.still-seq__frame img,
-.still-seq__frame source + img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.still-seq:hover .still-seq__frame,
-.still-seq:focus-within .still-seq__frame { animation-play-state: paused; }
-@keyframes still-seq-a {
-  0%, 26% { opacity: 1; }
-  34%, 92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@keyframes still-seq-b {
-  0%, 26% { opacity: 0; }
-  34%, 58% { opacity: 1; }
-  66%, 100% { opacity: 0; }
-}
-@keyframes still-seq-c {
-  0%, 58% { opacity: 0; }
-  66%, 92% { opacity: 1; }
-  100% { opacity: 0; }
-}
-.js .still-seq .still-seq__frame { clip-path: none; transition: none; }
+/* Visualization stills: overlay crossfade on heat/scale/hall. No Ken Burns. */
 
 .hall-pair { margin: 0 0 clamp(1.25rem, 3vw, 2rem); }
 .hall-pair__shot { margin: 0 0 1rem; }
@@ -2012,23 +1907,10 @@ html:not(.js) .scale__panel[hidden] { display: block; }
 }
 
 /* Ken Burns keyframes removed */
-.sites-map img,
-.still-seq img { animation: none; }
+.sites-map img { animation: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .still-seq__frame {
-    animation: none !important;
-    opacity: 0 !important;
-  }
-  .still-seq__frame:first-child {
-    opacity: 1 !important;
-    position: relative;
-  }
   .flex-hotspot { opacity: 1; }
-}
-@media print {
-  .still-seq__frame { animation: none !important; opacity: 0 !important; position: absolute; }
-  .still-seq__frame:first-child { opacity: 1 !important; position: relative; }
 }
 
 
@@ -2897,9 +2779,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   color: var(--c-ink);
   font-size: 0.92rem;
   line-height: 1.4;
-}
-.holds-scan__note {
-  color: var(--c-ink-3);
 }
 @media (max-width: 900px) {
   .holds-scan { grid-template-columns: 1fr 1fr; }
@@ -3964,23 +3843,6 @@ html:not(.js) .vertical-controls {
   display: block;
 }
 
-.js .scale__panels { position: relative; }
-.js .scale__panel {
-  transition: opacity 0.55s ease, visibility 0.55s ease;
-}
-.js .scale__panel:not(.is-on) {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.js .scale__panel.is-on {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-}
-
 .page-rail a {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s ease, box-shadow 0.35s ease;
 }
@@ -4037,8 +3899,7 @@ html:not(.js) .vertical-controls {
   .js .heat-pick .viz-frame__shot picture,
   .js .hall-pair .viz-frame__shot picture,
   .js .scale .viz-frame__shot picture,
-  .js .scale__panel,
-  .page-rail a,
+    .page-rail a,
   .vertical {
     transition: none;
   }
@@ -4662,9 +4523,6 @@ html {
 .js .scale .viz-frame__shot picture {
   transition: opacity 0.62s var(--ease);
 }
-.js .scale__panel {
-  transition: opacity 0.62s var(--ease), visibility 0.62s var(--ease);
-}
 .vertical {
   transition: opacity 0.62s var(--ease), visibility 0.62s var(--ease);
 }
@@ -4788,8 +4646,7 @@ html {
   .js .heat-pick .viz-frame__shot picture,
   .js .hall-pair .viz-frame__shot picture,
   .js .scale .viz-frame__shot picture,
-  .js .scale__panel,
-  .page-rail a,
+    .page-rail a,
   .vertical,
   .btn--cta::before,
   .hall-chapters a::after {
@@ -4884,14 +4741,6 @@ html {
   line-height: 1.45;
 }
 
-.purpose-quiet {
-  margin: 0.75rem 0 1.35rem;
-  max-width: 38rem;
-  color: var(--c-ink-2);
-  font-size: 1.05rem;
-  line-height: 1.45;
-}
-
 .gap-zone {
   margin: 1.35rem 0 0;
   max-width: 46rem;
@@ -4899,46 +4748,6 @@ html {
   color: var(--c-ink-3);
   line-height: 1.5;
 }
-
-.trio-quiet {
-  margin: 0 0 1.15rem;
-  max-width: 46rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--c-on-dark-3);
-}
-
-.section--dark .trio-quiet { color: var(--c-on-dark-3); }
-
-.side-hero__quiet {
-  margin: 0.85rem 0 0;
-  max-width: 40rem;
-  color: var(--c-ink-2);
-  font-size: 1.05rem;
-  line-height: 1.45;
-}
-
-.zone-aside {
-  margin: 1.35rem 0 0;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--c-stone-300);
-  max-width: 42rem;
-}
-.zone-aside__note {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c-ink-3);
-  margin: 0 0 0.55rem;
-}
-.zone-aside p {
-  margin: 0 0 0.45rem;
-  color: var(--c-ink-2);
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-.zone-aside p:last-child { margin-bottom: 0; }
 
 .flex-compare--paper {
   margin: 0 0 1.5rem;
@@ -4983,7 +4792,7 @@ html {
 }
 
 @media print {
-  .chapter__name, .purpose-quiet, .gap-zone, .trio-quiet, .zone-aside { color: #000; }
+  .chapter__name, .gap-zone { color: #000; }
   .compare-table--paper th, .compare-table--paper td { color: #000 !important; }
 }
 
@@ -5579,9 +5388,6 @@ html {
 .js .scale .viz-frame__shot picture {
   transition: opacity 0.68s cubic-bezier(.19, 1, .22, 1);
 }
-.js .scale__panel {
-  transition: opacity 0.68s cubic-bezier(.19, 1, .22, 1), visibility 0.68s cubic-bezier(.19, 1, .22, 1);
-}
 
 /* Thermal dest: same 3-way, paper surface */
 .heat-pick--paper {
@@ -5819,8 +5625,7 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
   .js .heat-pick .viz-frame__shot picture,
   .js .scale .viz-frame__shot picture,
-  .js .scale__panel,
-  .js .tier-pick__panel,
+    .js .tier-pick__panel,
   .js .hall-pair .viz-frame__shot picture {
     transition: none;
   }
@@ -6034,7 +5839,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 
 @media print {
   .parts-pick .heat-pick__kicker { color: #000; }
-  .parts-pick .heat-pick__stops { display: none !important; }
 }
 
 /* ==========================================================================
@@ -7717,12 +7521,7 @@ html.has-sda::before { content: none !important; display: none !important; }
   transition-duration: var(--dur-press);
 }
 
-/* still-seq leftover (unused in HTML) still gated if it returns. */
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
-  .still-seq__frame {
-    animation: none !important;
-  }
-  .still-seq__frame:first-child { opacity: 1 !important; }
   .flex-hotspot::after {
     animation: none !important;
     opacity: 0 !important;
@@ -11384,3 +11183,13 @@ a.text-link:focus-visible,
 
 /* Unit view: off stills cannot occupy a grid row at RM / <720.
    ≥720 with motion keeps the 680ms overlay crossfade (stacked is-on). */
+
+/* ==========================================================================
+   Pass 101 — leftover after Unit view remap + pass 100 destacks.
+   Dead dump-paint CSS gone (scale accordion, still-seq Ken Burns, hall-stage,
+   claims/thesis, spec-chips hint, heat tag, purpose-quiet, holds note, stats note).
+   Print picker chrome still hidden (scale/heat/pad/shell/mode) — empty this layer.
+   Hotspots: pointer cursor (they select the matching chip).
+   Specs 6 / Pad 4 / pay 4 compact HELD. Unit view remap HELD. Accordion not
+   restored. Two tracks not restacked. FAQ stays a list. For-you JS untouched.
+   ========================================================================== */
