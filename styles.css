@@ -951,12 +951,6 @@ body.nav-open { overflow: hidden; }
 .track__cta { margin-top: auto; }
 .track__cta .btn { width: auto; }
 
-.start__human {
-  margin: 1.75rem 0 0;
-  font-size: var(--fs-small);
-  color: var(--c-ink-2);
-}
-
 .faq { margin: 0; padding: 0; border: 0; }
 .faq__list { border-top: 1px solid var(--c-stone-300); }
 .faq__item { border-bottom: 1px solid var(--c-stone-300); }
@@ -4703,31 +4697,7 @@ html {
   font-size: 1.02rem;
   line-height: 1.45;
 }
-.compute-band__links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.85rem;
-  margin: 1.1rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--c-on-dark-3);
-}
-.compute-band__links a {
-  color: var(--c-timber-300);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(221, 191, 147, 0.35);
-}
-.compute-band__links a:hover { color: var(--c-timber-400); }
 .compute-band__cta { margin: 1rem 0 0; }
-.compute-band__cta .text-link {
-  color: var(--c-timber-300);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(221, 191, 147, 0.4);
-}
-.compute-band__cta .text-link:hover { color: var(--c-timber-400); }
 
 .page-compute .side-hero__title { max-width: 22ch; }
 
@@ -11173,3 +11143,153 @@ a.text-link:focus-visible,
    holds-scan 7/8 delay stays one pair. Text-link hover beats side-scan rest.
    No 4-across. No Ken Burns. Approach pin frozen. Eggs/classic frozen.
    ========================================================================== */
+
+/* ==========================================================================
+   2026-09-01 pass 93 — leftover hunt after 92 (different layer).
+   Document voice: Two tracks prose cards, Purpose/FAQ/leads, compute-band
+   as a compact CTA strip not a third hero. 390 Flex H1 two nowrap lines.
+   Home #holds 07/08 last pair spans the row (unpapered). Print For-you /
+   Approach leftover cream. Dead .compute-band__links / .start__human gone.
+   No 4-across. No Ken Burns. Approach pin frozen. Eggs/classic frozen.
+   ========================================================================== */
+
+/* Compute-band: cream closer → this strip → Holds. Not a third dark hero. */
+.section--compute-band {
+  padding-block: clamp(1.15rem, 2.4vw, 1.75rem);
+}
+.compute-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.compute-band__copy { min-width: 0; flex: 1 1 16rem; }
+.compute-band__title {
+  font-size: clamp(1.22rem, 1rem + 0.85vw, 1.55rem);
+  max-width: none;
+}
+.compute-band__lead {
+  margin: 0.2rem 0 0;
+  font-size: 0.98rem;
+}
+.compute-band__cta { margin: 0; flex: 0 0 auto; }
+.compute-band__cta .btn--ghost-light { min-height: 44px; min-width: 44px; }
+@media (max-width: 719px) {
+  .compute-band { display: block; }
+  .compute-band__cta { margin: 0.85rem 0 0; }
+}
+
+/* Two tracks: paper 2-up matching the closer, not a numbered memo. */
+.section--start { background: var(--c-paper); }
+.tracks { border-top: 0; gap: 0.75rem 0.9rem; }
+@media (min-width: 720px) {
+  .tracks { grid-template-columns: 1fr 1fr; }
+  .track,
+  .track:last-child {
+    padding: 0.95rem 1rem 1.15rem;
+    border: 0;
+    background: var(--c-offwhite);
+    box-shadow: inset 0 2px 0 var(--c-timber-500);
+  }
+}
+@media (max-width: 719px) {
+  .track,
+  .track:last-child {
+    padding: 1rem 0 1.15rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--c-stone-300);
+    background: transparent;
+    box-shadow: none;
+  }
+  .track:last-child { border-bottom: 0; padding-bottom: 0; }
+}
+.track__body {
+  margin: 0 0 1.1rem;
+  color: var(--c-ink-2);
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  max-width: 36rem;
+}
+.track__title { margin-bottom: 0.45rem; }
+@media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (min-width: 720px) {
+    .track {
+      transition: transform var(--dur-press) var(--ease), box-shadow var(--dur-press) var(--ease);
+    }
+    .track:hover,
+    .track:focus-within {
+      transform: translateY(-2px);
+      box-shadow: inset 0 2px 0 var(--c-timber-500);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .track,
+  .track:hover,
+  .track:focus-within { transform: none; transition: none; }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 720px) {
+  .track:hover,
+  .track:focus-within { box-shadow: inset 0 2px 0 var(--c-timber-500); }
+}
+
+/* Home Holds 07/08: last pair spans the row (unpapered). Not 4-across. */
+@media (min-width: 901px) {
+  #holds .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(7) {
+    grid-column: 1 / 4;
+  }
+  #holds .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(8) {
+    grid-column: 4 / 7;
+  }
+}
+
+/* Flex H1: two nowrap lines at 390, not only ≥720. Size so they fit. */
+.page-flexibility .side-hero__title .clip { display: block; }
+.page-flexibility .side-hero__title .clip-inner { white-space: nowrap; }
+@media (max-width: 419px) {
+  .page-flexibility .side-hero__title {
+    font-size: clamp(1.78rem, 7.4vw, 2.02rem);
+    max-width: none;
+  }
+}
+
+/* Loop second clip nowrap ≥900 is type, not motion — keep under RM. */
+@media (min-width: 900px) {
+  #flow-title .clip:nth-child(2) { white-space: nowrap; }
+}
+
+@media print {
+  .vertical__title,
+  .vertical__lead,
+  .vertical__idx,
+  .kicker-pill,
+  .chapter__title,
+  .chapter__lead,
+  .orbit,
+  .orbit__title,
+  .orbit__n,
+  .orbit p,
+  .section--dark .flex-chip,
+  .section--dark .spec-chips .flex-chip,
+  .section--dark .flex-specs__value,
+  .section--dark .flex-specs__label {
+    color: #000 !important;
+    background: #fff !important;
+  }
+  .kicker-pill { border-color: #000 !important; }
+  .track {
+    background: #fff !important;
+    box-shadow: none;
+    color: #000;
+  }
+  .track__title, .track__who, .track__body { color: #000 !important; }
+  .compute-band,
+  .compute-band__title,
+  .compute-band__lead { color: #000 !important; }
+  .brand__mark {
+    height: 28px !important;
+    width: auto !important;
+    aspect-ratio: 87.233 / 100 !important;
+  }
+}
