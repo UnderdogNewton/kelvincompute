@@ -497,15 +497,15 @@
               <span class="catalogue__n">01</span>
               <span class="catalogue__code">FB-40</span>
               <span class="catalogue__name">Flexbox</span>
-              <span class="catalogue__line">One module. 40 ft ISO. ≈1 MW. Air or liquid.</span>
+              <span class="catalogue__line">One module.</span>
             </a>
           </li>
           <li>
             <a class="catalogue__row" href="#part-ctl" data-part="ctl">
               <span class="catalogue__n">02</span>
               <span class="catalogue__code">CTL</span>
-              <span class="catalogue__name">Controller + meters</span>
-              <span class="catalogue__line">Pre-tested with the Flexbox. Dispatch &lt;0.7 s.</span>
+              <span class="catalogue__name">Controller</span>
+              <span class="catalogue__line">With the Flexbox.</span>
             </a>
           </li>
           <li>
@@ -513,7 +513,7 @@
               <span class="catalogue__n">03</span>
               <span class="catalogue__code">HEAT</span>
               <span class="catalogue__name">Heat flange</span>
-              <span class="catalogue__line">Capture designed in. Local on site, municipal or district.</span>
+              <span class="catalogue__line">Capture designed in.</span>
             </a>
           </li>
           <li>
@@ -521,7 +521,7 @@
               <span class="catalogue__n">04</span>
               <span class="catalogue__code">LV · MV</span>
               <span class="catalogue__name">Connection</span>
-              <span class="catalogue__line">Behind the meter or grid-connected. Kelvin brings the unit.</span>
+              <span class="catalogue__line">Behind the meter.</span>
             </a>
           </li>
         </ol>
@@ -641,67 +641,48 @@
         </aside>
         </div>
 
-        <div class="parts reveal" id="flex-parts" data-parts>
+        <div class="parts reveal" id="flex-parts">
           <p class="parts__label">Pad</p>
-          <div class="parts__list">
-            <div class="parts__item">
-              <button type="button" class="parts__btn" id="part-fb-btn" aria-expanded="true" aria-controls="part-fb">
-                <span class="parts__code">FB-40</span> Flexbox
-              </button>
-              <div class="parts__panel" id="part-fb" role="region" aria-labelledby="part-fb-btn">
-                <p>What others assemble on-site piece by piece ships as one module. Pre-tested.</p>
-              </div>
+          <dl class="spec-strip spec-strip--pad">
+            <div id="part-fb">
+              <dt>FB-40</dt>
+              <dd>Flexbox</dd>
             </div>
-            <div class="parts__item">
-              <button type="button" class="parts__btn" id="part-ctl-btn" aria-expanded="false" aria-controls="part-ctl">
-                <span class="parts__code">CTL</span> Controller + meters
-              </button>
-              <div class="parts__panel" id="part-ctl" role="region" aria-labelledby="part-ctl-btn" hidden>
-                <p>Controller and meters, one unit with the Flexbox.</p>
-              </div>
+            <div id="part-ctl">
+              <dt>CTL</dt>
+              <dd>Controller</dd>
             </div>
-            <div class="parts__item">
-              <button type="button" class="parts__btn" id="part-heat-btn" aria-expanded="false" aria-controls="part-heat">
-                <span class="parts__code">HEAT</span> Heat flange
-              </button>
-              <div class="parts__panel" id="part-heat" role="region" aria-labelledby="part-heat-btn" hidden>
-                <p>The flange. Capture designed in. Thermal/Heat out.</p>
-              </div>
+            <div id="part-heat">
+              <dt>HEAT</dt>
+              <dd>Flange</dd>
             </div>
-            <div class="parts__item">
-              <button type="button" class="parts__btn" id="part-lv-btn" aria-expanded="false" aria-controls="part-lv">
-                <span class="parts__code">LV · MV</span> Connection
-              </button>
-              <div class="parts__panel" id="part-lv" role="region" aria-labelledby="part-lv-btn" hidden>
-                <p>Behind the meter or grid-connected. Kelvin brings the unit. Plug-and-play is pad, connection and permits.</p>
-              </div>
+            <div id="part-lv">
+              <dt>LV · MV</dt>
+              <dd>Connection</dd>
             </div>
-          </div>
+          </dl>
         </div>
-
-        <p class="bring-quiet reveal" id="flex-bring">Kelvin brings Compute, Flexibility, Thermal/Heat — software, hardware, infrastructure — at the surplus pocket. Checkpoint in the contract.</p>
 
         <div class="pay-strip reveal" id="flex-pay" aria-label="How the megawatt pays">
           <p class="pay-strip__label">How the megawatt pays</p>
-          <ol>
-            <li>
-              <h3>Compute</h3>
-              <p>The baseline whenever the unit is running.</p>
-            </li>
-            <li>
-              <h3>Stand-by</h3>
-              <p>Paid for availability.</p>
-            </li>
-            <li>
-              <h3>Activation</h3>
-              <p>Paid when the load moves. No cycle penalty.</p>
-            </li>
-            <li>
-              <h3>Thermal/Heat</h3>
-              <p>Local on site, municipal or district.</p>
-            </li>
-          </ol>
-          <p class="pay-strip__note">Kelvin runs the Compute; the host keeps core operations. Compute earns while it flexes. <a class="text-link" href="flexibility.html#uses">At generation. At the mill.</a> <a class="text-link" href="flexibility.html#bess">Compute vs batteries</a>.</p>
+          <dl class="spec-strip spec-strip--pay">
+            <div>
+              <dt>Compute</dt>
+              <dd>Baseline</dd>
+            </div>
+            <div>
+              <dt>Stand-by</dt>
+              <dd>Availability</dd>
+            </div>
+            <div>
+              <dt>Activation</dt>
+              <dd>When it moves</dd>
+            </div>
+            <div>
+              <dt>Thermal/Heat</dt>
+              <dd>Local or district</dd>
+            </div>
+          </dl>
         </div>
 
         <div class="scale reveal" id="flex-scale" data-scale>

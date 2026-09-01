@@ -11513,3 +11513,94 @@ a.text-link:focus-visible,
 }
 
 /* Compute-band already a strip (pass 93). Holds 07/08 span held. Footer locked. */
+
+/* Pass 98 — Pad + pay as compact strips (same as Specs). */
+.parts {
+  margin: 0 0 0.85rem;
+  padding: 0.7rem 0 0;
+}
+.parts__label {
+  margin: 0 0 0.4rem;
+}
+.parts .spec-strip--pad,
+.pay-strip .spec-strip--pay {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(243, 239, 230, 0.14);
+  border-bottom: 1px solid rgba(243, 239, 230, 0.14);
+}
+@media (min-width: 720px) {
+  .parts .spec-strip--pad,
+  .pay-strip .spec-strip--pay {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.parts .spec-strip--pad > div,
+.pay-strip .spec-strip--pay > div {
+  padding: 0.55rem 0.85rem 0.6rem 0;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.12);
+  border-right: 1px solid rgba(243, 239, 230, 0.1);
+  min-width: 0;
+}
+@media (max-width: 719px) {
+  .parts .spec-strip--pad > div:nth-child(2n),
+  .pay-strip .spec-strip--pay > div:nth-child(2n) {
+    border-right: 0;
+    padding-right: 0;
+    padding-left: 0.75rem;
+  }
+  .parts .spec-strip--pad > div:nth-last-child(-n+2),
+  .pay-strip .spec-strip--pay > div:nth-last-child(-n+2) { border-bottom: 0; }
+}
+@media (min-width: 720px) {
+  .parts .spec-strip--pad > div,
+  .pay-strip .spec-strip--pay > div {
+    border-bottom: 0;
+    padding: 0.55rem 0.75rem 0.55rem 0;
+  }
+  .parts .spec-strip--pad > div:last-child,
+  .pay-strip .spec-strip--pay > div:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+.parts .spec-strip--pad dt,
+.pay-strip .spec-strip--pay dt {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-on-dark-3);
+}
+.parts .spec-strip--pad dd,
+.pay-strip .spec-strip--pay dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--c-on-dark);
+}
+.pay-strip {
+  margin: 0 0 0.85rem;
+}
+.pay-strip__label { margin: 0 0 0.4rem; }
+.pay-strip__note { display: none; }
+.bring-quiet { display: none; }
+.catalogue__line {
+  max-width: none;
+}
+.section--hall .pay-strip {
+  padding: 0;
+  border: 0;
+  margin: 0 0 0.85rem;
+}
+.section--hall .parts {
+  margin-bottom: 0.85rem;
+  padding-top: 0.55rem;
+}
