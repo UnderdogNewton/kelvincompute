@@ -11478,4 +11478,8 @@ a.text-link:focus-visible,
   margin: 0.55rem 0 0;
   font-size: 0.78rem;
 }
-.spec-rail .mode-pick { margin-top: 1rem; }
+.section--hall .spec-rail .mode-pick,
+.spec-rail .mode-pick {
+  margin-top: 0.7rem;
+}
+.section--hall .spec-strip__note { display: none; }
