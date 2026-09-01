@@ -10542,3 +10542,247 @@ html:not(.js) .verticals__stage {
 @media print {
   .page-rail, .skip-link, .nav-toggle, .nav-pill { display: none !important; }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 83 — hover/active product feel / 900 craft / 404
+   Vanilla CSS. No new JS libraries. No Ken Burns. No Approach redesign.
+   FAQ 77 pad / Loop two clips nowrap ≥900 / Flex H1 / skip-link fixed 400 /
+   pin gates from 80 / hall chips from 81 / rail hits from 82 held.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+/* 1. Sticky nav: dark pill was 0.82 over the hero still — cream links washed.
+   Light 0.88 kept. Timber CTA already forest-950 on timber-400 both themes. */
+.nav-pill[data-on-dark] {
+  background: rgba(13, 22, 18, 0.9);
+  border-color: rgba(243, 239, 230, 0.28);
+}
+
+/* Desktop nav: timber underline on hover, same tell as aria-current. */
+@media (min-width: 1200px) {
+  .site-nav__list a:hover,
+  .site-nav__list a:focus-visible {
+    color: var(--c-ink);
+    border-bottom-color: var(--c-timber-400);
+    text-decoration: none;
+  }
+  .nav-pill[data-on-dark] .site-nav__list a:hover,
+  .nav-pill[data-on-dark] .site-nav__list a:focus-visible {
+    color: var(--c-on-dark);
+    border-bottom-color: var(--c-timber-400);
+  }
+}
+
+/* 900 hamburger drawer: base hover was ink on a forest-950 sheet (illegible). */
+@media (max-width: 1199px) {
+  .site-nav__list a:hover,
+  .site-nav__list a:focus-visible {
+    color: var(--c-on-dark);
+    border-bottom-color: var(--c-timber-400);
+  }
+  .site-nav__list a[aria-current="true"],
+  .site-nav__list a[aria-current="page"] {
+    color: var(--c-timber-300);
+  }
+  .nav-toggle:hover {
+    border-color: var(--c-timber-400);
+    background: rgba(176, 122, 68, 0.14);
+  }
+  .nav-pill[data-on-dark] .nav-toggle:hover {
+    border-color: var(--c-timber-300);
+    background: rgba(176, 122, 68, 0.2);
+  }
+}
+
+/* Page-rail: diamonds had focus, no hover. Last items stay 28px hits. */
+@media (hover: hover) {
+  .page-rail a:hover {
+    background: var(--c-timber-400);
+    transform: rotate(45deg) scale(1.2);
+  }
+  .page-rail a[aria-current="true"]:hover {
+    background: var(--c-timber-500);
+    transform: rotate(45deg) scale(1.35);
+  }
+}
+.page-rail a:active {
+  transform: rotate(45deg) scale(0.95);
+  transition-duration: var(--dur-press);
+}
+
+/* FAQ: timber chevron on hover. Open pad from 77 held. */
+.faq__item summary:hover { color: var(--c-forest-800); }
+.faq__item summary:hover::after {
+  border-right-color: var(--c-timber-500);
+  border-bottom-color: var(--c-timber-500);
+}
+
+/* Scale / mode / tier: heat-pick already lifted 1px; these were :active only. */
+@media (hover: hover) and (min-width: 720px) {
+  .scale__stops button:hover,
+  .mode-pick__stops button:hover,
+  .tier-pick__stops button:hover,
+  .shell-pick button:hover {
+    transform: translateY(-1px);
+    border-color: var(--c-timber-400);
+  }
+  .heat-pick__stops button:hover {
+    border-color: var(--c-timber-400);
+  }
+}
+
+/* Email Kelvin: press. Fill-slide hover already timber-300. */
+.btn--cta:active,
+.btn--accent.btn--cta:active {
+  transform: translateY(1px);
+  transition-duration: var(--dur-press);
+}
+
+/* For-you Prev/Next: 2.6rem was 41.6px against 44px buttons. */
+.chapter-step .sq-btn,
+.vertical-controls .sq-btn {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* BESS: win-cell reads on row hover (paper table). Couplet / €200–500k untouched. */
+@media (hover: hover) and (min-width: 720px) {
+  .page-flexibility #bess .compare-table--paper tbody tr:hover td:first-of-type,
+  .page-flexibility #bess .compare-table--paper tbody tr:focus-within td:first-of-type {
+    background: rgba(176, 122, 68, 0.2);
+  }
+}
+
+/* 2. 900px — hall chips were 2-up + spanning 5th (sparse). 3+2 until 1100 five-across.
+   720 last-full-width and 1280 five-across from 81 held. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .section--dark .spec-chips {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .section--dark .spec-chips > :last-child { grid-column: auto; }
+}
+
+/* For-you chips at 900–1099 were 0.55rem. Product chips, not micro-labels. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .vertical-groups--split .vertical-index button,
+  .vertical-groups--split .vertical-index button[aria-pressed="true"],
+  .vertical-groups--split .vertical-index button[aria-pressed="false"] {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    min-height: 44px;
+    padding: 0.35rem 0.15rem;
+  }
+  .vertical__cap {
+    max-width: min(28rem, calc(100% - 2 * var(--gutter)));
+    color: var(--c-on-dark);
+    text-shadow: 0 1px 14px rgba(8, 16, 13, 0.85), 0 0 2px rgba(8, 16, 13, 0.9);
+  }
+}
+
+/* Side-hero jump chips: keep one row wrapping with 44px hits at the 900 split. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .side-jump--split .side-jump__group a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* BESS at 900: three columns stay; padding was 1.15rem in ~840px. */
+@media (max-width: 900px) {
+  .page-flexibility #bess .compare-table--paper th,
+  .page-flexibility #bess .compare-table--paper td {
+    padding: 0.7rem 0.65rem;
+  }
+}
+
+/* 3. Side-hero stills: object-fit on the img, not the shot box (no-op on a div). */
+.page-compute .side-hero__still .viz-frame__shot img,
+.page-energy .side-hero__still .viz-frame__shot img,
+.page-thermal .side-hero__still .viz-frame__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.side-hero .viz-cap {
+  color: var(--c-ink-2);
+}
+.side-hero .viz-cap__kind {
+  color: var(--c-timber-600);
+}
+
+/* For-you overlay caption on the photo — cream, not on-dark-3 grey. */
+.vertical__cap {
+  color: var(--c-on-dark);
+  text-shadow: 0 1px 12px rgba(8, 16, 13, 0.8), 0 0 2px rgba(8, 16, 13, 0.85);
+}
+
+/* 4. Print: G1 unsquashed light mark; dark acts print as ink on paper. */
+@media print {
+  .brand__mark {
+    height: 28px !important;
+    width: auto !important;
+    aspect-ratio: 87.233 / 100 !important;
+  }
+  .hero,
+  .hero.hero--fold,
+  .section--dark,
+  .section--verticals,
+  .side-hero,
+  .site-footer {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .hero__title,
+  .hero__tagline,
+  .hero__kicker,
+  .section--dark .section__title,
+  .section--dark .section__lead,
+  .section--dark p,
+  .side-hero__title,
+  .site-footer,
+  .site-footer * {
+    color: #000 !important;
+  }
+  .hero__scrim,
+  .hero__grain,
+  .flex-hotspots,
+  .page-progress {
+    display: none !important;
+  }
+}
+
+/* 5. 404 — same chrome, no Contact band, locked footer. */
+.page-404 .side-hero {
+  min-height: min(62vh, 560px);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.page-404 .side-hero__title { max-width: 14ch; }
+.page-404 .cta-row { margin-top: 1.35rem; gap: 0.75rem; }
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .page-rail a:hover,
+  .page-rail a:active {
+    transform: rotate(45deg);
+  }
+  .page-rail a[aria-current="true"]:hover {
+    transform: rotate(45deg) scale(1.35);
+  }
+  .scale__stops button:hover,
+  .mode-pick__stops button:hover,
+  .tier-pick__stops button:hover,
+  .shell-pick button:hover,
+  .heat-pick__stops button:hover,
+  .btn--cta:active,
+  .btn--accent.btn--cta:active {
+    transform: none;
+  }
+}
+
+/* Hamburger drawer was under the overlay: overlay z-48 vs .nav-pill z-auto
+   inside the header stacking context, so the sheet ate pointer events. */
+@media (max-width: 1199px) {
+  .nav-overlay { z-index: 1; }
+  .nav-pill { z-index: 2; }
+}

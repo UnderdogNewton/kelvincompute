@@ -99,10 +99,7 @@
 
   var t = {
     menu: 'Menu',
-    close: 'Close',
-    copiedPrefix: 'Copied ',
-    copyBtn: 'Copy address',
-    copyFailPrefix: 'Copy failed — the address is '
+    close: 'Close'
   };
 
   /* ---------- Mobile navigation ---------- */
@@ -353,27 +350,6 @@
       window.setTimeout(function () {
         Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-visible'); });
       }, 4000);
-    }
-  }
-
-  /* ---------- Copy email address ---------- */
-  var copyButton = doc.getElementById('copy-email');
-  if (copyButton) {
-    var copyRoot = copyButton.closest('.contact-named');
-    var copyStatus = copyRoot ? copyRoot.querySelector('.copy-status') : null;
-    if (!navigator.clipboard || !window.isSecureContext) {
-      copyButton.hidden = true;
-    } else {
-      copyButton.addEventListener('click', function () {
-        var email = copyButton.getAttribute('data-email') || '';
-        navigator.clipboard.writeText(email).then(function () {
-          if (copyStatus) { copyStatus.textContent = t.copiedPrefix + email; }
-          copyButton.textContent = 'Copied';
-          window.setTimeout(function () { copyButton.textContent = t.copyBtn; if (copyStatus) { copyStatus.textContent = ''; } }, 2500);
-        }, function () {
-          if (copyStatus) { copyStatus.textContent = t.copyFailPrefix + email; }
-        });
-      });
     }
   }
 
