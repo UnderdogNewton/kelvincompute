@@ -10462,3 +10462,44 @@ html:not(.js) .verticals__stage {
     transition: none !important;
   }
 }
+
+/* ==========================================================================
+   2026-09-01 pass 81 — leftover craft / RM rail / hall chips / hamburger
+   Vanilla CSS. No new JS. No Ken Burns. No Approach redesign.
+   FAQ 77 pad / Loop nowrap / Flex H1 / skip-link fixed 400 / pin gates held.
+   Reduced-motion and <720: static (no new motion).
+   ========================================================================== */
+
+/* Eggs RM block hid the diamond rail. Pulse is already gated; the rail is nav. */
+@media (min-width: 1100px) {
+  .page-rail { display: flex; }
+}
+
+/* Skip lands on #main; a 3px ring around the whole page is not a target. */
+#main:focus,
+#main:focus-visible { outline: none; }
+
+/* Hamburger 0.5s + hall-chapter color reintroduced after the early RM gate. */
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle__bars span,
+  .hall-chapters a {
+    transition: none;
+  }
+}
+
+/* Hall spec chips: 5th chip was a half-width orphan at 720.
+   2-up + last spans on tablet; 5-across once the hall is wide. */
+@media (min-width: 720px) {
+  .section--dark .spec-chips { grid-template-columns: 1fr 1fr; }
+  .section--dark .spec-chips > :last-child { grid-column: 1 / -1; }
+}
+@media (min-width: 1100px) {
+  .section--dark .spec-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .section--dark .spec-chips > :last-child { grid-column: auto; }
+}
+
+/* Footer mail: `overflow-wrap: anywhere` on all footer links could split the address. */
+.site-footer__mail a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
