@@ -1048,8 +1048,8 @@
 
   var heatCopy = {
     industrial: {
-      cap: 'Industrial host — load at the mill',
-      copy: 'Local Heat at the mill — premises and process on site. The mill stays on; Compute flexes.',
+      cap: 'Industrial host — load in industry',
+      copy: 'Local Heat on site — premises and process. The process stays on; Compute flexes.',
       kicker: '01 Industrial'
     },
     residential: {
@@ -1380,7 +1380,7 @@
       if (live) { fadeText(live, btn.getAttribute(liveAttr) || fallback); }
     });
   };
-  bindScanLive(doc.querySelector('[data-markets]'), 'button[data-market]', '.markets-live', 'data-market-live', 'Built for.');
+  bindScanLive(doc.querySelector('[data-markets]'), 'button[data-market]', '.markets-live', 'data-market-live', 'FCR-D — frequency containment.');
   bindScanLive(doc.querySelector('[data-queue]'), 'button[data-queue]', '.queue-live', 'data-queue-live', 'The queue — years on a demand connection.');
 
 

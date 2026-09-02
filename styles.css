@@ -11338,3 +11338,227 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
+
+/* ==========================================================================
+   2026-09-02 labels — Compute Flexibility nav / 2-stat gap /
+   markets H2 wrap. Vanilla CSS. No new JS libraries. No Ken Burns.
+   Approach pin frozen. Eggs frozen. For-you JS frozen.
+   Flex H1 two nowrap HELD. Hamburger 44px HELD. Cream drawer
+   rgb(252,250,246) / --c-paper HELD.
+   ========================================================================== */
+
+/* Nav is longer: Compute Flexibility. Tighten pill so 1280 stays one row. */
+@media (min-width: 1200px) {
+  .site-nav__list { gap: 0.4rem; }
+  .site-nav__list a {
+    font-size: 0.7rem;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+}
+@media (min-width: 1280px) {
+  .site-nav__list { gap: 0.46rem; }
+  .site-nav__list a { font-size: 0.72rem; }
+}
+@media (min-width: 1440px) {
+  .site-nav__list { gap: 0.68rem; }
+  .site-nav__list a { font-size: 0.8rem; letter-spacing: -0.018em; }
+}
+
+/* 900 cream drawer: allow the long Compute Flexibility line to wrap. */
+@media (max-width: 1199px) {
+  .site-nav__list a {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Markets H2 is longer than “Built for FCR-D.” — wrap, do not nowrap-clip.
+   Flex H1 two nowrap is scoped to .side-hero__title and stays. */
+.page-flexibility #markets-title .clip-inner {
+  white-space: normal;
+}
+.page-flexibility #markets-title {
+  max-width: 22ch;
+}
+
+/* Jump chips: Hydro · Industrial & Manufacturing / vs Battery Flexibility. */
+.side-jump--split a {
+  white-space: normal;
+  text-align: left;
+}
+
+/* Home gap stats: 25% + +41 TWh in one tile. Two equal columns ≥720. */
+.section--gap .hero-stats .stats--row .stat__value--sub {
+  display: block;
+  font-size: clamp(1.02rem, 0.82rem + 0.7vw, 1.32rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--c-forest-800);
+  margin: -0.15rem 0 0.55rem;
+}
+.section--gap .hero-stats .stats--row .stat__label {
+  max-width: 38ch;
+}
+
+@media (max-width: 719px) {
+  .section--gap .hero-stats .stats--row {
+    grid-template-columns: 1fr;
+  }
+  .section--gap .hero-stats .stats--row .stat {
+    border-right: 0;
+    border-bottom: 1px solid var(--c-stone-300);
+  }
+  .section--gap .hero-stats .stats--row > li:last-child .stat {
+    border-bottom: 0;
+  }
+  .section--gap .hero-stats .stats--row > li:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+@media (min-width: 720px) {
+  .section--gap .hero-stats .stats--row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .section--gap .hero-stats .stats--row > li:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+  .section--gap .hero-stats .stats--row .stat {
+    border-right: 1px solid var(--c-stone-300);
+    border-bottom: 0;
+  }
+  .section--gap .hero-stats .stats--row > li:last-child .stat {
+    border-right: 0;
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .section--gap .hero-stats .stats--row .stat:hover,
+  .section--gap .hero-stats .stats--row .stat:focus-visible,
+  .section--gap .hero-stats .stats--row .stat:active {
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-02 hall leftover craft — tighter product, not a restack.
+   Specs 6 / Pad 4 / pay 4 compact HELD. Unit view Closed/Exploded HELD.
+   4-racks chip HELD. Catalogue product lead HELD. No Ken Burns, no new JS,
+   Approach pin frozen, For-you JS frozen. 720 chips 3+2 HELD.
+   1280 five-across HELD. Forest/dark hall palette HELD. RM/<720 static.
+   ========================================================================== */
+
+/* One product, not a document stack. */
+.section.section--hall {
+  padding-block: clamp(1.65rem, 3.2vw, 2.85rem);
+}
+.section--hall .section__head {
+  margin-bottom: clamp(0.55rem, 1.2vw, 0.95rem);
+}
+.hall-unit {
+  margin-bottom: 0.55rem;
+}
+.hall-unit .spec-rail {
+  margin-top: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+.section--hall .parts {
+  margin-bottom: 0.45rem;
+  padding-top: 0.35rem;
+}
+.section--hall .pay-strip {
+  margin: 0 0 0.45rem;
+  padding: 0;
+}
+.section--hall .scale,
+.section--hall .heat-pick {
+  margin: 0 0 0.7rem;
+}
+.section--hall .mode-pick {
+  margin-bottom: 0;
+}
+.section--hall .spec-rail .mode-pick {
+  margin-top: 0.45rem;
+}
+
+/* Reprint labels: hall-chapters already says Unit / Specs / Scale.
+   Keep the controls; destack the quieter leftover labels. */
+.section--hall .shell-pick__label,
+.section--hall .spec-rail__label,
+.section--hall .scale__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.section--hall .shell-pick,
+.section--hall .spec-rail,
+.section--hall .scale {
+  position: relative;
+}
+.section--hall .shell-pick {
+  margin-bottom: 0.55rem;
+}
+
+/* Specs strip stays 6-cell; quieter so chips on the still stay first. */
+.section--hall .spec-rail .spec-strip > div {
+  padding: 0.4rem 0.55rem 0.42rem 0;
+}
+.section--hall .spec-rail .spec-strip dt {
+  font-size: 0.58rem;
+  margin-bottom: 0.08rem;
+}
+.section--hall .spec-rail .spec-strip dd {
+  font-size: 0.88rem;
+}
+.section--hall .parts .spec-strip--pad > div,
+.section--hall .pay-strip .spec-strip--pay > div {
+  padding-top: 0.42rem;
+  padding-bottom: 0.42rem;
+}
+
+/* Same compact stop language: chapters, unit view, load, scale. */
+.section--hall .hall-chapters a,
+.section--hall .shell-pick__stops button,
+.section--hall .mode-pick__stops button,
+.section--hall .scale__stops button {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  min-height: 44px;
+}
+.section--hall .shell-pick__stops,
+.section--hall .mode-pick__stops,
+.section--hall .scale__stops {
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+}
+.section--hall .shell-pick__stops button,
+.section--hall .mode-pick__stops button,
+.section--hall .scale__stops button {
+  padding: 0.32rem 0.65rem;
+}
+
+.section--hall .flex-compare {
+  margin-top: 0.15rem;
+  margin-bottom: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .section--hall .shell-pick__stops button,
+  .section--hall .mode-pick__stops button,
+  .section--hall .scale__stops button,
+  .section--hall .hall-chapters a {
+    transition: none;
+  }
+}

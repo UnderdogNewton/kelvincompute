@@ -146,7 +146,7 @@
           <li><a href="compute.html">Compute</a></li>
           <li><a href="energy.html">Energy</a></li>
           <li><a href="thermal.html">Thermal</a></li>
-          <li><a href="flexibility.html">Flexibility</a></li>
+          <li><a href="flexibility.html">Compute Flexibility</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -206,21 +206,16 @@
       <div class="container">
         <div class="section__head section__head--center reveal">
           <p class="eyebrow">The gap</p>
-          <h2 id="why-title" class="section__title"><span class="clip"><span class="clip-inner">Surplus Energy is switched off. Interruptible Compute sits on it.</span></span></h2>
+          <h2 id="why-title" class="section__title"><span class="clip"><span class="clip-inner">Compute Flexibility earns while it flexes.</span></span></h2>
         </div>
 
         <div class="hero-stats reveal">
           <ul class="stats stats--row" data-stats-row aria-label="Europe’s curtailment in Sweden and the Nordics">
             <li>
-              <button type="button" class="stat" aria-pressed="true" data-stat-gloss="A quarter of Europe’s wasted Energy is trapped in northern Sweden. Every TWh of it is inventory.">
+              <button type="button" class="stat" aria-pressed="true" data-stat-gloss="A quarter of Europe’s wasted Energy is trapped in northern Sweden. +41 TWh a year, and rising.">
                 <span class="stat__value"><span data-count="25">25</span>%</span>
-                <span class="stat__label">Of Europe’s wasted Energy. Trapped in northern Sweden. Every TWh of it is inventory.</span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="stat" aria-pressed="false" data-stat-gloss="Sweden’s yearly curtailment — +41 TWh, and rising.">
-                <span class="stat__value">+<span data-count="41">41</span>&nbsp;TWh</span>
-                <span class="stat__label">Sweden, yearly. Curtailment — increasing every year.</span>
+                <span class="stat__value stat__value--sub">+<span data-count="41">41</span>&nbsp;TWh</span>
+                <span class="stat__label">Of Europe’s wasted Energy. Trapped in northern Sweden. +41 TWh Sweden, yearly — and rising.</span>
               </button>
             </li>
             <li>
@@ -230,7 +225,7 @@
               </button>
             </li>
           </ul>
-          <p class="stats-gloss" data-stats-gloss aria-live="polite">A quarter of Europe’s wasted Energy is trapped in northern Sweden. Every TWh of it is inventory.</p>
+          <p class="stats-gloss" data-stats-gloss aria-live="polite">A quarter of Europe’s wasted Energy is trapped in northern Sweden. +41 TWh a year, and rising.</p>
         </div>
 
         <div class="gap-grid">
@@ -711,7 +706,7 @@
         <div class="heat-pick reveal" id="flex-heat" data-heat>
           <p class="heat-pick__label">Hosts</p>
           <div class="heat-pick__stops" role="group" aria-label="Host, offtake, generation">
-            <button type="button" aria-pressed="true" data-heat="industrial" data-heat-kicker="01 Industrial" data-heat-cap="Industrial host — load at the mill" data-heat-copy="Local Heat at the mill — premises and process on site. The mill stays on; Compute flexes.">Industrial</button>
+            <button type="button" aria-pressed="true" data-heat="industrial" data-heat-kicker="01 Industrial" data-heat-cap="Industrial host — load in industry" data-heat-copy="Local Heat on site — premises and process. The process stays on; Compute flexes.">Industrial</button>
             <button type="button" aria-pressed="false" data-heat="residential" data-heat-kicker="02 Residential" data-heat-cap="District Heat — into the network" data-heat-copy="Heat into the district network that already serves buildings and homes.">Residential</button>
             <button type="button" aria-pressed="false" data-heat="hydro" data-heat-kicker="03 Hydro" data-heat-cap="Hydro — surplus at generation" data-heat-copy="Surplus at generation, behind the meter or spare connection.">Hydro</button>
             <button type="button" aria-pressed="false" data-heat="geothermal" data-heat-kicker="04 Geothermal" data-heat-cap="Geothermal — Heat sink next to the pad" data-heat-copy="A Heat sink next to the pad.">Geothermal</button>
@@ -756,13 +751,13 @@
                 <img src="img/heat-process.jpg" width="1200" height="800" alt="Visualization of a Heat pipe into an unbranded timber mill or drying hall. Site-specific — not a named mill. Not a photograph of an operating site." loading="eager" decoding="async">
               </picture>
             </div>
-            <figcaption class="viz-cap"><span class="viz-cap__kind">Visualization</span><span class="viz-cap__line" data-heat-cap>Industrial host — load at the mill</span></figcaption>
+            <figcaption class="viz-cap"><span class="viz-cap__kind">Visualization</span><span class="viz-cap__line" data-heat-cap>Industrial host — load in industry</span></figcaption>
           </figure>
-          <p class="heat-pick__copy" data-heat-copy aria-live="polite">Local Heat at the mill — premises and process on site. The mill stays on; Compute flexes.</p>
+          <p class="heat-pick__copy" data-heat-copy aria-live="polite">Local Heat on site — premises and process. The process stays on; Compute flexes.</p>
         </div>
 
         <div id="flex-compare" class="flex-compare reveal">
-          <p class="flex-compare__note">Compute earns while it flexes. <a class="text-link" href="flexibility.html#bess">Compute vs batteries</a>.</p>
+          <p class="flex-compare__note">Compute earns while it flexes. <a class="text-link" href="flexibility.html#bess">Compute vs Battery Flexibility</a>.</p>
         </div>
 
         <div id="flex-sheet" class="flex-sheet reveal">
@@ -818,7 +813,7 @@
               <source type="image/webp" srcset="img/interior.webp">
               <img src="img/interior.jpg" width="1200" height="800" alt="Visualization of a timber-framed hall interior: two aisles of liquid-cooled racks under wood beams. Siting visualization. Not a photograph of an operating site." decoding="async">
             </picture>
-            <p class="viz-cap vertical__cap"><span class="viz-cap__kind">Visualization</span><span class="viz-cap__line">Timber interior — mill that stays on.</span></p>
+            <p class="viz-cap vertical__cap"><span class="viz-cap__kind">Visualization</span><span class="viz-cap__line">Timber interior — industry stays on.</span></p>
           </div>
           <div class="vertical__panel">
             <div class="vertical__top">
@@ -826,7 +821,7 @@
               <p class="vertical__idx">1.0</p>
             </div>
             <h3 class="vertical__title">You stay on. Compute flexes.</h3>
-            <p class="vertical__lead">Sawmills, pulp, drying. Local Heat on site — process and premises. The mill cannot pause — Compute flexes instead.</p>
+            <p class="vertical__lead">Sawmills, pulp, drying. Local Heat on site — process and premises. The process cannot pause — Compute flexes instead.</p>
             <p class="vertical__cta"><a class="text-link vertical__more" href="energy.html">Energy</a></p>
           </div>
         </article>
@@ -1256,7 +1251,7 @@
             </details>
             <details class="faq__item reveal">
               <summary>How is Flexibility-as-a-Service paid?</summary>
-              <p>Paid on stand-by, on activation, and while Compute is running. See <a class="text-link" href="#flex-pay">How the megawatt pays</a> and <a class="text-link" href="flexibility.html">Flexibility</a>.</p>
+              <p>Paid on stand-by, on activation, and while Compute is running. See <a class="text-link" href="#flex-pay">How the megawatt pays</a> and <a class="text-link" href="flexibility.html">Compute Flexibility</a>.</p>
             </details>
             <details class="faq__item reveal">
               <summary>Retrofit or plug-and-play?</summary>
@@ -1301,7 +1296,7 @@
           <svg class="brand__mark brand__mark--on-dark" viewBox="0 0 87.233 100" aria-hidden="true" focusable="false"><use href="#k-mark-dark"/></svg>
           <span class="brand__name">Kelvin<span class="brand__name-light"> Compute</span></span>
         </a>
-        <p class="site-footer__line">Wasted Energy turned into High-Performance Compute and Thermal/Heat.<br>Flexibility for grid stability, curtailment, congestion and mitigation of Energy shocks — lowering Energy costs for homes, businesses and communities.</p>
+        <p class="site-footer__line">Wasted Energy turned into High-Performance Compute and Thermal/Heat.<br>Compute Flexibility for grid stability, curtailment, congestion and mitigation of Energy shocks — lowering Energy costs for homes, businesses and communities.</p>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <p class="site-footer__heading">Site</p>
@@ -1312,7 +1307,7 @@
           <li><a href="compute.html">Compute</a></li>
           <li><a href="energy.html">Energy</a></li>
           <li><a href="thermal.html">Thermal</a></li>
-          <li><a href="flexibility.html">Flexibility</a></li>
+          <li><a href="flexibility.html">Compute Flexibility</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
