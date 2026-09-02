@@ -11681,27 +11681,91 @@ a.text-link:focus-visible,
   .site-board > li:first-child .site-board__row { padding-top: 0.85rem; }
 }
 
-/* Compute — Cooling | Pad duo. ≥900 two columns; 720/390 stack Cooling then Pad.
-   #cooling and #parts ids held for jumps. data-pad picker unchanged. */
-.cooling-pad-duo {
+/* Side duos — compact sibling folds. Grid 1fr; ≥900: 1fr 1fr; gap 0.9rem.
+   Cols min-width 0. Stack at 720/390 in DOM order. Col ids held for jumps.
+   Cooling | Pad keeps .cooling-pad-duo as a stills hook on top of .side-duo. */
+.side-duo {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.35rem;
+  gap: 0.9rem;
   width: 100%;
   min-width: 0;
   align-items: start;
 }
+.side-duo__col {
+  min-width: 0;
+  padding-block: 0;
+}
+.side-duo .section__head {
+  margin-bottom: 0.85rem;
+}
+.side-duo .section__title {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+}
+
+/* Leftover full-section head air on ids that are now columns. */
+.side-duo .section__head,
+.page-compute #cooling .section__head,
+.page-compute #parts .section__head,
+.page-compute #local .section__head,
+.page-compute #contract .section__head,
+.page-energy #local .section__head,
+.page-energy #plots .section__head,
+.page-thermal #dest .section__head,
+.page-thermal #who .section__head,
+.page-flexibility #markets .section__head,
+.page-flexibility #wire .section__head {
+  margin-bottom: 0.85rem;
+}
+
+/* Jump targets still clear sticky nav after wrap (cols are not .section). */
+#local, #contract, #plots, #dest, #who, #markets, #wire,
+#cooling, #parts {
+  scroll-margin-top: 5.75rem;
+}
+
+@media (min-width: 900px) {
+  .side-duo {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+  /* Scans must not postage in a half column. Beat 3+2 / 4-up / Energy 3-col. */
+  .side-duo .holds-scan,
+  .side-duo .holds-scan:has(> :nth-child(4):last-child),
+  .side-duo .holds-scan:has(> :nth-child(5):last-child),
+  .side-duo .holds-scan:has(> :nth-child(8):last-child),
+  .side-duo .side-scan,
+  .side-duo .side-scan--3,
+  .side-duo .side-scan--4,
+  .side-duo .side-scan--ai,
+  .page-energy .side-duo .side-scan--3 {
+    grid-template-columns: 1fr;
+  }
+  .side-duo .holds-scan > li,
+  .side-duo .holds-scan:has(> :nth-child(4):last-child) > li,
+  .side-duo .holds-scan:has(> :nth-child(4):last-child) > li:nth-child(4),
+  .side-duo .holds-scan:has(> :nth-child(5):last-child) > li,
+  .side-duo .holds-scan:has(> :nth-child(5):last-child) > li:nth-child(4),
+  .side-duo .holds-scan:has(> :nth-child(5):last-child) > li:nth-child(5),
+  .side-duo .holds-scan:has(> :nth-child(8):last-child) > li,
+  .side-duo .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(7),
+  .side-duo .holds-scan:has(> :nth-child(8):last-child) > li:nth-child(8) {
+    grid-column: auto;
+  }
+}
+
+/* Compute — Cooling | Pad stills hook. Layout is .side-duo; this keeps
+   stills full-bleed in the column and 1-col cooling scan. */
+.cooling-pad-duo {
+  gap: 1.35rem;
+}
 .cooling-pad-duo__col {
   min-width: 0;
 }
-.cooling-pad-duo .section__head {
-  margin-bottom: 0.85rem;
-}
-.cooling-pad-duo .section__title {
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-}
 .cooling-pad-duo .side-still,
-.cooling-pad-duo .heat-pick {
+.cooling-pad-duo .heat-pick,
+.page-compute #cooling .side-still,
+.page-compute #parts .heat-pick {
   width: 100%;
   max-width: none;
   margin: 0 0 0.85rem;
@@ -11730,10 +11794,7 @@ a.text-link:focus-visible,
   margin-top: 1.1rem;
 }
 @media (min-width: 900px) {
-  .cooling-pad-duo {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.9rem;
-  }
+  .cooling-pad-duo { gap: 0.9rem; }
 }
 @media (max-width: 719px) {
   .cooling-pad-duo { gap: 1.1rem; }
