@@ -11802,3 +11802,8 @@ a.text-link:focus-visible,
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
   .cooling-pad-duo .heat-pick__stops button { transition: none; }
 }
+
+/* Why Kelvin H2: two clip lines. */
+#purpose-title .clip { display: block; }
+#purpose-title { overflow-wrap: normal; }
+#purpose-title .clip:nth-child(2) { white-space: nowrap; }
