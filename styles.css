@@ -11807,3 +11807,172 @@ a.text-link:focus-visible,
 #purpose-title .clip { display: block; }
 #purpose-title { overflow-wrap: normal; }
 #purpose-title .clip:nth-child(2) { white-space: nowrap; }
+
+/* ==========================================================================
+   2026-09-02 spacing craft — leftover dump pad after copy got shorter.
+   Light, reversible. No layout redesign. Approach pin frozen. Hall-duo and
+   .side-duo 2-ups not collapsed. Two tracks stay paper 2-up. For-you JS
+   untouched. No Ken Burns. No new JS. British data centres. RM/<720: no new
+   motion (pad/gap only).
+   ========================================================================== */
+
+/* 1. Product side-hero + first-section stacked air.
+   Before: hero pad clamp(6.5rem, 12vw, 8.75rem) 0 clamp(3rem, 6.5vw, 4.25rem)
+   → 140/68 @1280; first section extra top clamp(3.5rem, 7.5vw, 5.85rem) on
+   top of .section--side clamp(3.35rem, 7vw, 5.65rem) = 93.6px. */
+.side-hero {
+  padding: clamp(5.15rem, 9vw, 6.5rem) 0 clamp(1.55rem, 3vw, 2.15rem);
+}
+.section--side {
+  padding-block: clamp(2.05rem, 4.2vw, 3.45rem);
+}
+.side-hero + .section--side {
+  padding-top: clamp(1.85rem, 3.8vw, 2.85rem);
+}
+.section--side .section__head {
+  margin-bottom: 1.05rem;
+}
+.side-hero__deck {
+  margin-top: 0.65rem;
+}
+
+/* 2. Home Holds / Purpose / Loop — still on --section-pad 76.8px @1280×800
+   after the copy shortened. Sites / start / hall already had their own clamps. */
+.section--moat,
+.section--purpose,
+.section--flow {
+  padding-block: clamp(2.05rem, 4.2vw, 3.45rem);
+}
+#holds .section__head,
+.section--purpose .section__head,
+.section--flow .section__head {
+  margin-bottom: clamp(0.85rem, 1.8vw, 1.25rem);
+}
+#holds .holds-scan {
+  gap: 0.95rem 1.5rem;
+  padding: 0.75rem 0 0;
+}
+
+/* 3. Two tracks + FAQ stacked join. Before: both clamp(2.25rem, 4.6vw, 3.85rem)
+   = 58.88px each @1280 (118px between last card and Questions). Head mb
+   clamp(1.1rem, 2.4vw, 1.75rem) leftover against a one-line lead. */
+.section--start,
+.section--faq {
+  padding-block: clamp(1.55rem, 3.2vw, 2.45rem);
+}
+.section--start .section__head,
+.section--faq .section__head {
+  margin-bottom: clamp(0.7rem, 1.5vw, 1.05rem);
+}
+.section--faq {
+  padding-bottom: clamp(1.15rem, 2.4vw, 1.75rem);
+}
+
+/* 4. Paper 2-up tracks: inner pad leftover after short body; CTA sits in the
+   leftover instead of on the card floor. Do not restack. */
+@media (min-width: 720px) {
+  .tracks {
+    align-items: stretch;
+  }
+  .track,
+  .track:last-child {
+    padding: 0.75rem 0.85rem 0.8rem;
+    height: 100%;
+  }
+}
+.track__body {
+  margin: 0 0 0.65rem;
+}
+@media (min-width: 720px) {
+  .track__body { flex: 1 1 auto; }
+}
+@media (max-width: 719px) {
+  .track,
+  .track:last-child {
+    padding: 0.65rem 0 0.7rem;
+  }
+  .track:last-child { padding-bottom: 0; }
+  .track__cta { margin-top: 0.55rem; }
+}
+
+/* 5. Product paper cards — postage-stamped after destack. Same family as
+   tracks. Side-duo 2-ups stay 2-up; only inner pad. */
+@media (min-width: 720px) {
+  .page-compute .holds-scan > li,
+  .page-energy .holds-scan > li,
+  .page-flexibility .holds-scan > li,
+  .page-thermal .holds-scan > li,
+  .holds-scan--2 > li {
+    padding: 0.7rem 0.85rem 0.75rem;
+  }
+  .page-compute #sovereign {
+    padding: 0.7rem 0.85rem 0.75rem;
+  }
+}
+
+/* 6. FAQ rows: summary 1.15rem + answer 1.25rem leftover vs short answers.
+   Keep 44px hit. Open-item left pad from pass 77 held. */
+.faq__item summary {
+  padding: 0.8rem 0;
+  min-height: 44px;
+}
+.faq__item p {
+  padding-bottom: 0.85rem;
+}
+
+/* 7. Footer note sitting in a void — grid stretch + stacked FAQ/footer air.
+   Copy held: "Energy host or Compute buyer? Reach out." */
+.site-footer {
+  padding-block: 1.15rem 0.85rem;
+}
+.site-footer__grid {
+  align-items: start;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+.site-footer__line {
+  margin-top: 0.55rem;
+}
+.site-footer__note {
+  margin: 0.3rem 0 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--c-on-dark-2);
+  line-height: 1.4;
+}
+.site-footer__address {
+  margin-top: 0.45rem;
+}
+.site-footer__bottom {
+  padding-top: 0.55rem;
+}
+@media (max-width: 799px) {
+  .site-footer__grid { gap: 0.7rem; }
+}
+
+/* 8. First Sites — remaining head / why / map air after postal drop. */
+#sites.section {
+  padding-block: clamp(1.85rem, 3.8vw, 3.15rem);
+}
+.section--sites .section__head {
+  margin-bottom: clamp(0.75rem, 1.6vw, 1.15rem);
+}
+.sites-why {
+  margin-bottom: clamp(0.85rem, 1.8vw, 1.25rem);
+  padding: 0.5rem 0 0.55rem;
+}
+.sites-layout {
+  gap: clamp(0.85rem, 2vw, 1.45rem);
+}
+
+/* 9. 390 wrap leftover: Two tracks H3 + stacked section heads.
+   No copy change. Slightly tighter eyebrow under short heads. */
+@media (max-width: 419px) {
+  .section--start .section__head,
+  .section--faq .section__head,
+  .section--sites .section__head {
+    margin-bottom: 0.6rem;
+  }
+  .track__title {
+    margin-bottom: 0.3rem;
+  }
+}
