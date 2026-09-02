@@ -425,7 +425,7 @@
     var siteBtns = Array.prototype.slice.call(sitesLayout.querySelectorAll('button[data-site]'));
     var selectedSite = 'k1';
     var siteCaptionEl = sitesLayout.querySelector('[data-sites-caption]');
-    var siteCaptionIdle = 'First plots.';
+    var siteCaptionIdle = 'First Sites.';
     var siteCaptions = {
       k1: 'K1 Söderhamn — coastal. Status Plot.',
       k2: 'K2 Bollnäs — inland. Status Plot.',

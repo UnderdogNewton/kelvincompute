@@ -11558,3 +11558,105 @@ a.text-link:focus-visible,
     transition: none;
   }
 }
+
+/* ==========================================================================
+   2026-09-02 hall duo — Scale | Hosts side by side, using hall width.
+   Specs 6 / Pad 4 / pay 4 compact HELD. Unit view Closed/Exploded HELD.
+   Accordion not restored. For-you JS frozen. No Ken Burns. No new palette.
+   RM / <720: stills static (existing). Flex H1 two nowrap held.
+   ========================================================================== */
+
+.hall-duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 0.7rem;
+  min-width: 0;
+}
+.hall-duo > .scale,
+.hall-duo > .heat-pick {
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.section--hall .hall-duo .scale,
+.section--hall .hall-duo .heat-pick {
+  margin: 0;
+}
+
+/* Scale label was destacked (chapters already say Scale). In the duo both
+   columns keep a visible label so Hosts is not the only named picker. */
+.section--hall .hall-duo .scale__label {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0 0 0.7rem;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hosts 7 stops wrap inside the column — no leftover full-width chip. */
+.hall-duo .heat-pick__stops,
+.hall-duo .scale__stops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.hall-duo .heat-pick__stops button,
+.hall-duo .scale__stops button {
+  flex: 0 1 auto;
+}
+
+.hall-duo .scale .viz-frame,
+.hall-duo .heat-pick .viz-frame {
+  width: 100%;
+  max-width: none;
+}
+.hall-duo .scale .viz-frame__shot,
+.hall-duo .heat-pick .viz-frame__shot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 900px) {
+  .hall-duo {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 0.9rem;
+  }
+  .section--hall .hall-duo .scale .viz-frame__shot,
+  .section--hall .hall-duo .heat-pick .viz-frame__shot {
+    max-height: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* 720: 2-col only if stills stay 16/9 and readable. Judged from shots;
+   stack if the pair mashes or overflows. */
+@media (min-width: 720px) and (max-width: 899px) {
+  .hall-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 719px) {
+  .hall-duo {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .hall-duo .scale__stops button,
+  .hall-duo .heat-pick__stops button {
+    transition: none;
+  }
+}
