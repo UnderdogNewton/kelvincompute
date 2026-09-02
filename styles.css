@@ -4055,14 +4055,6 @@ html {
   color: var(--c-timber-600);
 }
 
-.sites-context {
-  margin: clamp(1.35rem, 3vw, 2rem) 0 0;
-  max-width: var(--measure);
-  font-size: var(--fs-small);
-  color: var(--c-ink-2);
-  line-height: 1.5;
-}
-
 /* Vertical: article already crossfades; panel gets a short enter. */
 @keyframes panel-enter {
   from { opacity: 0.25; transform: translateY(10px); }
@@ -4114,7 +4106,7 @@ html {
   .sites-map__pin::before,
   .page-rail a[aria-current="true"],
   .vertical.is-active .vertical__panel.is-enter { animation: none !important; }
-  .sites-context, .site-board__row { break-inside: avoid; color: #000; }
+  .site-board__row { break-inside: avoid; color: #000; }
 }
 
 /* ==========================================================================
@@ -10814,8 +10806,7 @@ a.text-link:focus-visible,
   .site-board__place,
   .site-board__meta,
   .sites-why h3,
-  .sites-why p,
-  .sites-context {
+  .sites-why p {
     color: #000 !important;
   }
 }
@@ -11659,4 +11650,94 @@ a.text-link:focus-visible,
   .hall-duo .heat-pick__stops button {
     transition: none;
   }
+}
+
+/* First Sites — drop postal quiet; tighten head / why / map gap. */
+#sites.section {
+  padding-block: clamp(2.4rem, 5vw, 4.25rem);
+}
+.section--sites .section__head {
+  margin-bottom: clamp(1rem, 2.2vw, 1.5rem);
+}
+.sites-why {
+  margin-bottom: clamp(1.1rem, 2.4vw, 1.65rem);
+  padding: 0.75rem 0 0.8rem;
+}
+.sites-layout {
+  gap: clamp(1.1rem, 2.4vw, 1.85rem);
+}
+@media (min-width: 880px) {
+  .sites-layout {
+    gap: clamp(1.25rem, 3vw, 2.25rem);
+  }
+}
+.site-board__row {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+.site-board > li:first-child .site-board__row { padding-top: 0; }
+.site-board > li:last-child .site-board__row { padding-bottom: 0; }
+@media (max-width: 879px) {
+  .site-board > li:first-child .site-board__row { padding-top: 0.85rem; }
+}
+
+/* Compute — Cooling | Pad duo. ≥900 two columns; 720/390 stack Cooling then Pad.
+   #cooling and #parts ids held for jumps. data-pad picker unchanged. */
+.cooling-pad-duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+  width: 100%;
+  min-width: 0;
+  align-items: start;
+}
+.cooling-pad-duo__col {
+  min-width: 0;
+}
+.cooling-pad-duo .section__head {
+  margin-bottom: 0.85rem;
+}
+.cooling-pad-duo .section__title {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+}
+.cooling-pad-duo .side-still,
+.cooling-pad-duo .heat-pick {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 0.85rem;
+}
+.cooling-pad-duo .side-still .viz-frame__shot,
+.cooling-pad-duo .heat-pick .viz-frame__shot {
+  width: 100%;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+}
+.cooling-pad-duo .heat-pick__stops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.cooling-pad-duo .heat-pick__stops button {
+  flex: 0 1 auto;
+}
+.cooling-pad-duo .side-scan--ai {
+  grid-template-columns: 1fr;
+  gap: 0.65rem 0;
+  margin: 0;
+  padding-top: 0.35rem;
+}
+.page-compute .cooling-pad-duo + .side-back {
+  margin-top: 1.1rem;
+}
+@media (min-width: 900px) {
+  .cooling-pad-duo {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+  }
+}
+@media (max-width: 719px) {
+  .cooling-pad-duo { gap: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .cooling-pad-duo .heat-pick__stops button { transition: none; }
 }
