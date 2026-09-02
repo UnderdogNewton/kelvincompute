@@ -975,10 +975,6 @@ body.nav-open { overflow: hidden; }
 .site-footer a:hover { color: var(--c-on-dark); text-decoration: underline; }
 .site-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 0.75rem; font-size: 0.8rem; color: var(--c-on-dark-3); }
 .site-footer__bottom p { margin: 0; }
-.site-footer__colo {
-  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.02em;
-  max-width: 36rem; line-height: 1.45; color: var(--c-on-dark-3);
-}
 
 /* ---------- 13. Motion ---------- */
 .js .reveal { opacity: 0; transform: translateY(6px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
