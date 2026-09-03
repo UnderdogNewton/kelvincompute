@@ -12100,3 +12100,44 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
+
+
+/* 2026-09-03 — hall intro A: title + 01–04 left, unit still right. ≥900 2-up. */
+.hall-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 0 0 1.65rem;
+  align-items: start;
+}
+.hall-intro__copy,
+.hall-intro__still { min-width: 0; }
+.hall-intro #system.section__head {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 0.85rem;
+}
+.hall-intro #system .section__lead { max-width: 28rem; }
+.hall-intro .catalogue--on-dark {
+  margin: 0;
+}
+.hall-intro .catalogue--on-dark .catalogue__row {
+  grid-template-columns: 2.1rem minmax(0, 1fr);
+  gap: 0.12rem 0.75rem;
+  padding: 0.55rem 0;
+}
+.hall-intro .catalogue--on-dark .catalogue__name,
+.hall-intro .catalogue--on-dark .catalogue__line {
+  grid-column: 2;
+}
+.hall-intro .hall-pair { margin: 0; }
+.hall-intro .hall-pair__shot { margin-bottom: 0.75rem; }
+@media (min-width: 900px) {
+  .hall-intro {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.6rem 2rem;
+  }
+}
+@media print {
+  .hall-intro { display: block; }
+}
