@@ -12051,3 +12051,7 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
+
+
+/* 2026-09-03 — drop visible Visualization kind on stills. Caption line held. */
+.viz-cap__kind { display: none; }
