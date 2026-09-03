@@ -12057,29 +12057,11 @@ a.text-link:focus-visible,
 .viz-cap__kind { display: none; }
 
 
-/* 2026-09-03 — hero kicker lands harder: Thermodynamic (Kelvin) Compute. */
-.hero__kicker {
-  font-size: clamp(0.84rem, 0.72rem + 0.55vw, 1.05rem);
-  letter-spacing: 0.16em;
-  font-weight: 600;
-  margin: 0 0 0.7rem;
-}
+/* 2026-09-03 — kicker copy only. Timber-300, original weight. Quiet size bump. */
 .hero.hero--fold .hero__kicker {
-  color: var(--c-timber-200);
-  text-shadow: 0 1px 18px rgba(8, 16, 13, 0.55);
-}
-.hero__kicker-kelvin {
-  color: var(--c-on-dark);
-  font-weight: 700;
+  color: var(--c-timber-300);
+  font-size: 0.78rem;
+  font-weight: 500;
   letter-spacing: 0.14em;
-}
-@media (max-width: 419px) {
-  .hero__kicker {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    line-height: 1.35;
-  }
-}
-@media print {
-  .hero__kicker-kelvin { color: #000 !important; }
+  text-shadow: 0 1px 16px rgba(8, 16, 13, 0.45);
 }
