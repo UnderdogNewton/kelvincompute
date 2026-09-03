@@ -12065,3 +12065,38 @@ a.text-link:focus-visible,
   letter-spacing: 0.14em;
   text-shadow: 0 1px 16px rgba(8, 16, 13, 0.45);
 }
+
+
+/* 2026-09-03 — The system / What is Flexbox lives in the dark hall. */
+.section--hall #system.section__head {
+  margin-bottom: 1.15rem;
+}
+.section--hall #system .eyebrow {
+  color: var(--c-timber-400);
+}
+.section--hall .catalogue--on-dark {
+  border-top-color: rgba(243, 239, 230, 0.14);
+  margin: 0 0 1.65rem;
+}
+.section--hall .catalogue--on-dark .catalogue__row {
+  border-bottom-color: rgba(243, 239, 230, 0.14);
+}
+.section--hall .catalogue--on-dark .catalogue__n {
+  color: var(--c-timber-400);
+}
+.section--hall .catalogue--on-dark .catalogue__name {
+  color: var(--c-on-dark);
+}
+.section--hall .catalogue--on-dark .catalogue__line {
+  color: var(--c-on-dark-2);
+}
+.section--hall .catalogue--on-dark .catalogue__row:hover .catalogue__name {
+  color: var(--c-timber-300);
+}
+@media print {
+  .section--hall .catalogue--on-dark .catalogue__name,
+  .section--hall .catalogue--on-dark .catalogue__line,
+  .section--hall .catalogue--on-dark .catalogue__n {
+    color: #000 !important;
+  }
+}
