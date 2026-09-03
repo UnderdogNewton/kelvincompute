@@ -12141,3 +12141,20 @@ a.text-link:focus-visible,
 @media print {
   .hall-intro { display: block; }
 }
+
+
+/* 2026-09-03 — BESS optional note matches Compute wins on every row. */
+.page-flexibility #bess .side-quiet {
+  color: var(--c-on-dark);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.page-flexibility #bess .side-quiet .text-link {
+  color: var(--c-on-dark);
+}
+@media print {
+  .page-flexibility #bess .side-quiet,
+  .page-flexibility #bess .side-quiet .text-link {
+    color: #000 !important;
+  }
+}
