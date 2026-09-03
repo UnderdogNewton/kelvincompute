@@ -12248,3 +12248,244 @@ a.text-link:focus-visible,
 .site-footer__bottom {
   padding-top: 0.4rem;
 }
+
+/* ==========================================================================
+   2026-09-03 — Home hall vs Battery Flexibility.
+   Same 2-card paper compare as Flexibility #bess, scoped to
+   .section--hall #flex-compare.hall-bess. Does not broaden
+   .page-flexibility #bess. Scale|Hosts duo HELD. Approach pin HELD.
+   For-you JS untouched. No table restore. Hall-intro 2-up HELD.
+   ========================================================================== */
+
+.section--hall #flex-compare.hall-bess {
+  margin: 0.2rem 0 1.05rem;
+  min-width: 0;
+}
+
+.section--hall #flex-compare.hall-bess .section__head {
+  margin-bottom: 0.85rem;
+  max-width: 38rem;
+}
+
+.section--hall #flex-compare.hall-bess .eyebrow {
+  color: var(--c-timber-400);
+}
+
+.section--hall #flex-compare.hall-bess #home-bess-title {
+  font-size: clamp(1.45rem, 1.05rem + 1.6vw, 2.15rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
+  color: var(--c-on-dark);
+}
+
+.section--hall #flex-compare.hall-bess #home-bess-title .clip:first-child .clip-inner {
+  color: rgba(243, 239, 230, 0.62);
+  font-weight: 400;
+}
+
+.section--hall #flex-compare.hall-bess #home-bess-title .clip:last-child .clip-inner {
+  color: var(--c-on-dark);
+  font-weight: 500;
+}
+
+.section--hall #flex-compare.hall-bess .section__lead {
+  color: var(--c-on-dark-2);
+  max-width: 32rem;
+}
+
+.section--hall #flex-compare.hall-bess .flex-compare.flex-compare--paper.bess-pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  min-width: 0;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card {
+  margin: 0;
+  min-width: 0;
+  padding: 0.95rem 1rem 1.1rem;
+  background: var(--c-paper);
+  border: 1px solid var(--c-stone-300);
+  box-shadow: none;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card--win {
+  background: var(--c-offwhite);
+  box-shadow: inset 0 3px 0 var(--c-timber-500);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__who {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-timber-600);
+  margin: 0 0 0.3rem;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card:not(.bess-card--win) .bess-card__who {
+  color: var(--c-ink-3);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__title {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+  color: var(--c-forest-950);
+  margin: 0 0 0.75rem;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card:not(.bess-card--win) .bess-card__title {
+  color: var(--c-ink);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__rows {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__rows > div {
+  margin: 0;
+  padding: 0.55rem 0 0.45rem;
+  border-top: 1px solid var(--c-stone-300);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__rows dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-timber-600);
+  margin: 0;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card:not(.bess-card--win) .bess-card__rows dt {
+  color: var(--c-ink-3);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card__rows dd {
+  margin: 0.22rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  color: var(--c-forest-950);
+  overflow-wrap: break-word;
+}
+
+.section--hall #flex-compare.hall-bess .bess-card:not(.bess-card--win) .bess-card__rows dd {
+  color: var(--c-ink-3);
+  font-size: 0.95rem;
+}
+
+.section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note {
+  margin: 0;
+  padding: 0.15rem 0 0;
+  max-width: none;
+  background: transparent;
+  border: 0;
+  color: var(--c-on-dark-2);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note strong {
+  font-weight: 600;
+  color: var(--c-on-dark);
+}
+
+.section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note .text-link,
+.section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note .text-link:hover,
+.section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note .text-link:focus-visible {
+  color: var(--c-on-dark);
+}
+
+.section--hall #flex-compare.hall-bess .bess-card:focus-visible {
+  outline: 3px solid var(--c-timber-500);
+  outline-offset: 2px;
+}
+
+@media (min-width: 720px) {
+  .section--hall #flex-compare.hall-bess .flex-compare.flex-compare--paper.bess-pair {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+  }
+  .section--hall #flex-compare.hall-bess .bess-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 8;
+  }
+  .section--hall #flex-compare.hall-bess .bess-card__rows {
+    display: contents;
+  }
+  .section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 719px) {
+  .section--hall #flex-compare.hall-bess .flex-compare.flex-compare--paper.bess-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 419px) {
+  .section--hall #flex-compare.hall-bess #home-bess-title {
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (min-width: 720px) {
+    .section--hall #flex-compare.hall-bess .bess-card--win {
+      transition: transform var(--dur-press) var(--ease), background-color var(--dur-press) var(--ease);
+    }
+    .section--hall #flex-compare.hall-bess .bess-card--win:hover {
+      transform: translateY(-2px);
+      background: var(--c-stone-100);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .section--hall #flex-compare.hall-bess .bess-card--win,
+  .section--hall #flex-compare.hall-bess .bess-card--win:hover,
+  .section--hall #flex-compare.hall-bess .bess-card--win:focus-within {
+    transform: none;
+    transition: none;
+  }
+}
+
+@media print {
+  .section--hall #flex-compare.hall-bess .flex-compare.flex-compare--paper.bess-pair,
+  .section--hall #flex-compare.hall-bess .bess-card,
+  .section--hall #flex-compare.hall-bess .bess-card--win,
+  .section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    border-color: #ccc;
+  }
+  .section--hall #flex-compare.hall-bess #home-bess-title,
+  .section--hall #flex-compare.hall-bess #home-bess-title .clip-inner,
+  .section--hall #flex-compare.hall-bess .section__lead,
+  .section--hall #flex-compare.hall-bess .eyebrow,
+  .section--hall #flex-compare.hall-bess .bess-card__who,
+  .section--hall #flex-compare.hall-bess .bess-card__title,
+  .section--hall #flex-compare.hall-bess .bess-card__rows dt,
+  .section--hall #flex-compare.hall-bess .bess-card__rows dd,
+  .section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note strong,
+  .section--hall #flex-compare.hall-bess .bess-pair > .flex-compare__note .text-link {
+    color: #000 !important;
+  }
+}
