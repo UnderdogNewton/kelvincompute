@@ -11976,3 +11976,78 @@ a.text-link:focus-visible,
     margin-bottom: 0.3rem;
   }
 }
+
+
+/* ==========================================================================
+   2026-09-03 — Flexibility #bess title standout.
+   Dark act so the compare cannot hide in cream paper. Two-line H2:
+   battery fact, then Compute punch. Cards stay paper. No new JS.
+   Approach pin / Flex H1 nowrap / hall-duo / for-you JS HELD.
+   ========================================================================== */
+.page-flexibility #bess.section--dark::after {
+  display: none;
+}
+.page-flexibility #bess.section--side.section--dark {
+  background: var(--c-dark-act);
+  color: var(--c-on-dark);
+  padding-block: clamp(2.6rem, 5.2vw, 4.1rem);
+}
+.page-flexibility #bess .section__head {
+  margin-bottom: clamp(1.35rem, 2.6vw, 2.1rem);
+  max-width: 42rem;
+}
+.page-flexibility #bess .eyebrow {
+  color: var(--c-timber-400);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+.page-flexibility #bess #bess-title {
+  font-size: clamp(1.85rem, 1.15rem + 2.4vw, 3.05rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: var(--c-on-dark);
+}
+.page-flexibility #bess #bess-title .clip:first-child .clip-inner {
+  color: rgba(243, 239, 230, 0.62);
+  font-weight: 400;
+}
+.page-flexibility #bess #bess-title .clip:last-child .clip-inner {
+  color: var(--c-on-dark);
+  font-weight: 500;
+}
+.page-flexibility #bess .section__lead {
+  color: var(--c-on-dark-2);
+  max-width: 34rem;
+  font-size: clamp(1.02rem, 0.95rem + 0.4vw, 1.18rem);
+}
+.page-flexibility #bess .bess-card {
+  background: var(--c-paper);
+}
+.page-flexibility #bess .bess-card--win {
+  background: var(--c-offwhite);
+}
+.page-flexibility #bess .bess-pair > .flex-compare__note {
+  color: var(--c-on-dark-2);
+}
+.page-flexibility #bess .bess-pair > .flex-compare__note strong {
+  color: var(--c-on-dark);
+}
+@media (max-width: 419px) {
+  .page-flexibility #bess #bess-title {
+    font-size: 1.55rem;
+    line-height: 1.18;
+  }
+}
+@media print {
+  .page-flexibility #bess.section--dark {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .page-flexibility #bess #bess-title,
+  .page-flexibility #bess #bess-title .clip-inner,
+  .page-flexibility #bess .section__lead,
+  .page-flexibility #bess .eyebrow {
+    color: #000 !important;
+  }
+}
