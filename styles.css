@@ -12158,3 +12158,93 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
+
+
+/* ==========================================================================
+   2026-09-03 spacing craft 2 — leftover dump pad after copy/layout moves.
+   Cream #system folded into dark #hall. FAQ lead gone. Hero credit gone.
+   BESS dark two-line H2. Viz kind / Flexbox credit not restored.
+   Light, reversible, append-only. Approach pin frozen. Hall-intro 2-up,
+   hall-duo, .side-duo 2-ups not collapsed. Flex H1 two nowrap held.
+   900 cream drawer held. For-you JS / script.js untouched. No Ken Burns.
+   RM / <720: pad/gap/margin only.
+   ========================================================================== */
+
+/* 1. FAQ title-only. Lead “Straight answers…” is gone; the timber rule
+   still sat 1.05rem under where the lead was, plus start-sized head mb. */
+#faq .section__head {
+  margin-bottom: 0.45rem;
+}
+.js #faq .section__head.reveal::after {
+  margin-top: 0.4rem;
+}
+@media (max-width: 419px) {
+  .section--faq .section__head { margin-bottom: 0.4rem; }
+}
+
+/* 2. Two tracks → FAQ stacked join. Start still has a lead; FAQ does not.
+   Previous leftover pass left both on the same pad-block. */
+.section--start {
+  padding-bottom: clamp(1.15rem, 2.4vw, 1.75rem);
+}
+.section--faq {
+  padding-top: clamp(1.15rem, 2.4vw, 1.75rem);
+}
+
+/* 3. Flexibility #bess — dark band held. Title-to-cards air was sized
+   for a cream chapter head (2.1rem + 4.1rem pad). Cards stay paper. */
+.page-flexibility #bess.section--side.section--dark {
+  padding-block: clamp(2.05rem, 4.2vw, 3.35rem);
+}
+.page-flexibility #bess .section__head {
+  margin-bottom: clamp(0.75rem, 1.6vw, 1.15rem);
+}
+.page-flexibility #bess .flex-compare.flex-compare--paper.bess-pair {
+  margin-bottom: 0.85rem;
+}
+.page-flexibility #bess .container > .side-quiet {
+  margin-top: 0.55rem;
+}
+
+/* 4. Hall: cream #system now lives in the intro. Container pad-top was
+   leftover from when the dark hall opened on the unit, not a title. */
+.section--hall > .container {
+  padding-top: clamp(0.35rem, 0.8vw, 0.65rem);
+}
+
+/* 5. Hall-intro: 2-up held (≥900). Bottom 1.65rem was the old catalogue
+   block margin; specs sit full-width under. Do not restack. */
+.hall-intro {
+  margin-bottom: 0.85rem;
+}
+@media (min-width: 900px) {
+  .hall-intro {
+    gap: 1.15rem 2rem;
+  }
+}
+
+/* 6. The Gap stats — 50% copy got longer (tile pad held). Outer margin
+   was still the 4-tile / hero-strip dump. Head has no lead. */
+#why .section__head {
+  margin-bottom: clamp(0.75rem, 1.6vw, 1.15rem);
+}
+.section--gap .hero-stats {
+  margin: clamp(1.15rem, 2.4vw, 1.75rem) 0 clamp(1.25rem, 2.6vw, 1.95rem);
+}
+
+/* 7. Product side-hero leftover after destack / viz-kind drop.
+   Top pad is pill clearance — held. Only the empty join under the still. */
+.side-hero {
+  padding-bottom: clamp(1.05rem, 2.2vw, 1.55rem);
+}
+.side-hero + .section--side {
+  padding-top: clamp(1.15rem, 2.5vw, 1.85rem);
+}
+
+/* 8. Footer void after FAQ bottom already tight. Copy held. */
+.site-footer {
+  padding-block: 0.95rem 0.65rem;
+}
+.site-footer__bottom {
+  padding-top: 0.4rem;
+}
