@@ -696,7 +696,7 @@
     var target = readProductP();
     var delta = target - productP;
     if (Math.abs(delta) < 0.0009) { productP = target; }
-    else { productP += delta * 0.22; }
+    else { productP += delta * 0.28; }
     paintProduct(productP);
     if (Math.abs(target - productP) >= 0.0009) {
       productRaf = window.requestAnimationFrame(applyProduct);
