@@ -34,6 +34,7 @@
 
   <link rel="preload" href="fonts/familjen-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/flexbox-product.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -191,7 +192,7 @@
     <section class="section section--side section--paper" aria-label="Why it holds and The contract">
       <div class="container">
         <div class="side-duo">
-          <div id="local" class="side-duo__col" aria-labelledby="local-title">
+          <div id="local" class="side-duo__col" role="region" aria-labelledby="local-title">
             <div class="section__head reveal">
               <p class="eyebrow">Why it holds</p>
               <h2 id="local-title" class="section__title"><span class="clip"><span class="clip-inner">The site is the jurisdiction.</span></span></h2>
@@ -237,7 +238,7 @@
             </ol>
 
           </div>
-          <div id="contract" class="side-duo__col" aria-labelledby="contract-title">
+          <div id="contract" class="side-duo__col" role="region" aria-labelledby="contract-title">
             <div class="section__head reveal">
               <p class="eyebrow">The contract</p>
               <h2 id="contract-title" class="section__title"><span class="clip"><span class="clip-inner">Four load tiers. One dispatchable site.</span></span></h2>
@@ -392,15 +393,15 @@
                   </picture>
                   <picture data-pad-still="ctl">
                     <source type="image/webp" srcset="img/flexbox-detail.webp">
-                    <img src="img/flexbox-detail.jpg" width="1200" height="800" alt="Visualization of a Kelvin Flexbox close-up: forest-green double doors with a copper K and keypad, and a bank of horizontal louvers. Not a photograph of an operating unit." loading="eager" decoding="async">
+                    <img src="img/flexbox-detail.jpg" width="1200" height="800" alt="Visualization of a Kelvin Flexbox close-up: forest-green double doors with a copper K and keypad, and a bank of horizontal louvers. Not a photograph of an operating unit." loading="lazy" decoding="async">
                   </picture>
                   <picture data-pad-still="heat">
                     <source type="image/webp" srcset="img/heat-pipe.webp">
-                    <img src="img/heat-pipe.jpg" width="1200" height="800" alt="Visualization of an insulated Heat pipe from a Kelvin Flexbox toward nearby buildings. Capture designed in — not a photograph of an operating site." loading="eager" decoding="async">
+                    <img src="img/heat-pipe.jpg" width="1200" height="800" alt="Visualization of an insulated Heat pipe from a Kelvin Flexbox toward nearby buildings. Capture designed in — not a photograph of an operating site." loading="lazy" decoding="async">
                   </picture>
                   <picture data-pad-still="lv">
                     <source type="image/webp" srcset="img/flexbox-product.webp">
-                    <img src="img/flexbox-product.jpg" width="1200" height="800" alt="Visualization of a Kelvin Flexbox: a forest-green 40 ft ISO container with a copper K on the double doors, horizontal louvers and a keypad, on gravel among pines. Not a photograph of an operating site." loading="eager" decoding="async">
+                    <img src="img/flexbox-product.jpg" width="1200" height="800" alt="Visualization of a Kelvin Flexbox: a forest-green 40 ft ISO container with a copper K on the double doors, horizontal louvers and a keypad, on gravel among pines. Not a photograph of an operating site." loading="lazy" decoding="async">
                   </picture>
                 </div>
                 <figcaption class="viz-cap"><span class="viz-cap__line" data-pad-cap>Kelvin Flexbox, exploded. 4 racks.</span></figcaption>
@@ -428,6 +429,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <p class="site-footer__heading">Site</p>
         <ul>
+          <li><a href="index.html#approach">Approach</a></li>
           <li><a href="index.html#hall">Flexbox</a></li>
           <li><a href="index.html#use-cases">For you</a></li>
           <li><a href="index.html#sites">Sites</a></li>

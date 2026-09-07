@@ -34,6 +34,7 @@
 
   <link rel="preload" href="fonts/familjen-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/behind-meter.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -177,8 +178,8 @@
           <li id="mill">
             <p class="holds-scan__kicker">Industrial &amp; Manufacturing</p>
             <h2 id="mill-title">Industry stays on.</h2>
-            <p>Industrial, Residential, Manufacturing &amp; Processing Loads don’t have to pause operations. Kelvin handles everything.</p>
-            <p class="holds-scan__moat">Flexibility-as-a-Service captures and absorbs Surplus &amp; Excess energy. We deploy local Compute, local Heat, local infrastructure and Sovereign AI.</p>
+            <p>Industrial, manufacturing and process loads stay on. Kelvin handles everything.</p>
+            <p class="holds-scan__moat">Flexibility-as-a-Service absorbs Surplus &amp; Excess energy — local Compute, local Heat, Sovereign AI.</p>
           </li>
           <li id="geo">
             <p class="holds-scan__kicker">Geo</p>
@@ -193,7 +194,7 @@
     <section class="section section--side section--paper" aria-label="Why it holds and First Sites">
       <div class="container">
         <div class="side-duo">
-          <div id="local" class="side-duo__col" aria-label="Why it holds">
+          <div id="local" class="side-duo__col" role="region" aria-label="Why it holds">
             <div class="section__head reveal">
               <p class="eyebrow">Why it holds</p>
               <p class="section__lead">Sit the load at the surplus — not a new feeder.</p>
@@ -227,7 +228,7 @@
             <p class="side-quiet reveal">See <a class="text-link" href="flexibility.html#bess">Compute vs Battery Flexibility</a>.</p>
 
           </div>
-          <div id="plots" class="side-duo__col" aria-labelledby="plots-title">
+          <div id="plots" class="side-duo__col" role="region" aria-labelledby="plots-title">
             <div class="section__head reveal">
               <p class="eyebrow">First Sites</p>
               <h2 id="plots-title" class="section__title"><span class="clip"><span class="clip-inner">K1–K3. 10 MW. Status Plot.</span></span></h2>
@@ -300,6 +301,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <p class="site-footer__heading">Site</p>
         <ul>
+          <li><a href="index.html#approach">Approach</a></li>
           <li><a href="index.html#hall">Flexbox</a></li>
           <li><a href="index.html#use-cases">For you</a></li>
           <li><a href="index.html#sites">Sites</a></li>
