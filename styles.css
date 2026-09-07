@@ -12699,3 +12699,160 @@ a.text-link:focus-visible,
     transform: rotate(calc(var(--i) * 1deg)) translateY(calc(min(52vw, 460px) * -0.58));
   }
 }
+
+/* ==========================================================================
+   2026-09-07 craft audit — leftover hygiene, contrast, SEO-adjacent UI.
+   Approach pin gates HELD (claimShowAt / claimBAt / claimCAt / 280vh track
+   / <720 and reduced-motion static HELD). For-you JS HELD. No new fonts,
+   no Lenis/GSAP/WebGL. Flex H1 two nowrap HELD. Hall-intro 2-up HELD.
+   Hall-duo Scale|Hosts HELD. Append-only; no restack.
+   ========================================================================== */
+
+/* 1. Nav pill: readable on cream folds and dark acts. */
+.nav-pill {
+  background: rgba(247, 243, 235, 0.94);
+  border-color: rgba(23, 31, 27, 0.14);
+  box-shadow: 0 8px 28px rgba(13, 31, 23, 0.1);
+}
+.nav-pill[data-on-dark] {
+  background: rgba(13, 22, 18, 0.9);
+  border-color: rgba(243, 239, 230, 0.28);
+  box-shadow: 0 8px 28px rgba(8, 10, 10, 0.4);
+}
+.nav-pill .site-nav__list a {
+  color: var(--c-ink);
+}
+.nav-pill[data-on-dark] .site-nav__list a {
+  color: var(--c-on-dark-2);
+}
+.nav-pill[data-on-dark] .site-nav__list a:hover,
+.nav-pill[data-on-dark] .site-nav__list a:focus-visible,
+.nav-pill[data-on-dark] .site-nav__list a[aria-current="true"],
+.nav-pill[data-on-dark] .site-nav__list a[aria-current="page"] {
+  color: var(--c-on-dark);
+}
+
+/* Desktop nav: keep the hug, but do not drop below 0.8rem. */
+@media (min-width: 1200px) {
+  .site-nav__list { gap: 0.62rem; }
+  .site-nav__list a {
+    font-size: 0.8rem;
+    letter-spacing: -0.015em;
+    padding: 0.45rem 0;
+  }
+}
+@media (min-width: 1440px) {
+  .site-nav__list { gap: 0.78rem; }
+  .site-nav__list a { font-size: 0.84rem; }
+}
+
+/* 2. Scroll clearance follows the tighter pill, not leftover 64+56 stacks. */
+html {
+  scroll-padding-top: calc(var(--header-h) + 1.35rem);
+}
+#sites,
+#sites-title,
+.section, .hero, #why, #approach, #system, #hall, #sites, #holds,
+#use-cases, #start, #faq, #contact,
+.section__title, #hero-title, #bring-title, #compute-buyers, [id^="part-"],
+#flex-unit, #flex-parts, #flex-specs, #flex-scale, #flex-heat,
+#flex-compare, #flex-pay, #flex-sheet {
+  scroll-margin-top: calc(var(--header-h) + 1.35rem);
+}
+
+/* 3. Hall leftover: BESS band → Scale|Hosts, then the Next line. */
+.section--hall #flex-compare.hall-bess {
+  margin: 0.15rem 0 0.7rem;
+}
+.section--hall .hall-duo {
+  margin-bottom: 0.45rem;
+}
+.section--hall .flex-sheet {
+  margin: 0;
+  padding: 0.35rem 0 0;
+}
+.section--hall .flex-sheet__next {
+  margin: 0;
+  color: var(--c-on-dark-3);
+}
+
+/* Purpose (cream) into the dark hall: one fold, not a dump. */
+.section--purpose {
+  padding-bottom: clamp(1.65rem, 3.2vw, 2.55rem);
+}
+.section.section--hall {
+  padding-top: clamp(1.35rem, 2.6vw, 2.15rem);
+}
+
+/* Compute-band is a one-line jump, not a second hero. */
+.section--compute-band {
+  padding-block: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+/* 4. Compute Flexibility hero now uses the same still split as the others.
+   Two-line H1 nowrap ≥720 is held. */
+.page-flexibility .side-hero__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+  gap: 1.5rem 2rem;
+  align-items: center;
+}
+.page-flexibility .side-hero__copy { min-width: 0; }
+.page-flexibility .side-hero__still {
+  margin: 0;
+  max-width: none;
+}
+.page-flexibility .side-hero__still .viz-frame__shot {
+  aspect-ratio: 3 / 2;
+  max-height: min(42vh, 360px);
+}
+@media (max-width: 899px) {
+  .page-flexibility .side-hero__split {
+    grid-template-columns: 1fr;
+  }
+  .page-flexibility .side-hero__still { order: -1; }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 719px) {
+  .page-flexibility .side-hero__still .viz-frame__shot img {
+    transform: none;
+  }
+}
+@media print {
+  .page-flexibility .side-hero__split { display: block; }
+}
+
+/* 5. FAQ answers: stacked paragraphs share one rhythm. */
+.faq__item p + p {
+  padding-top: 0.15rem;
+  padding-bottom: 0.85rem;
+}
+
+/* 6. 404 recovery jumps sit under the CTAs, not in a void. */
+.page-404 .side-hero .side-jump {
+  margin-top: 1.35rem;
+}
+.page-404 .side-hero .cta-row {
+  margin-bottom: 0;
+}
+
+/* 7. Focus: FAQ summaries keep a visible ring (outline:none leftovers). */
+.faq__item summary:focus {
+  outline: none;
+}
+.faq__item summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* 8. Mobile: keep Approach static (existing) and clip stray horizontal scroll
+   from orbit/tick leftovers without changing pin gates. */
+@media (max-width: 719px) {
+  .chapter__pin { overflow-x: clip; }
+  .chapter .orbits { overflow-x: visible; }
+}
+
+@media print {
+  .nav-pill,
+  .page-404 .side-hero .side-jump { display: none !important; }
+}

@@ -34,6 +34,7 @@
 
   <link rel="preload" href="fonts/familjen-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/heat-pipe.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -147,7 +148,7 @@
     <section class="section section--side section--paper" aria-label="Destinations and Offtake">
       <div class="container">
         <div class="side-duo">
-          <div id="dest" class="side-duo__col" aria-labelledby="dest-title">
+          <div id="dest" class="side-duo__col" role="region" aria-labelledby="dest-title">
             <div class="section__head reveal">
               <p class="eyebrow">Destinations</p>
               <h2 id="dest-title" class="section__title"><span class="clip"><span class="clip-inner">In industry. On the pipe.</span></span></h2>
@@ -188,7 +189,7 @@
             <p class="side-quiet reveal">Seasonal storage, where it appears, is a siting option next to a sink.</p>
 
           </div>
-          <div id="who" class="side-duo__col" aria-labelledby="who-title">
+          <div id="who" class="side-duo__col" role="region" aria-labelledby="who-title">
             <div class="section__head reveal">
               <p class="eyebrow">Offtake</p>
               <h2 id="who-title" class="section__title"><span class="clip"><span class="clip-inner">Homes on the network. Not home Compute.</span></span></h2>
@@ -465,6 +466,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <p class="site-footer__heading">Site</p>
         <ul>
+          <li><a href="index.html#approach">Approach</a></li>
           <li><a href="index.html#hall">Flexbox</a></li>
           <li><a href="index.html#use-cases">For you</a></li>
           <li><a href="index.html#sites">Sites</a></li>

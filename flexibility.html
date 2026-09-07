@@ -34,6 +34,7 @@
 
   <link rel="preload" href="fonts/familjen-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/flexbox-product.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -113,23 +114,34 @@
   <main id="main" tabindex="-1">
 
     <section class="side-hero" aria-labelledby="page-title">
-      <div class="container">
-        <p class="eyebrow reveal">Compute Flexibility</p>
-        <h1 id="page-title" class="side-hero__title reveal"><span class="clip"><span class="clip-inner">Compute flexes.</span></span>
-          <span class="clip"><span class="clip-inner">The host stays on.</span></span></h1>
-        <p class="side-hero__deck reveal">Flexibility-as-a-Service — paid on stand-by, paid on activation and paid while Compute is running.</p>
-        <nav class="side-jump side-jump--split reveal" aria-label="Compute Flexibility sections">
-          <div class="side-jump__group" role="group" aria-labelledby="jump-use-label">
-            <p class="side-jump__label" id="jump-use-label">Use cases</p>
-            <a href="#uses">Hydro · Industrial &amp; Manufacturing</a>
-            <a href="#faas">Service</a>
+      <div class="container side-hero__split">
+        <div class="side-hero__copy">
+          <p class="eyebrow reveal">Compute Flexibility</p>
+          <h1 id="page-title" class="side-hero__title reveal"><span class="clip"><span class="clip-inner">Compute flexes.</span></span>
+            <span class="clip"><span class="clip-inner">The host stays on.</span></span></h1>
+          <p class="side-hero__deck reveal">Flexibility-as-a-Service — paid on stand-by, paid on activation and paid while Compute is running.</p>
+          <nav class="side-jump side-jump--split reveal" aria-label="Compute Flexibility sections">
+            <div class="side-jump__group" role="group" aria-labelledby="jump-use-label">
+              <p class="side-jump__label" id="jump-use-label">Use cases</p>
+              <a href="#uses">Hydro · Industrial &amp; Manufacturing</a>
+              <a href="#faas">Service</a>
+            </div>
+            <div class="side-jump__group" role="group" aria-labelledby="jump-product-label">
+              <p class="side-jump__label" id="jump-product-label">The product</p>
+              <a href="#bess">vs Battery Flexibility</a>
+              <a href="#markets">Markets</a>
+            </div>
+          </nav>
+        </div>
+        <figure class="viz-frame side-still side-hero__still reveal">
+          <div class="viz-frame__shot">
+            <picture>
+              <source type="image/webp" srcset="img/flexbox-product.webp">
+              <img src="img/flexbox-product.jpg" width="1200" height="800" alt="Visualization of a Kelvin Flexbox: a forest-green 40 ft ISO container with a copper K on the double doors, on gravel among pines. Compute flexes; the host stays on. Not a photograph of an operating site." fetchpriority="high" decoding="async">
+            </picture>
           </div>
-          <div class="side-jump__group" role="group" aria-labelledby="jump-product-label">
-            <p class="side-jump__label" id="jump-product-label">The product</p>
-            <a href="#bess">vs Battery Flexibility</a>
-            <a href="#markets">Markets</a>
-          </div>
-        </nav>
+          <figcaption class="viz-cap"><span class="viz-cap__line">Kelvin Flexbox — the load that can move.</span></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -327,7 +339,7 @@
     <section class="section section--side section--paper" aria-label="Markets and Why it holds">
       <div class="container">
         <div class="side-duo">
-          <div id="markets" class="side-duo__col" aria-labelledby="markets-title">
+          <div id="markets" class="side-duo__col" role="region" aria-labelledby="markets-title">
             <div class="section__head reveal">
               <p class="eyebrow">Markets</p>
               <h2 id="markets-title" class="section__title"><span class="clip"><span class="clip-inner">Built for the Nordic Energy Markets.</span></span></h2>
@@ -360,7 +372,7 @@
             </ol>
 
           </div>
-          <div id="wire" class="side-duo__col" aria-labelledby="wire-title">
+          <div id="wire" class="side-duo__col" role="region" aria-labelledby="wire-title">
             <div class="section__head reveal">
               <p class="eyebrow">Why it holds</p>
               <h2 id="wire-title" class="section__title"><span class="clip"><span class="clip-inner">It’s a Compute Flexibility problem — not a wire problem.</span></span></h2>
@@ -413,6 +425,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <p class="site-footer__heading">Site</p>
         <ul>
+          <li><a href="index.html#approach">Approach</a></li>
           <li><a href="index.html#hall">Flexbox</a></li>
           <li><a href="index.html#use-cases">For you</a></li>
           <li><a href="index.html#sites">Sites</a></li>
