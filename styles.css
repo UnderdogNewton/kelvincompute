@@ -54,12 +54,6 @@
   --c-forest-800: #1B3A2C;
   --c-forest-700: #245040;
   --c-forest-600: #2F6A4E;
-  --c-forest-100: #E3EBE2;
-
-  --c-slate-900: #1E262B;
-  --c-slate-700: #3A4A52;
-  --c-slate-500: #5B6B73;
-  --c-slate-300: #A9B4BA;
 
   --c-stone-500: #A79E8E;
   --c-stone-400: #BEB5A5;
@@ -175,9 +169,32 @@ button { font: inherit; color: inherit; }
 
 .container { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
 
-.section, .hero, #why, #approach, #system, #hall, #sites, #holds, #use-cases, #start, #faq, #contact,
-.section__title, #hero-title, #sites-title, #bring-title, #compute-buyers, [id^="part-"],
-#flex-unit, #flex-parts, #flex-bring, #flex-specs, #flex-scale, #flex-heat, #flex-compare, #flex-pay, #flex-sheet {
+.section,
+.hero,
+#why,
+#approach,
+#system,
+#hall,
+#sites,
+#holds,
+#use-cases,
+#start,
+#faq,
+#contact,
+.section__title,
+#hero-title,
+#sites-title,
+#bring-title,
+#compute-buyers,
+[id^="part-"],
+#flex-unit,
+#flex-parts,
+#flex-specs,
+#flex-scale,
+#flex-heat,
+#flex-compare,
+#flex-pay,
+#flex-sheet {
   scroll-margin-top: calc(var(--header-h) + 36px);
 }
 
@@ -223,14 +240,11 @@ button { font: inherit; color: inherit; }
 }
 .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .btn:hover { text-decoration: none; }
-.btn--sm { min-height: 36px; padding: 0.35rem 0.85rem; font-size: 0.875rem; }
+
 @media (max-width: 480px) { .btn { white-space: normal; text-align: center; } .cta-row > .btn { flex: 1 1 auto; } }
 
-.btn--primary,
 .btn--accent { background: var(--c-timber-400); color: var(--c-forest-950); border-color: var(--c-timber-400); }
-.btn--primary:hover,
 .btn--accent:hover,
-.btn--primary:focus-visible,
 .btn--accent:focus-visible { background: var(--c-timber-300); border-color: var(--c-timber-300); }
 .hero .btn--accent:hover,
 .hero .btn--accent:focus-visible { box-shadow: 0 0 0 1px var(--c-timber-300); }
@@ -248,14 +262,6 @@ button { font: inherit; color: inherit; }
 .text-link { color: var(--c-forest-700); font-weight: 500; }
 .text-link:hover,
 .text-link:active { color: var(--c-forest-600); }
-.text-btn {
-  display: inline; padding: 0; margin: 0;
-  background: none; border: 0; border-radius: 0;
-  font: inherit; font-weight: 500; color: inherit;
-  text-decoration: underline; text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em; cursor: pointer;
-}
-.text-btn:hover { text-decoration-thickness: 2px; }
 
 .icon { width: 1.35rem; height: 1.35rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -314,11 +320,8 @@ body.nav-open { overflow: hidden; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 .nav-toggle__label { font-size: 0.875rem; font-weight: 500; }
 
-.site-header__cta { flex: none; }
-
 @media (max-width: 1199px) {
   .nav-toggle { display: inline-flex; }
-  .site-header__cta { display: none; }
   .site-nav {
     position: absolute; left: 0.75rem; right: 0.75rem; top: calc(100% + 0.55rem); z-index: 51;
     display: none; flex-direction: column; align-items: stretch;
@@ -337,7 +340,6 @@ body.nav-open { overflow: hidden; }
   html:not(.js) .site-nav__list a { border: 0; padding: 0.35rem 0; font-size: 0.9rem; color: var(--c-ink-2); }
   html:not(.js) .nav-pill { flex-wrap: wrap; border-radius: 18px; }
   html:not(.js) .site-header { position: static; pointer-events: auto; }
-  html:not(.js) .site-header__cta { display: inline-flex; }
 }
 
 /* ---------- 5. Hero ---------- */
@@ -419,72 +421,18 @@ body.nav-open { overflow: hidden; }
   color: var(--c-timber-300); margin: 0.55rem 0 0; max-width: 32rem; text-wrap: balance;
   text-shadow: 0 1px 16px rgba(8, 16, 13, 0.45);
 }
-.hero__lead {
-  font-size: var(--fs-small); color: var(--c-on-dark-2); margin-top: 0.55rem;
-  max-width: var(--measure); line-height: 1.5;
-  text-shadow: 0 1px 14px rgba(8, 16, 13, 0.5);
-}
-.hero__audiences {
-  list-style: none; display: grid; gap: 0.35rem; margin-top: 0.9rem; max-width: 36rem;
-  font-size: var(--fs-small); color: var(--c-on-dark-2); line-height: 1.4;
-  text-shadow: 0 1px 12px rgba(8, 16, 13, 0.5);
-}
-@media (min-width: 560px) { .hero__audiences { grid-template-columns: 1fr 1fr; gap: 0.4rem 1.25rem; } }
-.hero__audiences strong { color: var(--c-on-dark); font-weight: 600; }
+
 .hero .cta-row { margin-top: 1.05rem; }
-.hero__proof {
-  font-family: var(--font-mono); font-size: var(--fs-meta); letter-spacing: 0.01em;
-  color: var(--c-on-dark-2); margin: 0.7rem 0 0; line-height: 1.45; max-width: 36rem;
-}
-.hero__proof-note { color: var(--c-on-dark-3); }
-.hero__where {
-  font-family: var(--font-mono); font-size: var(--fs-meta); letter-spacing: 0.04em;
-  color: var(--c-on-dark-3); margin: 0.4rem 0 0; line-height: 1.45;
-}
-.hero__specs {
-  list-style: none; display: grid; gap: 0.4rem 1.15rem; margin-top: 1rem;
-  padding-top: 0.75rem; border-top: 1px solid rgba(243, 239, 230, 0.14);
-  color: var(--c-on-dark-2); font-size: var(--fs-small);
-}
-@media (min-width: 560px) { .hero__specs { grid-template-columns: repeat(3, 1fr); } }
-.hero__specs li { position: relative; padding-left: 1rem; line-height: 1.4; }
-.hero__specs li::before {
-  content: ""; position: absolute; left: 0; top: 0.5em; width: 0.4rem; height: 0.4rem;
-  background: var(--c-timber-400); transform: rotate(45deg);
-}
-.hero__credit {
-  position: absolute; left: 0; right: 0; bottom: clamp(0.85rem, 2.2vw, 1.5rem);
-  z-index: 4;
-  width: min(100% - 2 * var(--gutter), var(--container));
-  margin: 0 auto;
-  text-align: right;
-  color: var(--c-on-dark-3);
-}
-.hero__credit.viz-cap { justify-content: flex-end; }
+
 .viz-cap {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.85rem;
   margin: 0.4rem 0 0;
   font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em;
   color: var(--c-ink-3);
 }
-.viz-cap__kind {
-  text-transform: uppercase; letter-spacing: 0.12em; color: inherit;
-}
+
 .viz-cap__line {
   text-transform: none; letter-spacing: 0.02em; color: inherit; opacity: 0.9;
-}
-.hero__credit .viz-cap__kind,
-.hero__credit .viz-cap__line { color: var(--c-on-dark-3); }
-
-.hero__thesis {
-  font-family: var(--font-mono);
-  font-size: var(--fs-meta);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-timber-300);
-  margin: 0.5rem 0 0;
-  text-shadow: 0 1px 12px rgba(8, 16, 13, 0.45);
 }
 
 /* Fold: H1 + tagline + both CTAs stay above the first screen. Copy sits in the top third, not the lower fifth. */
@@ -494,7 +442,6 @@ body.nav-open { overflow: hidden; }
   .hero__title { font-size: clamp(2rem, 1.15rem + 2vw, 2.85rem); }
   .hero__tagline { margin-top: 0.4rem; }
   .hero .cta-row { margin-top: 0.8rem; }
-  .hero__proof { margin-top: 0.5rem; }
 }
 @media (max-height: 700px) {
   .hero__viewport { padding-top: 1.35rem; padding-bottom: 3.75rem; }
@@ -505,7 +452,7 @@ body.nav-open { overflow: hidden; }
     min-height: calc(100svh - var(--header-h));
     padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(1.2rem, 2.8vw, 1.9rem);
   }
-  .hero__credit { position: relative; bottom: auto; margin-top: 0.7rem; }
+  
   .hero__layer--halls {
     inset: 18% -10% -16% -10%;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 100%);
@@ -520,7 +467,6 @@ body.nav-open { overflow: hidden; }
         rgba(8, 16, 13, 0.72) 52%,
         rgba(8, 16, 13, 0.9) 100%);
   }
-  .hero__credit { text-align: left; justify-content: flex-start; }
 }
 
 /* Stat strip — hairlines, not tiles */
@@ -566,9 +512,7 @@ body.nav-open { overflow: hidden; }
   position: relative; overflow: hidden; border-radius: 0;
   aspect-ratio: 16 / 9; background: var(--c-forest-900);
 }
-.principle:not(:first-child) .viz-frame__shot {
-  max-height: min(22vh, 200px);
-}
+
 .viz-frame__shot img {
   width: 100%; height: 100%; object-fit: cover;
   transform: translate3d(0, var(--viz-shift, 0px), 0);
@@ -598,20 +542,6 @@ body.nav-open { overflow: hidden; }
     transform: scale(1.03);
   }
 }
-
-.hybrid-viz {
-  display: grid; gap: 1.5rem;
-  margin-top: clamp(2.25rem, 4.5vw, 3.5rem);
-  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
-  border-top: 1px solid var(--c-stone-300);
-}
-@media (min-width: 880px) {
-  .hybrid-viz { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
-}
-
-.aside-card { padding: 0; border-radius: 0; background: none; border: 0; }
-.aside-card__title { font-size: var(--fs-h3); margin-bottom: 0.75rem; }
-.aside-card p { color: var(--c-ink-2); max-width: var(--measure); font-size: var(--fs-small); }
 
 .section--hall { background: var(--c-offwhite); border-top: 1px solid var(--c-stone-300); }
 
@@ -753,142 +683,8 @@ body.nav-open { overflow: hidden; }
 /* ---------- 7b. Moats ---------- */
 .section--moat { background: var(--c-paper); border-top: 1px solid var(--c-stone-300); }
 
-.moats {
-  list-style: none;
-  display: grid;
-  gap: clamp(2rem, 4.5vw, 3.5rem);
-}
-
-.moat--visual {
-  display: grid;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: start;
-}
-@media (min-width: 800px) {
-  .moat--visual {
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  }
-  .moat--visual .viz-frame__shot {
-    aspect-ratio: 3 / 2;
-    max-height: min(48vh, 440px);
-  }
-  .moat--compare .viz-frame__shot {
-    aspect-ratio: 3 / 2;
-    max-height: min(56vh, 520px);
-  }
-}
-.moat__shot--split img { object-position: center center; }
-
-.moat__num {
-  font-family: var(--font-mono);
-  font-size: var(--fs-meta);
-  color: var(--c-timber-600);
-  margin: 0 0 0.35rem;
-  letter-spacing: 0.1em;
-}
-.moat__title { font-size: var(--fs-h3); margin-bottom: 0.45rem; }
-.moat__copy p:not(.moat__num),
-.moat--copy > p:not(.moat__num) {
-  color: var(--c-ink-2);
-  max-width: var(--measure);
-  font-size: var(--fs-small);
-}
-
-.moat--copy {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--c-stone-300);
-  max-width: var(--measure);
-}
-
-.hall { margin: 0; }
 .section--faq { background: var(--c-paper); border-top: 1px solid var(--c-stone-300); }
 .section--faq .faq { margin-top: 0; padding-top: 0; border-top: 0; }
-.hall .section__head { margin-bottom: 1.1rem; }
-.hall__deploy {
-  max-width: var(--measure);
-  color: var(--c-ink-2);
-  margin: 0 0 1.75rem;
-}
-
-.table-wrap { overflow-x: auto; margin: 0; }
-.sizes {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--fs-small);
-  background: transparent;
-  border: 0;
-  border-top: 1px solid var(--c-stone-300);
-  border-radius: 0;
-}
-.sizes th, .sizes td {
-  text-align: left;
-  padding: 0.75rem 0.85rem 0.75rem 0;
-  border-bottom: 1px solid var(--c-stone-300);
-  vertical-align: top;
-  color: var(--c-ink-2);
-}
-.sizes tbody tr:last-child th, .sizes tbody tr:last-child td { border-bottom: 1px solid var(--c-stone-300); }
-.sizes thead th {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c-ink-3);
-  font-weight: 500;
-  background: none;
-  padding-top: 0.35rem;
-}
-.sizes tbody th {
-  font-weight: 600;
-  color: var(--c-ink);
-  white-space: nowrap;
-  padding-right: 1.25rem;
-}
-
-.compare {
-  display: grid;
-  gap: 0;
-  border-top: 1px solid var(--c-stone-300);
-}
-@media (min-width: 720px) { .compare { grid-template-columns: 1fr 1fr; } }
-.compare__col {
-  padding: 1.25rem 1.5rem 1.35rem 0;
-  background: none;
-  border: 0;
-  border-right: 1px solid var(--c-stone-300);
-  border-radius: 0;
-}
-.compare__col:last-child { border-right: 0; padding-right: 0; padding-left: 1.5rem; }
-@media (max-width: 719px) {
-  .compare__col, .compare__col:last-child { padding: 1.15rem 0; border-right: 0; border-bottom: 1px solid var(--c-stone-300); }
-  .compare__col:last-child { border-bottom: 0; }
-}
-.compare__col--kelvin {
-  background: none;
-  color: inherit;
-  border-color: var(--c-stone-300);
-}
-.compare__label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-ink-3);
-  font-weight: 500;
-  margin: 0 0 0.75rem;
-}
-.compare__col--kelvin .compare__label { color: var(--c-timber-600); }
-.compare__col ul { list-style: none; display: grid; gap: 0.5rem; font-size: var(--fs-small); color: var(--c-ink-2); }
-.compare__col--kelvin ul { color: var(--c-ink-2); }
-.compare__col li { position: relative; padding-left: 1rem; line-height: 1.4; }
-.compare__col li::before {
-  content: "";
-  position: absolute; left: 0; top: 0.5em;
-  width: 0.35rem; height: 0.35rem;
-  background: var(--c-stone-500);
-  transform: rotate(45deg);
-}
-.compare__col--kelvin li::before { background: var(--c-timber-500); }
 
 .tracks { display: grid; gap: 0; border-top: 1px solid var(--c-stone-300); }
 @media (min-width: 860px) { .tracks { grid-template-columns: 1fr 1fr; } }
@@ -1019,8 +815,23 @@ body.nav-open { overflow: hidden; }
    ========================================================================== */
 
 html { scroll-padding-top: 5.75rem; }
-.section, .hero:not(.hero--fold), #why, #approach, #system, #hall, #sites, #holds, #use-cases, #start, #faq, #contact,
-.section__title, #hero-title, #sites-title, #bring-title, #compute-buyers, #flex-pay {
+.section,
+#why,
+#approach,
+#system,
+#hall,
+#sites,
+#holds,
+#use-cases,
+#start,
+#faq,
+#contact,
+.section__title,
+#hero-title,
+#sites-title,
+#bring-title,
+#compute-buyers,
+#flex-pay {
   scroll-margin-top: 5.75rem;
 }
 
@@ -1063,11 +874,6 @@ html { scroll-padding-top: 5.75rem; }
   cursor: pointer;
 }
 .sq-btn:hover { background: var(--c-timber-300); }
-.sq-btn--ghost {
-  background: rgba(243, 239, 230, 0.12); color: var(--c-on-dark);
-  border: 1px solid rgba(243, 239, 230, 0.28);
-}
-.sq-btn--ghost:hover { background: rgba(243, 239, 230, 0.2); }
 
 /* Clip-line reveal */
 .js .clip { display: block; overflow: clip; }
@@ -1076,77 +882,7 @@ html { scroll-padding-top: 5.75rem; }
   transform: translateY(110%);
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.js .is-visible .clip-inner,
-.js .hero:not(.hero--fold) .clip-inner { transform: none; }
-.js .hero:not(.hero--fold) .clip:nth-child(2) .clip-inner { transition-delay: 0.08s; }
-
-/* ---------- Light centered hero (halls as object) ---------- */
-.hero:not(.hero--fold) {
-  position: relative;
-  color: var(--c-ink);
-  background:
-    linear-gradient(180deg, var(--c-sky) 0%, var(--c-mist) 48%, var(--c-offwhite) 100%);
-  --focus: var(--c-timber-500);
-  min-height: 100svh;
-  padding: 0;
-}
-.hero:not(.hero--fold) .hero__viewport {
-  position: relative;
-  isolation: auto;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 7.25rem var(--gutter) 0;
-}
-.hero:not(.hero--fold) .hero__stage,
-.hero:not(.hero--fold) .hero__layer,
-.hero:not(.hero--fold) .hero__scrim,
-.hero:not(.hero--fold) .hero__grain { display: none; }
-.hero:not(.hero--fold) .hero__inner { position: relative; z-index: 1; }
-.hero:not(.hero--fold) .hero__copy {
-  max-width: 42rem;
-  margin-inline: auto;
-}
-.hero:not(.hero--fold) .hero__title {
-  font-size: var(--fs-h1);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  color: var(--c-forest-950);
-  text-shadow: none;
-}
-.hero:not(.hero--fold) .hero__tagline {
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.5;
-  color: var(--c-ink-2);
-  margin: 1rem auto 0;
-  max-width: 34rem;
-  text-shadow: none;
-}
-.cta-row--center { justify-content: center; margin-top: 1.4rem; }
-.hero:not(.hero--fold) .hero__object {
-  width: min(100%, 1080px);
-  margin-top: auto;
-  padding-top: 1.75rem;
-}
-.hero:not(.hero--fold) .hero__object picture { display: block; }
-.hero:not(.hero--fold) .hero__object img {
-  width: 100%; height: auto; max-height: min(56vh, 560px);
-  object-fit: cover; object-position: 50% 62%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 100%);
-}
-.hero:not(.hero--fold) .hero__credit {
-  position: static; width: auto; margin: 0.55rem 0 1.25rem;
-  text-align: center; justify-content: center;
-  color: var(--c-ink-3);
-}
-.hero:not(.hero--fold) .hero__credit .viz-cap__kind, .hero:not(.hero--fold) .hero__credit .viz-cap__line { color: var(--c-ink-3); }
+.js .is-visible .clip-inner { transform: none; }
 
 /* Light stats (moved out of dark hero) */
 .section--gap .hero-stats { padding-top: 0; margin: clamp(2rem, 4vw, 3rem) 0; }
@@ -1190,11 +926,6 @@ html { scroll-padding-top: 5.75rem; }
 .section--dark > .container { position: relative; z-index: 1; }
 .section--dark .section__title { color: var(--c-on-dark); font-weight: 400; }
 .section--dark .section__lead { color: var(--c-on-dark-2); max-width: 36rem; }
-
-.sizes--on-dark { border-top-color: rgba(243,239,230,0.14); }
-.sizes--on-dark th, .sizes--on-dark td { color: var(--c-on-dark-2); border-bottom-color: rgba(243,239,230,0.12); }
-.sizes--on-dark thead th { color: var(--c-on-dark-3); }
-.sizes--on-dark tbody th { color: var(--c-on-dark); }
 
 /* ---------- Audience verticals: full-bleed + frost ---------- */
 .section--verticals {
@@ -1327,88 +1058,16 @@ html:not(.js) .verticals { display: grid; gap: 0; }
 
 @media print {
   .nav-pill, .vertical-controls { display: none !important; }
-  .hero:not(.hero--fold) { background: #fff !important; color: #000 !important; min-height: 0; }
+  
   .section--dark, .section--verticals { background: #fff !important; color: #000 !important; }
   .vertical { display: grid !important; position: relative; min-height: 0; }
 }
 
 .nav-pill { background: rgba(247, 243, 235, 0.42); }
 
-
 /* ==========================================================================
    Eggsplain-analog motion — Kelvin tokens. No Lenis / GSAP / WebGL.
    ========================================================================== */
-
-.hero:not(.hero--fold) {
-  --p: 0;
-  --claim: -1;
-  min-height: 0;
-  padding: 0;
-  color: var(--c-ink);
-  background: var(--c-stone-100);
-}
-.hero:not(.hero--fold) .hero__track { height: 240vh; position: relative; }
-.hero:not(.hero--fold) .hero__pin {
-  position: sticky; top: 0;
-  height: 100svh;
-  overflow: hidden;
-  display: flex; flex-direction: column; align-items: center;
-}
-.hero:not(.hero--fold) .hero__sky {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    linear-gradient(180deg, var(--c-sky) 0%, var(--c-mist) 52%, var(--c-offwhite) 100%);
-  opacity: calc(1 - var(--p) * 0.92);
-}
-.hero:not(.hero--fold) .hero__copy {
-  position: relative; z-index: 4;
-  max-width: 42rem; margin-inline: auto; text-align: center;
-  padding: 6.6rem var(--gutter) 7.5rem;
-  opacity: clamp(0, calc(1 - var(--p) * 16), 1);
-  transform: translateY(calc(var(--p) * -28px));
-  pointer-events: none;
-}
-.hero:not(.hero--fold) .hero__copy .btn { pointer-events: auto; }
-.hero:not(.hero--fold)[data-claim="0"] .hero__copy,
-.hero:not(.hero--fold)[data-claim="1"] .hero__copy,
-.hero:not(.hero--fold)[data-claim="2"] .hero__copy,
-.hero:not(.hero--fold)[data-claim="3"] .hero__copy { pointer-events: none; }
-
-.hero:not(.hero--fold) .hero__stage {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: auto;
-  left: 50%;
-  bottom: auto;
-  z-index: 2;
-  width: min(40vw, 540px);
-  max-height: none;
-  background: transparent;
-  overflow: visible;
-  transform:
-    translate3d(-50%, calc(var(--p) * -14vh), 0)
-    scale(calc(1 - var(--p) * 0.16))
-    rotate(calc(var(--p) * -5deg));
-  transform-origin: 50% 100%;
-  will-change: transform;
-}
-.hero:not(.hero--fold) .hero__object { width: 100%; margin: 0; padding: 0; position: relative; z-index: 1; }
-.hero:not(.hero--fold) .hero__object img {
-  width: 100%;
-  height: min(32vh, 300px);
-  max-height: none;
-  object-fit: cover;
-  object-position: 50% calc(8% + var(--p) * 24%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
-}
-.hero:not(.hero--fold) .hero__credit {
-  position: absolute; right: 0.5rem; bottom: 0.85rem;
-  z-index: 3; margin: 0; width: auto; text-align: right;
-  justify-content: flex-end;
-  color: var(--c-ink-3);
-}
 
 /* Orbiting claims */
 .orbits { list-style: none; margin: 0; }
@@ -1427,7 +1086,7 @@ html:not(.js) .verticals { display: grid; gap: 0; }
 .orbit--1 { right: 5.5%; top: 46%; left: auto; bottom: auto; }
 .orbit--2 { left: 5.5%; top: 46%; right: auto; bottom: auto; }
 .orbit--3 { right: 5.5%; top: 46%; left: auto; bottom: auto; }
-.orbit--4 { left: 5.5%; top: 46%; right: auto; bottom: auto; }
+
 .orbit__n {
   display: grid; place-items: center;
   width: 1.55rem; height: 1.55rem;
@@ -1438,20 +1097,11 @@ html:not(.js) .verticals { display: grid; gap: 0; }
 .orbit__title { font-size: 1.15rem; font-weight: 500; margin: 0; letter-spacing: -0.02em; }
 .orbit__body p { margin: 0; color: var(--c-ink-2); font-size: 0.98rem; line-height: 1.45; }
 
-.js .hero:not(.hero--fold) .clip-inner { transform: translateY(110%); }
-.js .hero:not(.hero--fold).is-ready .clip-inner { transform: none; }
-.js .hero:not(.hero--fold).is-ready .clip:nth-child(2) .clip-inner { transition-delay: 0.08s; }
-
 @media (max-width: 880px) {
   .orbit { width: min(15rem, 42vw); }
   .orbit--1, .orbit--3 { right: var(--gutter); left: auto; top: 46%; bottom: auto; }
   .orbit--2 { left: var(--gutter); right: auto; top: 46%; bottom: auto; }
-  .hero:not(.hero--fold) .hero__stage { width: min(48vw, 420px); }
-  .hero:not(.hero--fold) .hero__copy { padding-top: 5.6rem; }
-}
-
-@media (max-width: 640px) {
-  .hero:not(.hero--fold) .hero__object img { height: min(28vh, 240px); }
+  
 }
 
 /* Flexbox spec strip */
@@ -1538,16 +1188,11 @@ html:not(.js) .vertical { position: relative; opacity: 1; visibility: visible; p
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.hero--fold) .hero__track { height: auto; }
-  .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; min-height: 100svh; overflow: visible; }
-  .hero:not(.hero--fold) .hero__copy { opacity: 1; transform: none; padding-bottom: 1rem; }
-  .hero:not(.hero--fold) .hero__stage {
-    position: relative; top: auto; left: auto; bottom: auto;
-    transform: none; width: min(1080px, 100%);
-    margin: 0 auto;
-    will-change: auto;
-  }
-  .hero:not(.hero--fold) .hero__object img { height: auto; max-height: min(56vh, 520px); object-position: 50% 40%; }
+  
+  
+  
+  
+  
   .orbits {
     position: relative;
     display: grid; gap: 1.15rem;
@@ -1560,8 +1205,6 @@ html:not(.js) .vertical { position: relative; opacity: 1; visibility: visible; p
   .btn--cta::before, .btn__arrow { transition: none; }
 }
 
-html:not(.js) .hero:not(.hero--fold) .hero__track { height: auto; }
-html:not(.js) .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; min-height: 100svh; }
 html:not(.js) .orbit { position: static; opacity: 1; visibility: visible; transform: none; }
 html:not(.js) .orbits {
   display: grid; gap: 1.15rem; padding: 1.25rem var(--gutter) 2.5rem;
@@ -1569,8 +1212,8 @@ html:not(.js) .orbits {
 }
 
 @media print {
-  .hero:not(.hero--fold) .hero__track { height: auto !important; }
-  .hero:not(.hero--fold) .hero__pin { position: relative !important; height: auto !important; }
+  
+  
   .orbit { position: static; opacity: 1; visibility: visible; transform: none; }
 }
 
@@ -1579,23 +1222,7 @@ html:not(.js) .orbits {
   border-color: rgba(243, 239, 230, 0.16);
 }
 
-
 /* ---- Ship extras: tilt, rail, chips, map pulse ---- */
-.hero:not(.hero--fold) .hero__copy { z-index: 6; isolation: isolate; }
-.hero:not(.hero--fold) .hero__stage {
-  top: 50%; right: auto; left: 50%; bottom: auto;
-  z-index: 2; max-height: none; pointer-events: auto;
-  background: transparent; overflow: visible;
-}
-.hero:not(.hero--fold) .hero__object img { height: auto; max-height: min(42vh, 380px); object-position: 50% 58%; }
-.hero:not(.hero--fold) .hero__object {
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
-  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  transform-style: preserve-3d;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.hero:not(.hero--fold) .hero__object.is-tilting { transition: transform 0.1s linear; }
 
 .page-rail {
   position: fixed; right: 0.85rem; top: 50%;
@@ -1654,11 +1281,10 @@ html:not(.js) .orbits {
 .spec-chips.is-lit li:nth-child(3) { transition-delay: 0.16s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.hero--fold) .hero__object { transform: none; }
+  
   .spec-chips li { opacity: 1; transform: none; transition: none; }
   /* Pass 82: do not hide .page-rail. Pulse is already gated; the rail is nav. */
 }
-
 
 /* ---- Craft pass: Flexbox hero, scale, heat, chips, mobile pin ---- */
 .spec-chips { list-style: none; }
@@ -1805,33 +1431,21 @@ html:not(.js) .orbits {
 }
 
 @media (max-width: 719px) {
-  .hero:not(.hero--fold) .hero__track { height: auto; }
-  .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; min-height: 0; overflow: visible; }
-  .hero:not(.hero--fold) .hero__copy {
-    opacity: 1; transform: none; pointer-events: auto;
-    padding: 5.6rem var(--gutter) 1rem;
-  }
-  .hero:not(.hero--fold) .hero__stage {
-    position: relative; top: auto; left: auto; bottom: auto;
-    transform: none; width: min(1080px, 100%);
-    margin: 0 auto 1.25rem;
-    will-change: auto;
-  }
-  .hero:not(.hero--fold) .hero__object img {
-    height: auto; max-height: min(52vh, 420px);
-    object-position: 50% 50%;
-    -webkit-mask-image: none; mask-image: none;
-  }
-  .hero:not(.hero--fold) .hero__credit { position: relative; right: auto; bottom: auto; text-align: left; padding: 0 var(--gutter) 1.5rem; }
+  
+  
+  
+  
+  
+  
 
   .flex-hotspots { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.hero--fold) .hero__track { height: auto; }
-  .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; overflow: visible; }
-  .hero:not(.hero--fold) .hero__copy { opacity: 1; transform: none; pointer-events: auto; }
-  .hero:not(.hero--fold) .hero__stage { position: relative; left: auto; transform: none; width: min(1080px, 100%); margin: 0 auto; }
+  
+  
+  
+  
   .flex-hotspot { transition: none; }
   .scale__stops button, .heat-pick__stops button, .mode-pick__stops button, .spec-chips button { transition: none; }
 }
@@ -1849,7 +1463,6 @@ html:not(.js) .orbits {
   outline: 3px solid var(--c-timber-400);
   outline-offset: 2px;
 }
-
 
 /* Visualization stills: overlay crossfade on heat/scale/hall. No Ken Burns. */
 
@@ -1911,21 +1524,8 @@ html:not(.js) .orbits {
   .flex-hotspot { opacity: 1; }
 }
 
-
 /* ---- Scroll-with-the-object: 3-layer still stack (no WebGL / Lenis / GSAP) ---- */
-.hero:not(.hero--fold) .hero__track { height: 240vh; }
-.hero:not(.hero--fold) .hero__copy {
-  padding: 6.4rem var(--gutter) 0;
-  z-index: 6;
-}
-.hero:not(.hero--fold) .hero__stage {
-  top: 50%; left: 50%; bottom: auto; right: auto;
-  width: min(40vw, 540px);
-  /* p=0: lower fold under H1; p>=0.08: dead center for the pin */
-  transform: translate3d(-50%, calc(18% - min(var(--p), 0.08) * 850%), 0);
-  transform-origin: 50% 50%;
-}
-.hero:not(.hero--fold) .hero__object[data-scrub] { width: 100%; }
+
 .hero__stack {
   position: relative;
   width: 100%;
@@ -1956,37 +1556,13 @@ html:not(.js) .orbits {
   z-index: 3;
   opacity: clamp(0, calc((var(--p) - 0.55) / 0.35), 1);
 }
-.hero:not(.hero--fold) .hero__still img,
-.hero:not(.hero--fold) .hero__object .hero__still img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: min(42vh, 380px);
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  object-position: 50% 58%;
-  -webkit-mask-image: none;
-  mask-image: none;
-}
+
 .orbit.is-active { opacity: 1; transform: none; }
 .orbit:not(.is-active):not(.is-on) { opacity: 0; }
 
 @media (max-width: 719px) {
-  .hero:not(.hero--fold) .hero__track { height: auto; }
-  .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; min-height: 0; overflow: visible; }
-  .hero:not(.hero--fold) .hero__copy {
-    opacity: 1; transform: none; pointer-events: auto;
-    padding: 5.6rem var(--gutter) 1.15rem;
-  }
-  .hero:not(.hero--fold) .hero__stage {
-    position: relative; top: auto; left: auto; bottom: auto;
-    transform: none; width: min(1080px, 100%);
-    margin: 0 auto 0.85rem;
-    will-change: auto;
-  }
   .hero__stack { transform: none; will-change: auto; }
-  .hero__stack,
-  .hero:not(.hero--fold) .hero__stack {
+  .hero__stack {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.4rem;
@@ -2000,10 +1576,7 @@ html:not(.js) .orbits {
     opacity: 1;
     z-index: 1;
   }
-  .hero__still img,
-  .hero:not(.hero--fold) .hero__object img,
-  .hero:not(.hero--fold) .hero__object .hero__still img,
-  .hero:not(.hero--fold) .hero__still img {
+  .hero__still img {
     height: auto;
     max-height: none;
     aspect-ratio: 4 / 3;
@@ -2034,19 +1607,13 @@ html:not(.js) .orbits {
   .orbit__n { margin-bottom: 0.25rem; }
   .orbit__title { font-size: 0.92rem; }
   .orbit__body p { font-size: 0.82rem; }
-  .hero:not(.hero--fold) .hero__credit { position: relative; right: auto; bottom: auto; text-align: left; padding: 0 var(--gutter) 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.hero--fold) .hero__track { height: auto; }
-  .hero:not(.hero--fold) .hero__pin { position: relative; height: auto; overflow: visible; }
-  .hero:not(.hero--fold) .hero__copy { opacity: 1; transform: none; pointer-events: auto; padding-bottom: 1.15rem; }
-  .hero:not(.hero--fold) .hero__stage {
-    position: relative; top: auto; left: auto; bottom: auto;
-    transform: none; width: min(1080px, 100%);
-    margin: 0 auto 0.85rem;
-    will-change: auto;
-  }
+  
+  
+  
+  
   .hero__stack { transform: none; will-change: auto; }
   .hero__stack {
     display: grid;
@@ -2080,7 +1647,6 @@ html:not(.js) .orbits {
   }
   @media (min-width: 800px) { .orbits { grid-template-columns: 1fr 1fr 1fr; } }
   .orbit { position: static; opacity: 1 !important; visibility: visible !important; transform: none; width: auto; }
-  .hero:not(.hero--fold) .hero__object { transform: none; }
 }
 
 /* ==========================================================================
@@ -2132,17 +1698,7 @@ html:not(.js) .orbits {
   isolation: auto;
 }
 .hero.hero--fold .hero__title { color: var(--c-on-dark); }
-.hero.hero--fold .hero__credit {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: clamp(0.85rem, 2.2vw, 1.5rem);
-  z-index: 4;
-  width: min(100% - 2 * var(--gutter), var(--container));
-  margin: 0 auto;
-  text-align: right;
-  justify-content: flex-end;
-  color: var(--c-on-dark-3);
-}
+
 .hero.hero--fold .hero__layer img { animation: none !important; }
 @media (min-width: 960px) and (max-height: 860px) {
   /* 6.25rem clears the sticky pill (margin 0.85rem + ~56px) with air for the H1. */
@@ -2157,10 +1713,7 @@ html:not(.js) .orbits {
     min-height: calc(100svh - var(--header-h));
     padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(1.2rem, 2.8vw, 1.9rem);
   }
-  .hero.hero--fold .hero__credit {
-    position: relative; bottom: auto; margin-top: 0.7rem;
-    text-align: left; justify-content: flex-start;
-  }
+  
   .hero.hero--fold .hero__stage {
     position: absolute; inset: 0; width: auto; margin: 0; transform: none;
   }
@@ -2265,12 +1818,7 @@ html:not(.js) .orbits {
   -webkit-mask-image: none;
   mask-image: none;
 }
-.chapter__credit {
-  position: absolute; right: 0.5rem; bottom: 0.85rem;
-  z-index: 3; margin: 0; width: auto; text-align: right;
-  justify-content: flex-end;
-  color: var(--c-ink-3);
-}
+
 .chapter .orbit { z-index: 5; }
 
 .js .chapter .clip-inner { transform: translateY(110%); }
@@ -2333,10 +1881,6 @@ html:not(.js) .orbits {
     left: auto; right: auto; top: auto; bottom: auto;
     opacity: 1; visibility: visible; transform: none;
     display: block;
-  }
-  .chapter__credit {
-    position: relative; right: auto; bottom: auto;
-    text-align: left; padding: 0 var(--gutter) 1.5rem;
   }
 }
 
@@ -2585,17 +2129,7 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   max-width: 32rem;
   text-shadow: 0 1px 16px rgba(8, 16, 13, 0.45);
 }
-.hero.hero--fold .hero__credit {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: clamp(0.85rem, 2.2vw, 1.5rem);
-  z-index: 4;
-  width: min(100% - 2 * var(--gutter), var(--container));
-  margin: 0 auto;
-  text-align: right;
-  justify-content: flex-end;
-  color: var(--c-on-dark-3);
-}
+
 .hero.hero--fold .hero__layer img { animation: none; }
 
 .js .hero.hero--fold .clip-inner { transform: translateY(110%); }
@@ -2615,10 +2149,7 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
     min-height: calc(100svh - var(--header-h));
     padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(1.1rem, 2.6vw, 1.7rem);
   }
-  .hero.hero--fold .hero__credit {
-    position: relative; bottom: auto; margin-top: 0.7rem;
-    text-align: left; justify-content: flex-start;
-  }
+  
   .hero.hero--fold .hero__stage {
     position: absolute; inset: 0; width: auto; margin: 0; transform: none;
   }
@@ -3087,80 +2618,11 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
   margin: 0 0 0.55rem;
   padding-top: 0.7rem;
 }
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--fs-small);
-  background: transparent;
-}
-.compare-table th,
-.compare-table td {
-  text-align: left;
-  padding: 0.75rem 0.85rem 0.75rem 0;
-  border-bottom: 1px solid rgba(243, 239, 230, 0.12);
-  vertical-align: top;
-  color: var(--c-on-dark-2);
-}
-.compare-table thead th {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  background: var(--c-forest-900);
-  color: var(--c-on-dark-3);
-  padding-top: 0.55rem;
-  padding-bottom: 0.55rem;
-}
-.compare-table thead th:nth-child(2) { color: var(--c-timber-300); }
-.compare-table tbody th {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-  color: var(--c-on-dark);
-  white-space: nowrap;
-  padding-right: 1.15rem;
-}
-.compare-table tbody td:first-of-type {
-  color: var(--c-on-dark);
-  box-shadow: inset 2px 0 0 var(--c-timber-400);
-  padding-left: 0.7rem;
-}
+
 .flex-compare__note {
   margin: 0.75rem 0 0;
   font-size: 0.9rem;
   color: var(--c-on-dark-3);
-}
-@media (max-width: 719px) {
-  .compare-table, .compare-table thead, .compare-table tbody, .compare-table tr, .compare-table th, .compare-table td {
-    display: block;
-  }
-  .compare-table thead { display: none; }
-  .compare-table tbody th {
-    padding-top: 1rem;
-    border-bottom: 0;
-    white-space: normal;
-  }
-  .compare-table tbody td {
-    border-bottom: 1px solid rgba(243, 239, 230, 0.1);
-    padding-left: 0;
-    box-shadow: none;
-  }
-  .compare-table tbody td:first-of-type {
-    box-shadow: none;
-    padding-left: 0;
-  }
-  .compare-table tbody td::before {
-    content: attr(data-label);
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--c-timber-300);
-    margin-bottom: 0.2rem;
-  }
 }
 
 .flex-sheet {
@@ -3176,7 +2638,6 @@ html:not(.js) .chapter .hero__still { position: relative; opacity: 1; }
 }
 .flex-sheet__next a { color: var(--c-timber-300); }
 .flex-sheet__next a:hover { color: var(--c-timber-400); }
-
 
 @media (min-width: 900px) and (max-height: 820px) {
   .hall-chapters__inner { padding: 0.35rem 0; }
@@ -3253,11 +2714,10 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
   .hall-chapters,
   .section--dark > .hall-chapters { position: static; top: auto; background: #fff; }
   .hall-chapters a { color: #000; }
-  .compare-table th, .compare-table td { color: #000; border-color: #ccc; }
+  
   .spec-rail { position: static; }
   .spec-strip, .flex-compare, .flex-sheet, .parts { break-inside: avoid; }
 }
-
 
 /* ==========================================================================
    2026-08-31 next investor pass
@@ -3281,49 +2741,6 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
 }
 
 /* Compare: sticky criterion column, owned Flexbox header */
-.flex-compare .table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.compare-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  min-width: 36rem;
-}
-.compare-table thead th {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background: var(--c-forest-900);
-  padding-right: 0.85rem;
-}
-.compare-table thead th:first-child,
-.compare-table tbody th {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background: var(--c-forest-900);
-  min-width: 7.5rem;
-  box-shadow: 4px 0 8px -6px rgba(0, 0, 0, 0.35);
-}
-.compare-table thead th:first-child { z-index: 3; }
-.compare-table thead th:nth-child(2) {
-  color: var(--c-timber-300);
-  font-weight: 600;
-}
-.compare-table tbody td:first-of-type {
-  color: var(--c-on-dark);
-  box-shadow: inset 2px 0 0 var(--c-timber-400);
-}
-@media (max-width: 719px) {
-  .compare-table { min-width: 0; }
-  .compare-table thead th,
-  .compare-table thead th:first-child,
-  .compare-table tbody th {
-    position: static;
-    box-shadow: none;
-  }
-}
 
 /* For-you: six chips in-flow so they cannot clip; active stays visible */
 @media (min-width: 721px) {
@@ -3369,19 +2786,22 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
   .scale__stops, .heat-pick__stops { display: none !important; }
   .holds-scan, .purpose-scan, .pay-strip, .spec-rail, .spec-strip,
   .flex-compare, .flex-sheet { break-inside: avoid; color: #000; }
-  .holds-scan h3, .holds-scan p, .holds-scan__moat, .holds-scan__kicker,
-  .pay-strip, .pay-strip h3, .pay-strip p, .pay-strip__label,
-  .spec-rail .spec-strip dt, .spec-rail .spec-strip dd,
-  .compare-table th, .compare-table td, .flex-compare__note,
+  .holds-scan h3,
+  .holds-scan p,
+  .holds-scan__moat,
+  .holds-scan__kicker,
+  .pay-strip,
+  .pay-strip h3,
+  .pay-strip p,
+  .pay-strip__label,
+  .spec-rail .spec-strip dt,
+  .spec-rail .spec-strip dd,
+  .flex-compare__note,
   .flex-sheet__next { color: #000 !important; }
   .spec-rail, .hall-chapters { position: static !important; top: auto; background: #fff; }
   .holds-scan { grid-template-columns: 1fr 1fr; }
   .vertical-index { position: relative !important; background: none; }
   .vertical-index li { display: list-item !important; }
-  .compare-table { min-width: 0; border-collapse: collapse; }
-  .compare-table thead th,
-  .compare-table thead th:first-child,
-  .compare-table tbody th { position: static; background: #fff; box-shadow: none; }
 }
 
 /* ==========================================================================
@@ -3400,22 +2820,10 @@ html:not(.js) .hall-pair .viz-frame__shot picture[hidden] {
 }
 
 /* Compare: short headers stay on one line */
-.compare-table thead th {
-  white-space: nowrap;
-  letter-spacing: 0.08em;
-}
-.compare-table {
-  min-width: 32rem;
-}
-@media (max-width: 719px) {
-  .compare-table thead th { white-space: normal; }
-  .compare-table { min-width: 0; }
-}
 
 @media print {
   .sites-why, .site-board__row, .purpose-scan { break-inside: avoid; }
 }
-
 
 /* ==========================================================================
    2026-08-31 interactive verticals
@@ -3556,7 +2964,6 @@ html:not(.js) .vertical-controls {
   }
 }
 
-
 /* ==========================================================================
    2026-08-31 homepage IA
    Quiet first screen. Gap stats as proof tiles.
@@ -3570,10 +2977,6 @@ html:not(.js) .vertical-controls {
 .section--gap .gap-grid { margin-top: 0.25rem; }
 .section--gap .gap-punch { margin-top: clamp(2.75rem, 6vw, 4.5rem); }
 
-.section--system {
-  background: var(--c-paper);
-  border-top: 1px solid var(--c-stone-300);
-}
 .catalogue {
   list-style: none;
   display: grid;
@@ -3621,71 +3024,6 @@ html:not(.js) .vertical-controls {
   .catalogue__name { grid-column: 2; }
   .catalogue__line { grid-column: 2; }
 }
-.catalogue__next {
-  margin: 0.75rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.catalogue__next a { color: var(--c-timber-700); }
-
-.phases {
-  margin-top: clamp(2.75rem, 6vw, 4.5rem);
-  padding-top: clamp(1.75rem, 4vw, 2.5rem);
-  border-top: 1px solid var(--c-stone-300);
-}
-.phases__title {
-  font-size: var(--fs-h3);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--c-forest-950);
-  margin: 0 0 0.55rem;
-}
-.phases > p {
-  margin: 0;
-  font-size: 0.98rem;
-  color: var(--c-ink-2);
-  max-width: var(--measure);
-  line-height: 1.45;
-}
-.phases__list {
-  list-style: none;
-  display: grid;
-  gap: 1.35rem 1.5rem;
-}
-@media (min-width: 720px) { .phases__list { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .phases__list { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
-.phases__n {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-timber-600);
-  margin: 0 0 0.45rem;
-}
-.phases__list h4 {
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--c-forest-950);
-  margin: 0 0 0.35rem;
-}
-.phases__list p {
-  font-size: 0.92rem;
-  color: var(--c-ink-2);
-  line-height: 1.45;
-  max-width: 22ch;
-}
-.phases__next {
-  margin: 1.25rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.phases__next a { color: var(--c-timber-700); }
 
 /* Fewer competing stickies — pill + Approach pin stay. Chapter bar and spec-rail sit in flow. */
 .hall-chapters,
@@ -3701,10 +3039,9 @@ html:not(.js) .vertical-controls {
 }
 
 @media print {
-  .catalogue__row, .phases__list li { break-inside: avoid; color: #000; }
-  .catalogue__name, .phases__title, .phases__list h4 { color: #000; }
+  .catalogue__row { break-inside: avoid; color: #000; }
+  .catalogue__name { color: #000; }
 }
-
 
 /* ==========================================================================
    2026-08-31 motion pass
@@ -3722,8 +3059,7 @@ html:not(.js) .vertical-controls {
 .js .holds-scan > li,
 .js .purpose-scan > li,
 .js .catalogue > li,
-.js .hero-stats .stat,
-.js .phases__list > li {
+.js .hero-stats .stat {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3731,31 +3067,26 @@ html:not(.js) .vertical-controls {
 .js .holds-scan.is-visible > li,
 .js .purpose-scan.is-visible > li,
 .js .catalogue.is-visible > li,
-.js .hero-stats.is-visible .stat,
-.js .phases.is-visible .phases__list > li {
+.js .hero-stats.is-visible .stat {
   opacity: 1;
   transform: none;
 }
 .js .holds-scan.is-visible > li:nth-child(1),
 .js .purpose-scan.is-visible > li:nth-child(1),
 .js .catalogue.is-visible > li:nth-child(1),
-.js .hero-stats.is-visible .stat:nth-child(1),
-.js .phases.is-visible .phases__list > li:nth-child(1) { transition-delay: 0.04s; }
+.js .hero-stats.is-visible .stat:nth-child(1) { transition-delay: 0.04s; }
 .js .holds-scan.is-visible > li:nth-child(2),
 .js .purpose-scan.is-visible > li:nth-child(2),
 .js .catalogue.is-visible > li:nth-child(2),
-.js .hero-stats.is-visible .stat:nth-child(2),
-.js .phases.is-visible .phases__list > li:nth-child(2) { transition-delay: 0.1s; }
+.js .hero-stats.is-visible .stat:nth-child(2) { transition-delay: 0.1s; }
 .js .holds-scan.is-visible > li:nth-child(3),
 .js .purpose-scan.is-visible > li:nth-child(3),
 .js .catalogue.is-visible > li:nth-child(3),
-.js .hero-stats.is-visible .stat:nth-child(3),
-.js .phases.is-visible .phases__list > li:nth-child(3) { transition-delay: 0.16s; }
+.js .hero-stats.is-visible .stat:nth-child(3) { transition-delay: 0.16s; }
 .js .holds-scan.is-visible > li:nth-child(4),
 .js .purpose-scan.is-visible > li:nth-child(4),
 .js .catalogue.is-visible > li:nth-child(4),
-.js .hero-stats.is-visible .stat:nth-child(4),
-.js .phases.is-visible .phases__list > li:nth-child(4) { transition-delay: 0.22s; }
+.js .hero-stats.is-visible .stat:nth-child(4) { transition-delay: 0.22s; }
 .js .holds-scan.is-visible > li:nth-child(5) { transition-delay: 0.28s; }
 .js .holds-scan.is-visible > li:nth-child(6) { transition-delay: 0.34s; }
 
@@ -3876,8 +3207,7 @@ html:not(.js) .vertical-controls {
   .js .holds-scan > li,
   .js .purpose-scan > li,
   .js .catalogue > li,
-  .js .hero-stats .stat,
-  .js .phases__list > li {
+  .js .hero-stats .stat {
     opacity: 1;
     transform: none;
     transition: none;
@@ -3910,8 +3240,7 @@ html:not(.js) .vertical-controls {
   .js .holds-scan > li,
   .js .purpose-scan > li,
   .js .catalogue > li,
-  .js .hero-stats .stat,
-  .js .phases__list > li { opacity: 1 !important; transform: none !important; }
+  .js .hero-stats .stat { opacity: 1 !important; transform: none !important; }
   .flex-hotspot::after { display: none; }
 }
 
@@ -4283,18 +3612,6 @@ html {
    via existing .reveal / side-scan rules.
    ========================================================================== */
 
-.hero.hero--fold .hero__quiet {
-  margin: 0.75rem 0 0;
-  font-size: 0.92rem;
-  font-weight: 500;
-}
-.hero.hero--fold .hero__quiet a {
-  color: var(--c-on-dark-2);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(221, 191, 147, 0.45);
-}
-.hero.hero--fold .hero__quiet a:hover { color: var(--c-timber-300); }
-
 .section--compute-band {
   background: var(--c-forest-950);
   color: var(--c-on-dark);
@@ -4409,7 +3726,6 @@ html {
   .purpose-scan { grid-template-columns: 1fr 1fr; }
 }
 
-
 /* ==========================================================================
    2026-08-31 motion + context
    One easing system. Collision cuts live in HTML. Vanilla CSS.
@@ -4440,7 +3756,6 @@ html {
 .js .purpose-scan > li,
 .js .catalogue > li,
 .js .hero-stats .stat,
-.js .phases__list > li,
 .js .side-scan > li,
 .js .sites-why > li,
 .js .gap-grid > * {
@@ -4452,7 +3767,6 @@ html {
 .js .purpose-scan.is-visible > li,
 .js .catalogue.is-visible > li,
 .js .hero-stats.is-visible .stat,
-.js .phases.is-visible .phases__list > li,
 .js .side-scan.is-visible > li,
 .js .sites-why.is-visible > li,
 .js .gap-grid.is-visible,
@@ -4610,14 +3924,13 @@ html {
 
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
   .js .reveal,
-  .js .holds-scan > li,
-  .js .purpose-scan > li,
-  .js .catalogue > li,
-  .js .hero-stats .stat,
-  .js .phases__list > li,
-  .js .side-scan > li,
-    .js .sites-why > li,
-  .js .gap-grid > * {
+.js .holds-scan > li,
+.js .purpose-scan > li,
+.js .catalogue > li,
+.js .hero-stats .stat,
+.js .side-scan > li,
+.js .sites-why > li,
+.js .gap-grid > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -4717,7 +4030,6 @@ html {
   #local { break-inside: avoid; color: #000; }
 }
 
-
 /* ==========================================================================
    2026-08-31 attached decks — public-safe
    General deck (24 pp) + first-three-sites (56 slides). Investor voice,
@@ -4744,46 +4056,17 @@ html {
   padding-top: 0;
   border-top: 0;
 }
-.compare-table--paper th,
-.compare-table--paper td {
-  color: var(--c-ink-2);
-  border-bottom-color: var(--c-stone-300);
-}
-.compare-table--paper thead th {
-  background: transparent;
-  color: var(--c-ink-3);
-}
-.compare-table--paper thead th:nth-child(2) { color: var(--c-timber-600); }
-.compare-table--paper tbody th { color: var(--c-ink); }
+
 /* Sticky criterion col: forest-900 was for dark tables — paper needs ink on cream */
-.compare-table--paper thead th {
-  background: var(--c-paper, #f3efe6);
-}
-.compare-table--paper thead th:first-child,
-.compare-table--paper tbody th {
-  background: var(--c-paper, #f3efe6);
-  color: var(--c-ink);
-  box-shadow: 4px 0 8px -6px rgba(18, 41, 31, 0.12);
-}
-.compare-table--paper tbody td:first-of-type {
-  color: var(--c-ink);
-  box-shadow: inset 2px 0 0 var(--c-timber-500);
-}
+
 .flex-compare--paper .flex-compare__note {
   color: var(--c-ink-3);
 }
 
 #century { scroll-margin-top: 5.75rem; }
 
-@media (max-width: 719px) {
-  .compare-table--paper tbody td {
-    border-bottom-color: var(--c-stone-300);
-  }
-}
-
 @media print {
   .chapter__name, .gap-zone { color: #000; }
-  .compare-table--paper th, .compare-table--paper td { color: #000 !important; }
 }
 
 /* ==========================================================================
@@ -4829,7 +4112,6 @@ html {
   transition: transform 0.8s var(--ease);
 }
 .js .hero.hero--fold.is-ready .clip:nth-child(2) .clip-inner,
-.js .hero:not(.hero--fold).is-ready .clip:nth-child(2) .clip-inner,
 .js .is-visible .clip:nth-child(2) .clip-inner {
   transition-delay: 0.14s;
 }
@@ -4948,7 +4230,6 @@ html {
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
   .js .clip-inner,
   .js .hero.hero--fold.is-ready .clip:nth-child(2) .clip-inner,
-  .js .hero:not(.hero--fold).is-ready .clip:nth-child(2) .clip-inner,
   .js .is-visible .clip:nth-child(2) .clip-inner {
     transform: none !important;
     transition: none !important;
@@ -5066,7 +4347,6 @@ html {
 @media (max-width: 719px) {
   .js .side-scan.is-visible > li:nth-child(6) { transition: none; }
 }
-
 
 /* ==========================================================================
    2026-08-31 pass 4 — craft + scan
@@ -5296,7 +4576,6 @@ html {
   .grade--heat .grade__k { color: #000 !important; }
 }
 
-
 /* ==========================================================================
    2026-08-31 pass 5 — hall restack + craft
    Fan carousel gone. Unit = Closed/Exploded still + chips; Specs = rail.
@@ -5506,35 +4785,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 }
 
 /* Compare: row highlight; Flexbox column owned (timber/forest). First col already sticky. */
-.compare-table thead th:nth-child(2) {
-  color: var(--c-timber-300);
-  background: rgba(176, 122, 68, 0.14);
-}
-.compare-table tbody td:first-of-type {
-  background: rgba(176, 122, 68, 0.08);
-}
-.compare-table--paper thead th:nth-child(2) {
-  color: var(--c-timber-700);
-  background: rgba(176, 122, 68, 0.1);
-}
-.compare-table--paper tbody td:first-of-type {
-  background: rgba(176, 122, 68, 0.06);
-}
-@media (hover: hover) and (min-width: 720px) {
-  .compare-table tbody tr:hover,
-  .compare-table tbody tr:focus-within {
-    background: rgba(176, 122, 68, 0.12);
-  }
-  .compare-table tbody tr:hover th,
-  .compare-table tbody tr:focus-within th {
-    background: rgba(18, 41, 31, 0.92);
-  }
-  .compare-table--paper tbody tr:hover th,
-  .compare-table--paper tbody tr:focus-within th {
-    background: rgba(176, 122, 68, 0.12);
-  }
-}
-
 
 /* Hall still: half-strength tilt. Chip click = one-shot pulse on the matching shell hotspot. */
 .hall-pair__shot[data-tilt] {
@@ -5705,7 +4955,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
   }
 }
 
-
 /* ==========================================================================
    2026-08-31 pass 10 — host switcher, no public PDFs, FaaS paraphrase
    7-stop host / offtake / generation (no greenhouse featured).
@@ -5737,7 +4986,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
     transition: none;
   }
 }
-
 
 /* ==========================================================================
    2026-08-31 compute pad catalogue (Kelvin four parts on one pad)
@@ -5845,7 +5093,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
   margin-top: 0.35rem;
 }
 
-
 /* ==========================================================================
    2026-08-31 hall — no third spec reprint; nav pill at 900–1180
    Spec-rail is the Specs chapter, not a second column beside the still.
@@ -5907,7 +5154,7 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
 /* Nav: 8 items collide ~900–1180. Hamburger earlier (was 1099). */
 @media (max-width: 1199px) {
   .nav-toggle { display: inline-flex; }
-  .site-header__cta { display: none; }
+  
   .site-nav {
     position: absolute; left: 0.75rem; right: 0.75rem; top: calc(100% + 0.55rem); z-index: 51;
     display: none; flex-direction: column; align-items: stretch;
@@ -5934,7 +5181,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
   html:not(.js) .site-nav__list a { border: 0; padding: 0.35rem 0; font-size: 0.9rem; color: var(--c-ink-2); }
   html:not(.js) .nav-pill { flex-wrap: wrap; border-radius: 18px; }
   html:not(.js) .site-header { position: static; pointer-events: auto; }
-  html:not(.js) .site-header__cta { display: inline-flex; }
 }
 @media (min-width: 1200px) {
   .nav-toggle { display: none; }
@@ -5943,7 +5189,6 @@ html:not(.js) .tier-pick__panel[hidden] { display: block; }
     background: transparent; padding: 0; border: 0; color: inherit;
   }
 }
-
 
 /* ==========================================================================
    2026-08-31 pass 19 — scroll-driven craft
@@ -6235,7 +5480,6 @@ body.nav-open .site-header.is-away { transform: none; }
   .js .sites-why__kicker::after { transform: none; }
 }
 
-
 /* ==========================================================================
    2026-08-31 chapter motion (vanilla)
    Numbered 01–n + Prev/Next + 680ms still/copy crossfade on For-you, heat
@@ -6497,7 +5741,6 @@ html:not(.js) .chapter-step { display: none; }
   .js .scale .viz-frame__shot picture:not(.is-on) { display: none; }
 }
 
-
 /* ==========================================================================
    2026-08-31 pin ticks, layer offset, bloom break, catalogue as ToC
    Vanilla CSS. Forest / timber. No orange. No canvas rotate sequence.
@@ -6608,34 +5851,6 @@ html:not(.js) .chapter-step { display: none; }
   left: calc(100% + 0.5rem);
 }
 
-/* 3. CSS blur-bloom chapter break — #system only (Approach → Flexbox).
-   Three forest/timber radials, blur 80px, slow drift. Existing lead sits on top.
-   Zero JS. */
-.section--system {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.section--system::before {
-  content: "";
-  position: absolute;
-  inset: -28% -12%;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 44% 38% at 18% 36%, rgba(36, 80, 64, 0.34) 0%, transparent 68%),
-    radial-gradient(ellipse 36% 42% at 82% 52%, rgba(176, 122, 68, 0.14) 0%, transparent 66%),
-    radial-gradient(ellipse 32% 30% at 48% 86%, rgba(18, 41, 31, 0.18) 0%, transparent 70%);
-  filter: blur(80px);
-  transform: translate3d(0, 0, 0);
-  animation: kc-bloom-drift 34s ease-in-out infinite alternate;
-}
-.section--system > .container { position: relative; z-index: 1; }
-@keyframes kc-bloom-drift {
-  from { transform: translate3d(-2.8%, 1.8%, 0) scale(1.02); }
-  to { transform: translate3d(3.6%, -2.4%, 0) scale(1.07); }
-}
-
 /* 4. Catalogue as ToC. Numbered rows/chips stay visible; gutter numbers;
    current timber. No greenhouse. No extra section. */
 .vertical-groups .vertical-index button {
@@ -6705,16 +5920,15 @@ html:not(.js) .chapter-step { display: none; }
     transform: none !important;
   }
   .chapter .orbit.is-active .orbit__n::after { content: none; }
-  .section--system::before { animation: none; }
+  
   .tick-dial__lead { transition: none; }
 }
 
 @media print {
   .tick-dial { display: none !important; }
-  .section--system::before { display: none; }
+  
   .chapter .orbit__n::after { content: none; }
 }
-
 
 /* ==========================================================================
    2026-08-31 layout: For-you chrome row + Approach pin/copy gap
@@ -6864,21 +6078,12 @@ html:not(.js) .chapter-step { display: none; }
   .chapter .orbit.is-active::after { content: none; }
 }
 
-
 /* ==========================================================================
    2026-08-31 pass 22 — craft / a11y polish
    Tokens live on :root (timber --focus, --dur-press 0.18s, --dur-cross 0.68s).
    For-you chrome stays in-flow. Approach dial stays small. Hall still 100%.
    Reduced-motion / <720px static. No Lenis / GSAP / WebGL / Ken Burns / orange.
    ========================================================================== */
-
-.section--system .section__title,
-.section--system .section__lead {
-  color: var(--c-forest-950);
-}
-.section--system .section__lead {
-  max-width: 38rem;
-}
 
 /* Heat ToC gutter: keep chips wrapping; don't collide with Prev/Next. */
 .heat-pick:not(.parts-pick) .heat-pick__stops {
@@ -6892,7 +6097,6 @@ html:not(.js) .chapter-step { display: none; }
 /* Paper heat labels: timber-700 on cream, not timber-500 (contrast). */
 .heat-pick--paper .heat-pick__label,
 .heat-pick--paper .scale__label,
-.page-thermal .grade__label,
 .page-compute .heat-pick__label {
   color: var(--c-timber-700);
 }
@@ -6956,32 +6160,6 @@ html:not(.js) .chapter-step { display: none; }
 }
 
 /* Paper compare: ink on cream — beat dark-table sticky forest-900. */
-.flex-compare--paper .compare-table--paper thead th,
-.flex-compare--paper .compare-table--paper thead th:first-child,
-.flex-compare--paper .compare-table--paper tbody th {
-  background: var(--c-paper);
-  color: var(--c-ink);
-  box-shadow: 4px 0 8px -6px rgba(18, 41, 31, 0.1);
-}
-.flex-compare--paper .compare-table--paper thead th {
-  color: var(--c-ink-3);
-}
-.flex-compare--paper .compare-table--paper thead th:nth-child(2) {
-  color: var(--c-timber-700);
-  background: rgba(176, 122, 68, 0.1);
-}
-.flex-compare--paper .compare-table--paper tbody td:first-of-type {
-  color: var(--c-ink);
-  background: rgba(176, 122, 68, 0.06);
-  box-shadow: inset 2px 0 0 var(--c-timber-500);
-}
-@media (hover: hover) and (min-width: 720px) {
-  .flex-compare--paper .compare-table--paper tbody tr:hover th,
-  .flex-compare--paper .compare-table--paper tbody tr:focus-within th {
-    background: rgba(176, 122, 68, 0.12);
-    color: var(--c-ink);
-  }
-}
 
 /* Holds / purpose / trio title links: readable text-link, not shouty. */
 .holds-scan h3 a,
@@ -7022,7 +6200,6 @@ html:not(.js) .chapter-step { display: none; }
     transition: none;
   }
 }
-
 
 /* ==========================================================================
    2026-08-31 pass 35 — map paint, one-source pins, stats row, craft
@@ -7358,7 +6535,6 @@ html {
   .stats--row .stat { transform: none; box-shadow: none; }
 }
 
-
 /* ==========================================================================
    2026-08-31 pass 36 — finish craft
    Map eager paint, page-progress, stats wrap, timber focus, current-only
@@ -7521,7 +6697,6 @@ html.has-sda::before { content: none !important; display: none !important; }
   .sites-layout[data-active-site="k2"] .sites-map__pin[data-site="k2"]::before,
   .sites-layout[data-active-site="k3"] .sites-map__pin[data-site="k3"]::before,
   .page-rail a[aria-current="true"],
-  .section--system::before,
   .grade li:has(button[aria-pressed="true"])::before,
   .side-scan li:has(button[aria-current="true"]) {
     animation: none !important;
@@ -7557,7 +6732,6 @@ html.has-sda::before { content: none !important; display: none !important; }
 .section--gap .stats-gloss {
   margin-bottom: 2.25rem;
 }
-
 
 /* ==========================================================================
    2026-08-31 pass 38 — grade tick-dial once; one fold object per side page
@@ -7769,7 +6943,7 @@ html.has-sda::before { content: none !important; display: none !important; }
 
 /* 4. Cheap craft: jump-target scroll-margin, timber focus on side-jumps,
    compute jump wrap air. */
-#local, #sovereign, #gap {
+#local, #sovereign {
   scroll-margin-top: 5.75rem;
 }
 .side-jump a:focus { outline: none; }
@@ -7810,10 +6984,6 @@ html.has-sda::before { content: none !important; display: none !important; }
 .page-thermal #dest .heat-pick__stops {
   gap: 0.55rem 0.7rem;
   flex-wrap: wrap;
-}
-
-.side-hero__quiet {
-  max-width: 38rem;
 }
 
 #contact, #faq, #holds, #start {
@@ -7872,7 +7042,7 @@ html.has-sda::before { content: none !important; display: none !important; }
 
 /* Measure on decks ~38–42rem. */
 .side-hero__deck { max-width: 40rem; }
-.side-hero__quiet { max-width: 40rem; }
+
 .section--side .section__lead { max-width: 40rem; }
 
 /* Stills: keep fold objects full-width + cover + short-laptop cap.
@@ -8418,35 +7588,6 @@ html.has-sda::before { content: none !important; display: none !important; }
   row-gap: 0.85rem;
 }
 
-/* 5. Energy #gap: four tiles, one row at 1280. Do not drop 322.
-   SE2 679 / Montel aside is gone (pass 60). Tighten padding / labels, not copy. */
-@media (min-width: 960px) {
-  .page-energy #gap .stats--row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .page-energy #gap .stats--row .stat {
-    padding: 1.05rem 0.7rem 1.1rem;
-  }
-  .page-energy #gap .stats--row .stat__value {
-    font-size: clamp(1.55rem, 1.05rem + 1.15vw, 2.35rem);
-    margin-bottom: 0.4rem;
-  }
-  .page-energy #gap .stats--row .stat__label {
-    max-width: none;
-    font-size: 0.78rem;
-    line-height: 1.35;
-  }
-}
-@media (min-width: 1280px) {
-  .page-energy #gap .stats--row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .page-energy #gap .stats--row .stat {
-    padding: 1.1rem 0.75rem 1.15rem;
-  }
-}
-
 /* ==========================================================================
    2026-09-01 pass 46 — chip bar off the still, locked home stats, wrap
    Vanilla CSS. Forest / timber. No orange. No Ken Burns. No grade-dial restyle.
@@ -8674,18 +7815,6 @@ html:not(.js) .verticals__stage {
   }
 }
 
-/* 5. Energy #gap: keep the 4-up from 960 / 1280. Label shortened in HTML. */
-@media (min-width: 1280px) {
-  .page-energy #gap .stats--row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .page-energy #gap .stats--row .stat__label {
-    max-width: none;
-    font-size: 0.76rem;
-    line-height: 1.3;
-  }
-}
-
 /* ==========================================================================
    2026-09-01 pass 47 — Hosts one row, Sites map as object, contact note
    Vanilla CSS. Forest / timber. No orange. No Ken Burns. No pin restyle.
@@ -8809,7 +7938,6 @@ html:not(.js) .verticals__stage {
   scroll-margin-top: calc(1.15rem + 72px + 56px);
 }
 
-
 @media (prefers-reduced-motion: reduce), (max-width: 719px) {
   .sites-why__kicker::after {
     transform: none;
@@ -8821,7 +7949,6 @@ html:not(.js) .verticals__stage {
     top: auto;
   }
 }
-
 
 /* ==========================================================================
    2026-09-01 pass 50 — jump spy, product still settle, card hover
@@ -8885,7 +8012,6 @@ html:not(.js) .verticals__stage {
     box-shadow: none;
   }
 }
-
 
 /* 4. Home flow — Energy in → Kelvin Flexbox → Value out.
    Adapted from Nick's .flow (not the .kc demo sheet). No chart, no sources.
@@ -9122,15 +8248,6 @@ html:not(.js) .verticals__stage {
   .flow__link--out .flow__link-label { max-width: 7.25rem; }
 }
 
-/* Energy #gap: 322 only. Do not stretch a single tile across a 2-up. */
-.page-energy .stats--solo {
-  grid-template-columns: minmax(0, 22rem);
-  max-width: 24rem;
-}
-@media (min-width: 560px) {
-  .page-energy .stats--solo { grid-template-columns: minmax(0, 22rem); }
-}
-
 /* ==========================================================================
    2026-09-01 pass 53 — chorus off, leftover crafts
    Vanilla CSS. Forest / timber. No orange. No Ken Burns. No map / grade restyle.
@@ -9166,29 +8283,11 @@ html:not(.js) .verticals__stage {
   .sites-why { grid-template-columns: 1fr; gap: 0.7rem; }
 }
 
-
 /* ==========================================================================
    2026-09-01 pass 54 — Energy 322 solo wins, dest non-SDA settle
    Vanilla CSS. Forest / timber. No orange. No Ken Burns. No map / grade restyle.
    Reduced-motion and <720: static. Eggs/classic frozen. No Approach redesign.
    ========================================================================== */
-
-/* Energy #gap: pass 46 4-up (id #gap) was beating pass 52 .stats--solo.
-   One tile. Do not stretch 322 across four columns. */
-@media (min-width: 960px) {
-  .page-energy #gap .stats--row.stats--solo,
-  .page-energy #gap .stats--solo {
-    grid-template-columns: minmax(0, 22rem);
-    max-width: 24rem;
-  }
-}
-@media (min-width: 1280px) {
-  .page-energy #gap .stats--row.stats--solo,
-  .page-energy #gap .stats--solo {
-    grid-template-columns: minmax(0, 22rem);
-    max-width: 24rem;
-  }
-}
 
 /* ==========================================================================
    2026-09-01 pass 55 — leftover copy crafts, live-line gone, chip bar row
@@ -9234,7 +8333,6 @@ html:not(.js) .verticals__stage {
     margin-left: 0.35rem;
   }
 }
-
 
 /* ==========================================================================
    2026-09-01 pass 57 — product-page folds, Approach kiss, chip bar, dead heat-grid
@@ -9346,7 +8444,6 @@ html:not(.js) .verticals__stage {
   .site-footer__address,
   .site-footer__address strong { color: #000 !important; }
 }
-
 
 /* ==========================================================================
    2026-09-01 pass 62 — G1 mark aspect, Loop H2 clip lines
@@ -9548,12 +8645,7 @@ html:not(.js) .verticals__stage {
 /* 1. BESS spreadsheet table removed — 2-up paper cards in pass 104. */
 
 /* Home Flexbox / campus / battery — win column weight, destacked footnote. */
-#flex-compare .compare-table col.compare-col--key { width: 16%; }
-#flex-compare .compare-table col.compare-col--win { width: 32%; }
-#flex-compare .compare-table col.compare-col--alt { width: 26%; }
-#flex-compare .compare-table tbody td:first-of-type {
-  font-weight: 500;
-}
+
 #flex-compare .flex-compare__note {
   font-size: 0.95rem;
   color: var(--c-on-dark-2);
@@ -9654,7 +8746,6 @@ html:not(.js) .verticals__stage {
 @media (min-width: 720px) {
   .page-flexibility #loop-title .clip-inner { white-space: nowrap; }
 }
-
 
 /* ==========================================================================
    2026-09-01 pass 73 — leftover destacks / 720 chip wrap
@@ -9983,9 +9074,6 @@ html:not(.js) .verticals__stage {
 .side-hero .viz-cap {
   color: var(--c-ink-2);
 }
-.side-hero .viz-cap__kind {
-  color: var(--c-timber-600);
-}
 
 /* For-you overlay caption on the photo — cream, not on-dark-3 grey. */
 .vertical__cap {
@@ -10252,11 +9340,6 @@ html:not(.js) .verticals__stage {
     color: #000 !important;
     border-color: #000 !important;
     background: #fff !important;
-  }
-  .btn--ghost-light .btn__icon,
-  .btn--ghost .btn__icon {
-    color: #000 !important;
-    border-color: #000 !important;
   }
   .section--compute-band,
   .compute-band {
@@ -10742,15 +9825,9 @@ a.text-link:focus-visible,
 @media print {
   .section--hall,
   .flex-compare,
-  .compare-table,
   .hall-chapters a {
     background: #fff !important;
     color: #000 !important;
-  }
-  .compare-table th,
-  .compare-table td {
-    color: #000 !important;
-    background: #fff !important;
   }
 }
 
@@ -11006,13 +10083,6 @@ a.text-link:focus-visible,
    dead accordion/bring-quiet/pay-ol gone, compare/sheet destack.
    Specs 6 / Pad 4 / pay 4 compact HELD. No accordion restore.
    ========================================================================== */
-
-.section.section--system {
-  padding-block: clamp(2.15rem, 4.2vw, 3.85rem);
-}
-.section--system .section__head {
-  margin-bottom: clamp(0.85rem, 1.8vw, 1.35rem);
-}
 
 .section--hall .flex-compare__note {
   margin: 0;
@@ -11376,15 +10446,7 @@ a.text-link:focus-visible,
 }
 
 /* Home gap stats: 25% + +41 TWh in one tile. Two equal columns ≥720. */
-.section--gap .hero-stats .stats--row .stat__value--sub {
-  display: block;
-  font-size: clamp(1.02rem, 0.82rem + 0.7vw, 1.32rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--c-forest-800);
-  margin: -0.15rem 0 0.55rem;
-}
+
 .section--gap .hero-stats .stats--row .stat__label {
   max-width: 38ch;
 }
@@ -11428,7 +10490,6 @@ a.text-link:focus-visible,
     transform: none;
   }
 }
-
 
 /* ==========================================================================
    2026-09-02 hall leftover craft — tighter product, not a restack.
@@ -11977,7 +11038,6 @@ a.text-link:focus-visible,
   }
 }
 
-
 /* ==========================================================================
    2026-09-03 — Flexibility #bess title standout.
    Dark act so the compare cannot hide in cream paper. Two-line H2:
@@ -12052,10 +11112,7 @@ a.text-link:focus-visible,
   }
 }
 
-
 /* 2026-09-03 — drop visible Visualization kind on stills. Caption line held. */
-.viz-cap__kind { display: none; }
-
 
 /* 2026-09-03 — kicker copy only. Timber-300, original weight. Quiet size bump. */
 .hero.hero--fold .hero__kicker {
@@ -12065,7 +11122,6 @@ a.text-link:focus-visible,
   letter-spacing: 0.14em;
   text-shadow: 0 1px 16px rgba(8, 16, 13, 0.45);
 }
-
 
 /* 2026-09-03 — The system / What is Flexbox lives in the dark hall. */
 .section--hall #system.section__head {
@@ -12100,7 +11156,6 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
-
 
 /* 2026-09-03 — hall intro A: title + 01–04 left, unit still right. ≥900 2-up. */
 .hall-intro {
@@ -12142,7 +11197,6 @@ a.text-link:focus-visible,
   .hall-intro { display: block; }
 }
 
-
 /* 2026-09-03 — BESS optional note matches Compute wins on every row. */
 .page-flexibility #bess .side-quiet {
   color: var(--c-on-dark);
@@ -12158,7 +11212,6 @@ a.text-link:focus-visible,
     color: #000 !important;
   }
 }
-
 
 /* ==========================================================================
    2026-09-03 spacing craft 2 — leftover dump pad after copy/layout moves.
