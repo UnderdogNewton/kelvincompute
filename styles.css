@@ -7932,7 +7932,7 @@ html:not(.js) .verticals__stage {
   }
 }
 
-/* Sticky nav must not clip First plots / K1 Söderhamn. */
+/* Sticky nav must not clip First plots / K1. */
 #sites,
 #sites-title {
   scroll-margin-top: calc(1.15rem + 72px + 56px);
