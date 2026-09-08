@@ -368,9 +368,7 @@
   /* ---------- Parallax (hero layers + section visuals) ---------- */
   var heroStage = doc.querySelector('.hero--fold .hero__stage') || doc.querySelector('.hero__stage');
   var heroLayers = heroStage ? Array.prototype.slice.call(heroStage.querySelectorAll('.hero__layer[data-parallax]')) : [];
-  var vizShots = Array.prototype.slice.call(doc.querySelectorAll('.viz-frame__shot img')).filter(function (el) {
-    return !el.closest('.sites-map');
-  });
+  var vizShots = Array.prototype.slice.call(doc.querySelectorAll('.viz-frame__shot img'));
 
   var parallaxTick = false;
   var applyParallax = function () {
@@ -417,94 +415,6 @@
     } else if (reduceMotion.addListener) {
       reduceMotion.addListener(applyParallax);
     }
-  }
-
-  /* ---------- Sites map: pin ↔ row pairing ---------- */
-  var sitesLayout = doc.querySelector('.sites-layout');
-  if (sitesLayout) {
-    var siteBtns = Array.prototype.slice.call(sitesLayout.querySelectorAll('button[data-site]'));
-    var selectedSite = 'k1';
-    var siteCaptionEl = sitesLayout.querySelector('[data-sites-caption]');
-    var siteCaptionIdle = 'First Sites. 10 MW.';
-    var siteCaptions = {
-      k1: 'K1 — coastal industrial pad. Status Plot.',
-      k2: 'K2 — inland hall retrofit. Status Plot.',
-      k3: 'K3 — northwest, district Heat designed in. Status Plot.'
-    };
-
-    var paintSite = function (id) {
-      if (id) { sitesLayout.setAttribute('data-active-site', id); }
-      else { sitesLayout.setAttribute('data-active-site', ''); }
-      siteBtns.forEach(function (btn) {
-        btn.setAttribute('aria-pressed', btn.getAttribute('data-site') === selectedSite ? 'true' : 'false');
-      });
-      if (siteCaptionEl) {
-        siteCaptionEl.textContent = (id && siteCaptions[id]) ? siteCaptions[id] : siteCaptionIdle;
-      }
-    };
-
-    paintSite('k1');
-
-    sitesLayout.addEventListener('pointerover', function (event) {
-      var target = event.target.closest('[data-site]');
-      if (target && sitesLayout.contains(target)) {
-        paintSite(target.getAttribute('data-site'));
-      } else {
-        paintSite(selectedSite);
-      }
-    });
-    sitesLayout.addEventListener('pointerleave', function () {
-      paintSite(selectedSite);
-    });
-    sitesLayout.addEventListener('focusin', function (event) {
-      var target = event.target.closest('[data-site]');
-      if (target) { paintSite(target.getAttribute('data-site')); }
-    });
-    sitesLayout.addEventListener('focusout', function (event) {
-      if (!sitesLayout.contains(event.relatedTarget)) { paintSite(selectedSite); }
-    });
-    sitesLayout.addEventListener('click', function (event) {
-      var target = event.target.closest('button[data-site]');
-      if (!target || !sitesLayout.contains(target)) { return; }
-      var id = target.getAttribute('data-site');
-      selectedSite = selectedSite === id ? null : id;
-      paintSite(selectedSite);
-      Array.prototype.forEach.call(sitesLayout.querySelectorAll('.sites-map__pin'), function (pin) {
-        pin.classList.remove('is-pulse');
-      });
-      if (selectedSite && !motionOff()) {
-        var pulseT = sitesLayout.querySelector('.sites-map__pin[data-site="' + selectedSite + '"]');
-        if (pulseT) {
-          void pulseT.offsetWidth;
-          pulseT.classList.add('is-pulse');
-          window.setTimeout(function () { pulseT.classList.remove('is-pulse'); }, 650);
-        }
-      }
-    });
-    sitesLayout.addEventListener('keydown', function (event) {
-      var keys = { ArrowDown: 1, ArrowUp: -1, ArrowRight: 1, ArrowLeft: -1, Home: 'home', End: 'end' };
-      if (!(event.key in keys)) { return; }
-      var current = event.target.closest('button[data-site]');
-      if (!current) { return; }
-      var codes = ['k1', 'k2', 'k3'];
-      var id = current.getAttribute('data-site');
-      var idx = codes.indexOf(id);
-      if (idx < 0) { return; }
-      var move = keys[event.key];
-      if (move === 'home') { idx = 0; }
-      else if (move === 'end') { idx = codes.length - 1; }
-      else { idx = ((idx + move) % codes.length + codes.length) % codes.length; }
-      event.preventDefault();
-      var onPin = current.classList.contains('sites-map__pin');
-      var sel = onPin
-        ? '.sites-map__pin[data-site="' + codes[idx] + '"]'
-        : '.site-board__row[data-site="' + codes[idx] + '"]';
-      var next = sitesLayout.querySelector(sel);
-      if (next) { next.focus(); paintSite(codes[idx]); }
-    });
-    var onCaptionWidth = function () { paintSite(selectedSite); };
-    if (motionNarrow.addEventListener) { motionNarrow.addEventListener('change', onCaptionWidth); }
-    else if (motionNarrow.addListener) { motionNarrow.addListener(onCaptionWidth); }
   }
 
   /* ---------- Footer year ---------- */
@@ -816,7 +726,6 @@
     var settleShots = [];
     var addSettleShot = function (el) {
       if (!el || settleSeen.indexOf(el) !== -1) { return; }
-      if (el.closest && (el.closest('.sites-map') || el.closest('.sites-layout'))) { return; }
       settleSeen.push(el);
       settleShots.push(el);
     };
