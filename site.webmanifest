@@ -1,14 +1,2 @@
-{
-  "name": "Kelvin Compute",
-  "short_name": "Kelvin",
-  "description": "Turning waste Energy into High-Performance Compute & Thermal. Hybrid & Modular Compute, Flexibility and Heat.",
-  "start_url": "/",
-  "display": "browser",
-  "background_color": "#F7F3EB",
-  "theme_color": "#12291F",
-  "icons": [
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
-  ]
-}
+{"name":"Kelvin Compute","short_name":"Kelvin","start_url":"/","display":"browser","background_color":"#F3F1EC","theme_color":"#12291F",
+ "icons":[{"src":"/apple-touch-icon.png","sizes":"180x180","type":"image/png"},{"src":"/icon-512.png","sizes":"512x512","type":"image/png"},{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml"}]}
