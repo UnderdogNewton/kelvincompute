@@ -61,14 +61,47 @@
   /* tabbed stepper with autoplay + pause */
   $$('[data-tabs]').forEach((wrap) => {
     const tabs = $$('[role="tab"]', wrap), panels = $$('[role="tabpanel"]', wrap);
-    const pauseBtn = wrap.querySelector('[data-pause]');
-    let i = 0, playing = !reduce, t0 = performance.now(), raf; const DUR = 6500;
+    const pauseBtn = wrap.querySelector('[data-pause]'), stepEl = wrap.querySelector('[data-step]');
+    const track = wrap.closest('[data-scrolly]');
+    const mq = matchMedia('(min-width:1024px) and (min-height:700px) and (pointer:fine)');
+    const scrolly = !!track && mq.matches && !reduce;
+    let i = 0, playing = !reduce && !scrolly, t0 = performance.now(), raf; const DUR = 6500;
     const show = (n, focus) => {
       i = (n + tabs.length) % tabs.length;
-      tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; t.style.setProperty('--p', 0); });
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; t.style.setProperty('--p', scrolly && k < i ? 1 : 0); });
       panels.forEach((p, k) => { p.hidden = k !== i; p.classList.toggle('is-in', k === i); });
-      if (focus) tabs[i].focus(); t0 = performance.now();
+      if (stepEl) stepEl.textContent = String(i + 1).padStart(2, '0');
+      if (focus) tabs[i].focus({ preventScroll: scrolly }); t0 = performance.now();
     };
+    if (scrolly) {
+      track.classList.add('is-scrolly');
+      let ch = 0, st = 16, range = 1, top = 0;
+      const measure = () => {
+        ch = wrap.offsetHeight; st = Math.round(ch <= innerHeight - 24 ? Math.min(16, (innerHeight - ch) / 2) : innerHeight - ch - 16);
+        track.style.setProperty('--ch', ch + 'px'); track.style.setProperty('--st', st + 'px');
+        range = Math.max(1, track.offsetHeight - ch); top = track.getBoundingClientRect().top + scrollY;
+      };
+      const onScroll = () => {
+        const p = Math.min(1, Math.max(0, (scrollY + st - top) / range));
+        const n = Math.min(tabs.length - 1, Math.floor(p * tabs.length));
+        if (n !== i) show(n);
+        const sub = Math.min(1, p * tabs.length - n);
+        tabs[i].style.setProperty('--p', p >= 1 ? 1 : sub); wrap.style.setProperty('--sub', sub.toFixed(3));
+      };
+      const goto = (k, focus) => {
+        k = (k + tabs.length) % tabs.length; measure();
+        scrollTo({ top: top - st + (k + 0.04) / tabs.length * range, behavior: 'smooth' }); show(k, focus);
+      };
+      tabs.forEach((t, k) => {
+        t.addEventListener('click', () => goto(k));
+        t.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); goto(i + 1, true); } if (e.key === 'ArrowLeft') { e.preventDefault(); goto(i - 1, true); } });
+      });
+      measure(); show(0); onScroll();
+      addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
+      addEventListener('resize', () => { measure(); onScroll(); });
+      addEventListener('load', () => { measure(); onScroll(); });
+      return;
+    }
     tabs.forEach((t, k) => {
       t.addEventListener('click', () => { show(k); });
       t.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1, true); if (e.key === 'ArrowLeft') show(i - 1, true); });
@@ -83,6 +116,39 @@
     const sync = () => { if (!pauseBtn) return; pauseBtn.setAttribute('aria-pressed', !playing); pauseBtn.querySelector('span').textContent = playing ? 'Pause' : 'Play'; pauseBtn.querySelector('use').setAttribute('href', playing ? '#i-pause' : '#i-play'); };
     pauseBtn && pauseBtn.addEventListener('click', () => { playing = !playing; t0 = performance.now() - (parseFloat(tabs[i].style.getPropertyValue('--p')) || 0) * DUR; sync(); });
     show(0); sync();
+  });
+
+  /* diagram replay */
+  $$('[data-replay]').forEach((b) => {
+    const fig = b.closest('.dg'); const live = document.createElement('span');
+    live.className = 'dg__live'; live.setAttribute('aria-live', 'polite'); fig.appendChild(live);
+    b.addEventListener('click', () => {
+      fig.classList.add('rs'); fig.classList.remove('in'); void fig.offsetWidth;
+      requestAnimationFrame(() => { fig.classList.remove('rs'); requestAnimationFrame(() => fig.classList.add('in')); });
+      live.textContent = ''; setTimeout(() => { live.textContent = 'Diagram replayed'; }, 50);
+    });
+  });
+
+  /* hero pointer light */
+  if (!reduce && matchMedia('(pointer:fine)').matches) {
+    $$('.hero, .phero').forEach((h) => {
+      let q = 0;
+      h.addEventListener('pointermove', (e) => {
+        if (q) return; q = requestAnimationFrame(() => { q = 0; const r = h.getBoundingClientRect();
+          h.style.setProperty('--lx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+          h.style.setProperty('--ly', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%'); });
+      });
+    });
+  }
+
+  /* Stockholm clock */
+  $$('[data-clock]').forEach((c) => {
+    const t = c.querySelector('time');
+    try {
+      const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Stockholm', hour: '2-digit', minute: '2-digit' });
+      const tick = () => { t.textContent = f.format(new Date()); };
+      tick(); c.hidden = false; setInterval(tick, 30000);
+    } catch (e) {}
   });
 
   /* segmented image switchers */
