@@ -40,7 +40,7 @@
       const r = p.getBoundingClientRect();
       const prog = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
       const lit = prog * spans.length * 1.15;
-      spans.forEach((s, i) => { const k = Math.min(1, Math.max(0, lit - i)); s.style.setProperty('--b', `${(1 - k) * 8}px`); s.style.setProperty('--o', `${0.18 + k * 0.82}`); });
+      spans.forEach((s, i) => { const k = Math.min(1, Math.max(0, lit - i)); s.style.setProperty('--k', k.toFixed(3)); });
     };
     let on = false, q = false;
     const sch = () => { if (!q) { q = true; requestAnimationFrame(() => { q = false; tick(); }); } };
@@ -136,4 +136,12 @@
       const r = c.getBoundingClientRect(); c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
     }, { passive: true });
   }
+
+  /* copy email */
+  $$('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const lbl = b.querySelector('span'), t = b.dataset.copy;
+    try { await navigator.clipboard.writeText(t); } catch (e) { const r = document.createRange(); const n = b.previousElementSibling; if (n) { r.selectNodeContents(n); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); } }
+    b.classList.add('is-done'); lbl.textContent = 'Copied'; b.setAttribute('aria-label', 'Email address copied');
+    setTimeout(() => { b.classList.remove('is-done'); lbl.textContent = 'Copy'; b.setAttribute('aria-label', 'Copy email address'); }, 1800);
+  }));
 })();
