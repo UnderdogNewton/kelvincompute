@@ -4,6 +4,18 @@
   root.classList.remove('no-js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $$ = (s, c = d) => [...c.querySelectorAll(s)];
+  /* Below-fold sections skip layout on phones (content-visibility); render them all before any in-page jump so anchors land exactly. */
+  const cvOff = () => root.classList.add('cv-off');
+  if (location.hash) cvOff();
+  d.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a || e.defaultPrevented) return;
+    const id = a.getAttribute('href').slice(1), t = id && d.getElementById(id); if (!t) return;
+    e.preventDefault(); cvOff();
+    requestAnimationFrame(() => { t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); history.pushState(null, '', '#' + id);
+      if (!t.hasAttribute('tabindex') && !t.matches('a,button,input,select,textarea,summary')) t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); });
+  });
+  if (location.hash) addEventListener('load', () => { const t = d.getElementById(location.hash.slice(1)); t && t.scrollIntoView(); }, { once: true });
+  addEventListener('hashchange', cvOff);
 
   /* header: solid after hero */
   const header = d.querySelector('.site-header');
@@ -244,13 +256,13 @@ gl_FragColor=vec4(c*a,a);}`;
       const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
       const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
       const U = (nm) => gl.getUniformLocation(pr, nm), uR = U('r'), uT = U('t'), uM = U('m'), uS = U('s');
-      const mob = innerWidth < 861, scale = mob ? .65 : .5;
+      const scale = mob ? .4 : .5, gap = mob ? 50 : 33;
       gl.uniform2f(uS, mob ? .62 : .7, mob ? .52 : .55);
       const size = () => { const w = Math.max(1, Math.round(hero.clientWidth * scale)), hh = Math.max(1, Math.round(hero.clientHeight * scale)); if (cv.width !== w || cv.height !== hh) { cv.width = w; cv.height = hh; gl.viewport(0, 0, w, hh); gl.uniform2f(uR, w, hh); } };
       const ptr = { x: .7, y: .5, z: 0, tz: 0 };
       let t0 = performance.now(), last = 0, raf = 0, vis = true, running = false;
       const draw = (now) => { size(); ptr.z += (ptr.tz - ptr.z) * .06; ptr.tz *= .985; gl.uniform1f(uT, reduce ? 12 : (now - t0) / 1000); gl.uniform3f(uM, ptr.x, ptr.y, ptr.z); gl.drawArrays(gl.TRIANGLES, 0, 3); };
-      const loop = (now) => { raf = requestAnimationFrame(loop); if (now - last < 33) return; last = now; draw(now); };
+      const loop = (now) => { raf = requestAnimationFrame(loop); if (now - last < gap) return; last = now; draw(now); };
       const play = () => { if (!running && vis && !d.hidden && !reduce) { running = true; raf = requestAnimationFrame(loop); } };
       const stop = () => { running = false; cancelAnimationFrame(raf); };
       hero.insertBefore(cv, hero.querySelector('.ribs'));
@@ -263,7 +275,19 @@ gl_FragColor=vec4(c*a,a);}`;
       cv.addEventListener('webglcontextlost', (e) => { e.preventDefault(); stop(); cv.remove(); hero.classList.remove('has-field'); });
       play();
     };
-    const later = () => ('requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 2500 }) : setTimeout(start, 1200));
+    /* Phones: the field is decoration, so it waits for the first touch or scroll (or a long idle)
+       and never competes with first paint or input. Desktop: after load + idle, as before. */
+    const mob = matchMedia('(max-width: 860px), (pointer: coarse)').matches;
+    let started = false;
+    const go = () => { if (started) return; started = true; EV.forEach((e) => removeEventListener(e, kick)); start(); };
+    const idle = (fn, t) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: t }) : setTimeout(fn, t));
+    const kick = () => idle(go, 600);
+    const EV = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+    const later = () => {
+      if (!mob) { idle(go, 2500); return; }
+      EV.forEach((e) => addEventListener(e, kick, { passive: true, once: true }));
+      setTimeout(() => idle(go, 2000), 7000);
+    };
     if (d.readyState === 'complete') later(); else addEventListener('load', later, { once: true });
   }
 
