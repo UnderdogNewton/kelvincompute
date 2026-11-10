@@ -328,6 +328,25 @@ gl_FragColor=vec4(c*a,a);}`;
     let q = false; addEventListener('scroll', () => { if (!q) { q = true; requestAnimationFrame(() => { q = false; upd(); }); } }, { passive: true }); (window.requestIdleCallback || setTimeout)(upd);
   }
 
+
+  /* ---- round 8: cooling method tabs (Air / Direct-to-chip / Immersion) drive the schematic ---- */
+  $$('[data-cool]').forEach((sec) => {
+    const tabs = $$('[role="tab"]', sec), stage = sec.querySelector('.cool__stage'), cap = sec.querySelector('[data-cool-cap]');
+    const sel = (t, focus) => {
+      tabs.forEach((b) => { const on = b === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; d.getElementById(b.getAttribute('aria-controls')).hidden = !on; });
+      if (stage) stage.dataset.mode = t.dataset.mode; if (cap) cap.textContent = t.querySelector('b').textContent; if (focus) t.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
+      t.addEventListener('click', () => sel(t));
+      t.addEventListener('keydown', (e) => {
+        const k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (k) { e.preventDefault(); sel(tabs[(i + k + tabs.length) % tabs.length], true); }
+        else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); sel(tabs[e.key === 'Home' ? 0 : tabs.length - 1], true); }
+      });
+    });
+  });
+
   /* Custom cursor on diagrams and the Flexbox explorer — fine pointers only, never hides the native cursor */
   if (fine && !reduce) {
     const c = d.createElement('div'); c.className = 'cursor'; c.setAttribute('aria-hidden', 'true'); c.innerHTML = '<span></span>'; d.body.appendChild(c);
